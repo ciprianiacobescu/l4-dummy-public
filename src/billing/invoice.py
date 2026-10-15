@@ -38,6 +38,13 @@ def invoice_lines(
     """Every line of an invoice, in the order of the items."""
     if not items:
         raise ValueError("items must not be empty")
+    totals: dict[str, int] = {}
+    for sku, qty, _unit_price_cents in items:
+        totals[sku] = totals.get(sku, 0) + qty
+    for sku, total in totals.items():
+        on_hand = ledger.on_hand(sku)
+        if total > on_hand:
+            raise ValueError(f"cannot invoice {total} of {sku}: {on_hand} on hand")
     return [
         invoice_line(ledger, sku, qty, unit_price_cents, rate_percent)
         for sku, qty, unit_price_cents in items

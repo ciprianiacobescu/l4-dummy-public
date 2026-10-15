@@ -8,8 +8,8 @@
   - [x] 2.1 Raise ValueError for an empty item list before reading the ledger, with a unit test
     - _Requirements: 2.1_
 
-- [ ] 3. Check the stock across lines
-  - [ ] 3.1 Sum the quantities per SKU and raise ValueError naming a SKU whose sum is above its count on hand, with unit tests
+- [x] 3. Check the stock across lines
+  - [x] 3.1 Sum the quantities per SKU and raise ValueError naming a SKU whose sum is above its count on hand, with unit tests
     - _Requirements: 3.1, 3.2_
 
 - [ ] 4. Reject a bad line
