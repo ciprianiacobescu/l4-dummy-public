@@ -11,4 +11,7 @@ def to_cents(amount: str) -> int:
 
 
 def from_cents(cents: int) -> str:
-    raise NotImplementedError
+    """`1234` is `"12.34"`; two decimals, a leading `-` for a negative amount."""
+    sign = "-" if cents < 0 else ""
+    amount = abs(cents)
+    return f"{sign}{amount // 100}.{amount % 100:02d}"
