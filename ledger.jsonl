@@ -60,3 +60,4 @@
 {"at":"2026-10-15T05:59:21Z","batch":"w3","profile":"none","revision":"43accb443f783bf26e05649650a04a106f9c3911","type":"batch.accepted"}
 {"at":"2026-10-15T05:59:47Z","attempt":1,"cost_usd":0.0,"runs":1,"type":"plan.charged","unit":"openspec:add-summary-currency"}
 {"at":"2026-10-15T05:59:47Z","run":"r-20261015T0559Z-212f","type":"unit.dispatched","unit":"openspec:add-summary-currency"}
+{"at":"2026-10-15T06:02:18Z","head":"f9472bbf07bb2d536af46b13c62d6b04fcf7137a","pr":12,"target_before":"43accb443f783bf26e05649650a04a106f9c3911","type":"unit.merge_requested","unit":"openspec:add-summary-currency"}
