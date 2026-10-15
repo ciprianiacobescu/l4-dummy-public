@@ -65,3 +65,4 @@
 {"at":"2026-10-15T06:02:26Z","detail":"2 gate(s) passed; skipped (not configured): build, lint, typecheck, e2e","profile":"all","revision":"f9472bbf07bb2d536af46b13c62d6b04fcf7137a","status":"pass","type":"unit.postcheck","unit":"openspec:add-summary-currency"}
 {"at":"2026-10-15T06:02:26Z","revision":"f9472bbf07bb2d536af46b13c62d6b04fcf7137a","type":"unit.integrated","unit":"openspec:add-summary-currency"}
 {"at":"2026-10-15T06:02:26Z","attempt":1,"cost_usd":0.044121,"runs":1,"type":"plan.charged","unit":"openspec:add-summary-currency"}
+{"at":"2026-10-15T06:02:59Z","batch":"w4","profile":"none","revision":"f6c7372a153ffcd040b7857c1e0b87ad734b2da3","type":"batch.accepted"}
