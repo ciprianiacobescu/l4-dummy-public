@@ -1,5 +1,7 @@
 """Discount helpers of the eval base project."""
 
+from pricing.vat import vat_cents
+
 
 def percent_off(cents: int, percent: int) -> int:
     """The discount in cents for `percent` off `cents`, rounded half up."""
@@ -16,4 +18,5 @@ def discounted_total(amounts: list[int], percent: int) -> int:
 
 def taxed_total(amounts: list[int], percent: int, rate_percent: int) -> int:
     """The discounted total of `amounts` with VAT at `rate_percent`, in cents."""
-    raise NotImplementedError
+    net = discounted_total(amounts, percent)
+    return net + vat_cents(net, rate_percent)
