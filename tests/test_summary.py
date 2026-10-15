@@ -31,3 +31,23 @@ def test_valuation_summary_sku_on_hand_without_price_raises():
     assert valuation_summary(ledger, {"c": 250}, 10) == (
         "net 2.50 | vat 0.25 | gross 2.75"
     )
+
+
+@pytest.mark.l4("C-ef2fe9ee")
+def test_valuation_summary_currency_after_each_amount():
+    ledger = StockLedger()
+    ledger.receive("a", 2)
+    ledger.receive("b", 3)
+    assert valuation_summary(ledger, {"a": 150, "b": 200}, 10, currency="RON") == (
+        "net 9.00 RON | vat 0.90 RON | gross 9.90 RON"
+    )
+
+
+@pytest.mark.l4("C-53560ac2")
+def test_valuation_summary_without_currency_unchanged():
+    ledger = StockLedger()
+    ledger.receive("a", 2)
+    ledger.receive("b", 3)
+    assert valuation_summary(ledger, {"a": 150, "b": 200}, 10) == (
+        "net 9.00 | vat 0.90 | gross 9.90"
+    )
