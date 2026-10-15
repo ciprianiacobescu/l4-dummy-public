@@ -1,0 +1,15 @@
+{
+  "confirmed_at": "2026-10-15T06:08:50Z",
+  "integrated_revision": "f5ed57abc7f292d442fd581719df2ddbd866adc1",
+  "merge_commit": "f5ed57abc7f292d442fd581719df2ddbd866adc1",
+  "plan_digest": "f21bbabe2a3fa4bb",
+  "plan_id": "valuation",
+  "postcheck": "pass",
+  "pr": 16,
+  "receipt_id": "valuation/kiro:units-surplus/1",
+  "repository": "https://github.com/ciprianiacobescu/l4-dummy-public",
+  "reviewed_head": "f5ed57abc7f292d442fd581719df2ddbd866adc1",
+  "spec_digest": "cb5d2f6c53aca076",
+  "target": "l4/main",
+  "unit_id": "kiro:units-surplus"
+}
