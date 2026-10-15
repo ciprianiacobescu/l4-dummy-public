@@ -66,3 +66,8 @@
 {"ts": "2026-10-15T06:01:36.241965Z", "run_id": "r-20261015T0559Z-212f", "unit": "openspec:add-summary-currency", "seq": 66, "type": "verify.verdict", "round": 1, "verdict": "PASS", "findings": 1, "criteria_passed": 2, "criteria_total": 2}
 {"ts": "2026-10-15T06:01:36.249881Z", "run_id": "r-20261015T0559Z-212f", "unit": "openspec:add-summary-currency", "seq": 67, "type": "phase.changed", "from": "verifying", "to": "verified", "trigger": "verify_pass", "exit_code": null}
 {"ts": "2026-10-15T06:01:39.401043Z", "run_id": "r-20261015T0559Z-212f", "unit": "openspec:add-summary-currency", "seq": 68, "type": "pr.labels", "number": 12, "labels": ["l4:verified"]}
+{"ts": "2026-10-15T06:01:42.791933Z", "run_id": "r-20261015T0559Z-212f", "unit": "openspec:add-summary-currency", "seq": 69, "type": "pr.ready", "url": "<forge>/ciprianiacobescu/l4-dummy-public/pull/12", "number": 12, "head": "f9472bbf07bb2d536af46b13c62d6b04fcf7137a"}
+{"ts": "2026-10-15T06:01:42.793009Z", "run_id": "r-20261015T0559Z-212f", "unit": "openspec:add-summary-currency", "seq": 70, "type": "phase.changed", "from": "verified", "to": "in_review", "trigger": "hand_off_pushed", "exit_code": 0}
+{"ts": "2026-10-15T06:01:45.654938Z", "run_id": "r-20261015T0559Z-212f", "unit": "openspec:add-summary-currency", "seq": 71, "type": "pr.labels", "number": 12, "labels": ["l4:in_review"]}
+{"ts": "2026-10-15T06:01:46.813273Z", "run_id": "r-20261015T0559Z-212f", "unit": "openspec:add-summary-currency", "seq": 72, "type": "lock.released"}
+{"ts": "2026-10-15T06:01:46.813975Z", "run_id": "r-20261015T0559Z-212f", "unit": "openspec:add-summary-currency", "seq": 73, "type": "run.finished", "exit_code": 0}
