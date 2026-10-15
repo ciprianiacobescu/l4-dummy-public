@@ -11,3 +11,4 @@
 {"at":"2026-10-15T13:45:08Z","attempt":1,"cost_usd":0.052859,"runs":1,"type":"plan.charged","unit":"openspec:add-taxed-total"}
 {"at":"2026-10-15T13:45:55Z","attempt":1,"cost_usd":0.0,"runs":1,"type":"plan.charged","unit":"openspec:add-taxed-text"}
 {"at":"2026-10-15T13:45:55Z","run":"r-20261015T1345Z-c480","type":"unit.dispatched","unit":"openspec:add-taxed-text"}
+{"at":"2026-10-15T13:49:01Z","head":"41cd4fee087cfa7270d9a4d8eed679c515564659","pr":24,"target_before":"28a005170da565fa4f0c75cbd36f46a16aa4c94e","type":"unit.merge_requested","unit":"openspec:add-taxed-text"}
