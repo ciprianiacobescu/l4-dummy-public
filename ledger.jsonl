@@ -20,3 +20,5 @@
 {"at":"2026-10-15T05:39:58Z","detail":"2 gate(s) passed; skipped (not configured): build, lint, typecheck, e2e","profile":"all","revision":"8b86507e338b0419128689301435d6c4af7a1693","status":"pass","type":"unit.postcheck","unit":"kiro:stock-ledger"}
 {"at":"2026-10-15T05:39:58Z","revision":"8b86507e338b0419128689301435d6c4af7a1693","type":"unit.integrated","unit":"kiro:stock-ledger"}
 {"at":"2026-10-15T05:39:58Z","attempt":1,"cost_usd":0.060813,"runs":1,"type":"plan.charged","unit":"kiro:stock-ledger"}
+{"at":"2026-10-15T05:40:27Z","attempt":1,"cost_usd":0.0,"runs":1,"type":"plan.charged","unit":"openspec:add-vat"}
+{"at":"2026-10-15T05:40:27Z","run":"r-20261015T0540Z-7227","type":"unit.dispatched","unit":"openspec:add-vat"}
