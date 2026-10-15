@@ -8,4 +8,4 @@ def units_short(on_hand: int, wanted: int) -> int:
 
 def units_surplus(on_hand: int, wanted: int) -> int:
     """How many units are left over after serving `wanted` from `on_hand`."""
-    raise NotImplementedError
+    return max(on_hand - wanted, 0)
