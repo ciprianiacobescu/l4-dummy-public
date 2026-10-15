@@ -1,35 +1,35 @@
 # Delivery plan stops-a
 
-- Status: stopped
+- Status: completed
 - Repository: https://github.com/ciprianiacobescu/l4-dummy-public
-- Target: l4/main at e2de14112f5f9282e3e116903b8b03543c4e28d0
+- Target: l4/main at cfbb3273f1e0582b08964d1cf2c056a7f42f2789
 - Merge: auto
 - No promotion target is set. Promotion was not performed.
-- Written: 2026-10-15T07:55:52Z
-- Stopped: inputs_changed (openspec:add-percent-off): the spec of openspec:add-percent-off changed after the activation
+- Written: 2026-10-15T09:34:29Z
+- Completed at: cfbb3273f1e0582b08964d1cf2c056a7f42f2789
 
 ## Units
 
 ### openspec:add-percent-off
-- Result: not integrated
-- Pull request: <forge>/ciprianiacobescu/l4-dummy-public/pull/17
-- Merge commit: none
-- Post-merge check: not run
-- Usage: $0.08, 2 run(s), 1 attempt(s)
+- Result: integrated at 5d3b660dab662fe1182785d35e74a4874224ac86
+- Pull request: 17
+- Merge commit: 5d3b660dab662fe1182785d35e74a4874224ac86
+- Post-merge check: pass with profile all (2 gate(s) passed; skipped (not configured): build, lint, typecheck, e2e)
+- Usage: $0.18, 3 run(s), 1 attempt(s)
 
 ### openspec:add-discounted-total
-- Result: not integrated
-- Pull request: none
-- Merge commit: none
-- Post-merge check: not run
-- Usage: $0.00, 0 run(s), 1 attempt(s)
+- Result: integrated at d6c16abd0eaba6ffe243c4d6b18d57156fcbdc4f
+- Pull request: 19
+- Merge commit: d6c16abd0eaba6ffe243c4d6b18d57156fcbdc4f
+- Post-merge check: pass with profile all (2 gate(s) passed; skipped (not configured): build, lint, typecheck, e2e)
+- Usage: $0.04, 1 run(s), 1 attempt(s)
 
 ## Batches
 
-- discount (profile none): not checked
+- discount (profile none): accepted at cfbb3273f1e0582b08964d1cf2c056a7f42f2789
 
 ## Usage
 
-- Cost: $0.27
-- Of which the readiness review: $0.19
-- Runs that dispatched a unit: 2
+- Cost: $0.59
+- Of which the readiness review: $0.37
+- Runs that dispatched a unit: 4
