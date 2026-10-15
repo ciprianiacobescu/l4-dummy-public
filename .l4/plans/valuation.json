@@ -1,0 +1,99 @@
+{
+  "schema": "l4/delivery-plan@1",
+  "plan_id": "valuation",
+  "target": "l4/main",
+  "merge": "auto",
+  "limits": {
+    "max_unit_attempts": 2,
+    "max_runs": 60,
+    "max_cost_usd": 25
+  },
+  "external_dependencies": [],
+  "batches": [
+    {
+      "id": "w1",
+      "depends_on": [],
+      "units": [
+        {
+          "id": "openspec:add-money-format",
+          "depends_on": []
+        },
+        {
+          "id": "kiro:stock-ledger",
+          "depends_on": []
+        },
+        {
+          "id": "openspec:add-vat",
+          "depends_on": []
+        }
+      ]
+    },
+    {
+      "id": "w2",
+      "depends_on": [],
+      "units": [
+        {
+          "id": "openspec:add-stock-valuation",
+          "depends_on": [
+            "openspec:add-money-format",
+            "kiro:stock-ledger",
+            "openspec:add-vat"
+          ]
+        },
+        {
+          "id": "kiro:invoice-line",
+          "depends_on": [
+            "openspec:add-money-format",
+            "kiro:stock-ledger",
+            "openspec:add-vat"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "w3",
+      "depends_on": [],
+      "units": [
+        {
+          "id": "openspec:add-valuation-summary",
+          "depends_on": [
+            "openspec:add-stock-valuation"
+          ]
+        },
+        {
+          "id": "kiro:invoice-lines",
+          "depends_on": [
+            "kiro:invoice-line"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "w4",
+      "depends_on": [],
+      "units": [
+        {
+          "id": "openspec:add-summary-currency",
+          "depends_on": [
+            "openspec:add-valuation-summary"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "w5",
+      "depends_on": [],
+      "units": [
+        {
+          "id": "openspec:add-shelf-label",
+          "depends_on": []
+        },
+        {
+          "id": "kiro:units-surplus",
+          "depends_on": []
+        }
+      ]
+    }
+  ],
+  "exclude": []
+}
