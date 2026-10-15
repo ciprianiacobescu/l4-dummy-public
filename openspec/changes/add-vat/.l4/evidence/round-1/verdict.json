@@ -1,0 +1,530 @@
+{
+  "schema": "l4/verdict@1",
+  "round": 1,
+  "verdict": "PASS",
+  "base_sha": "8b86507e338b0419128689301435d6c4af7a1693",
+  "head_sha": "42d97c29e0ef51d7b89eec53b2f0eb1d8d85fca0",
+  "steps": [
+    {
+      "step": "0",
+      "name": "preconditions",
+      "status": "ok",
+      "seconds": 0.3,
+      "note": "base l4/main@8b86507e33 contained"
+    },
+    {
+      "step": "1",
+      "name": "integrity",
+      "status": "ok",
+      "seconds": 0.1,
+      "note": "7 sub-checks; scope: 4 changed file(s)"
+    },
+    {
+      "step": "2",
+      "name": "build",
+      "status": "ok",
+      "seconds": 0.1,
+      "note": ""
+    },
+    {
+      "step": "3",
+      "name": "tests",
+      "status": "ok",
+      "seconds": 0.5,
+      "note": ""
+    },
+    {
+      "step": "4",
+      "name": "traceability",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "3/3 criteria covered"
+    },
+    {
+      "step": "4a",
+      "name": "audit sampling",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "roles.verifier_agent is empty"
+    },
+    {
+      "step": "5",
+      "name": "ui test generation",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "verifier.playwright.enabled is off"
+    },
+    {
+      "step": "6",
+      "name": "quality",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "diff coverage not measured: coverage.py is not importable in the project environment"
+    },
+    {
+      "step": "8",
+      "name": "s1 judge",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "roles.s1_judge is empty"
+    },
+    {
+      "step": "9",
+      "name": "judge",
+      "status": "ok",
+      "seconds": 7.4,
+      "note": "1 call(s)"
+    },
+    {
+      "step": "10",
+      "name": "aggregation",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "PASS"
+    }
+  ],
+  "gates": [
+    {
+      "name": "setup",
+      "command": "uv sync --frozen",
+      "status": "pass",
+      "reason": "",
+      "log": ".l4-out/gates/r-20261015T0540Z-7227/011-setup.log",
+      "digest": null
+    },
+    {
+      "name": "test",
+      "command": ".venv/bin/python -m pytest --junitxml=.l4-out/junit.xml",
+      "status": "pass",
+      "reason": "",
+      "log": ".l4-out/gates/r-20261015T0540Z-7227/012-test.log",
+      "digest": null
+    }
+  ],
+  "criteria": [
+    {
+      "id": "C-2b4aa24a",
+      "alias": "vat › VAT in cents › Rounded half up",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_vat::test_vat_cents_rounds_half_up"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-7c4f5794",
+      "alias": "vat › VAT in cents › An exact amount",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_vat::test_vat_cents_exact_amount"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-a550fd63",
+      "alias": "vat › VAT in cents › A negative rate is rejected",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_vat::test_vat_cents_rejects_negative_inputs"
+      ],
+      "s1_p": null
+    }
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "title": "Non-int inputs unspecified",
+      "detail": "Floats or bools are not validated; behaviour with non-int input is unpinned.",
+      "source": "judge",
+      "criterion": "C-2b4aa24a",
+      "log": null,
+      "spec_gap": true,
+      "suggested_fix": "WHEN net_cents or rate_percent is a non-int number such as a float THEN the committed code computes (net*rate+50)//100 without type validation and returns that result.",
+      "id": "F-c22a5659",
+      "feedback": null
+    }
+  ],
+  "holds": [],
+  "subject_sha": "42d97c29e0ef51d7b89eec53b2f0eb1d8d85fca0",
+  "family_criteria": [
+    "C-2b4aa24a",
+    "C-7c4f5794",
+    "C-a550fd63"
+  ],
+  "reused_from": null,
+  "integrity": {
+    "checks": [
+      {
+        "name": "protected paths",
+        "status": "ok",
+        "note": "no protected path differs from the base"
+      },
+      {
+        "name": "pre-existing tests",
+        "status": "ok",
+        "note": "1 test file(s) compared with the base"
+      },
+      {
+        "name": "red-green freeze",
+        "status": "ok",
+        "note": "1 task(s): red and green compared"
+      },
+      {
+        "name": "test path freeze",
+        "status": "ok",
+        "note": "1 harness step commit(s) checked"
+      },
+      {
+        "name": "content scan",
+        "status": "ok",
+        "note": "no result-manipulating construct in the changed support and runner files"
+      },
+      {
+        "name": "suppressions",
+        "status": "skipped",
+        "note": "no new suppression comment"
+      },
+      {
+        "name": "tdd history",
+        "status": "ok",
+        "note": "1 task(s); red tests passing at head: step 3"
+      }
+    ],
+    "findings": [],
+    "declared": [],
+    "human_protected": [],
+    "human_tests": [],
+    "unfrozen": [],
+    "human_suppressions": [],
+    "human_scan": []
+  },
+  "trace": [
+    {
+      "criterion": "C-2b4aa24a",
+      "alias": "vat › VAT in cents › Rounded half up",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_vat::test_vat_cents_rounds_half_up",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-7c4f5794",
+      "alias": "vat › VAT in cents › An exact amount",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_vat::test_vat_cents_exact_amount",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-a550fd63",
+      "alias": "vat › VAT in cents › A negative rate is rejected",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_vat::test_vat_cents_rejects_negative_inputs",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    }
+  ],
+  "audit": [],
+  "generated": [],
+  "s1": [],
+  "evidence": {
+    "schema": "l4/evidence@1",
+    "holds": [],
+    "items": {},
+    "scope": {
+      "declared": [
+        "src/pricing/vat.py",
+        "tests",
+        "module pricing"
+      ],
+      "skipped": false,
+      "note": "",
+      "holds": [],
+      "files": [
+        {
+          "path": "openspec/changes/add-vat/.l4/ledger/r-20261015T0540Z-7227.jsonl",
+          "module": null,
+          "kind": "exempt",
+          "label": null,
+          "reason": "exempt: harness, spec or documentation path"
+        },
+        {
+          "path": "openspec/changes/add-vat/tasks.md",
+          "module": null,
+          "kind": "exempt",
+          "label": null,
+          "reason": "exempt: harness, spec or documentation path"
+        },
+        {
+          "path": "src/pricing/vat.py",
+          "module": "pricing",
+          "kind": "code",
+          "label": "relevant",
+          "reason": "named in the spec"
+        },
+        {
+          "path": "tests/test_vat.py",
+          "module": null,
+          "kind": "test",
+          "label": "relevant",
+          "reason": "new test file"
+        }
+      ]
+    },
+    "diff_coverage": {
+      "status": "not_run",
+      "reason": "coverage.py is not importable in the project environment",
+      "percent": 0.0,
+      "unmeasured_files": [],
+      "other_files": [],
+      "functions": [
+        {
+          "path": "src/pricing/vat.py",
+          "qualname": "<module>",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        },
+        {
+          "path": "src/pricing/vat.py",
+          "qualname": "vat_cents",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        }
+      ]
+    },
+    "tests_ran": {
+      "tests_ok": true,
+      "summary": {
+        "total": 32,
+        "passed": 32,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0,
+        "new": 3,
+        "new_passed": 3,
+        "skipped_unchanged": []
+      },
+      "findings": []
+    }
+  },
+  "human": [],
+  "fix": null,
+  "judge_verdict": {
+    "criteria": [
+      {
+        "id": "C-2b4aa24a",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/pricing/vat.py",
+            "quote": "return (net_cents * rate_percent + 50) // 100"
+          },
+          {
+            "kind": "test",
+            "ref": "tests.test_vat::test_vat_cents_rounds_half_up",
+            "quote": null
+          }
+        ],
+        "reasoning": "1999*19=37981; +50=38031; //100=380.",
+        "counterexample": null
+      },
+      {
+        "id": "C-7c4f5794",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/pricing/vat.py",
+            "quote": "return (net_cents * rate_percent + 50) // 100"
+          },
+          {
+            "kind": "test",
+            "ref": "tests.test_vat::test_vat_cents_exact_amount",
+            "quote": null
+          }
+        ],
+        "reasoning": "250*10=2500; +50=2550; //100=25.",
+        "counterexample": null
+      },
+      {
+        "id": "C-a550fd63",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/pricing/vat.py",
+            "quote": "if net_cents < 0 or rate_percent < 0:\n        raise ValueError"
+          },
+          {
+            "kind": "test",
+            "ref": "tests.test_vat::test_vat_cents_rejects_negative_inputs",
+            "quote": null
+          }
+        ],
+        "reasoning": "Negative rate raises ValueError.",
+        "counterexample": null
+      }
+    ],
+    "test_adequacy": [
+      {
+        "test": "tests.test_vat::test_vat_cents_rounds_half_up",
+        "criterion": "C-2b4aa24a",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_vat::test_vat_cents_exact_amount",
+        "criterion": "C-7c4f5794",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_vat::test_vat_cents_rejects_negative_inputs",
+        "criterion": "C-a550fd63",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      }
+    ],
+    "findings": [
+      {
+        "severity": "minor",
+        "criterion": "C-2b4aa24a",
+        "title": "Non-int inputs unspecified",
+        "detail": "Floats or bools are not validated; behaviour with non-int input is unpinned.",
+        "evidence": [],
+        "suggested_fix": "WHEN net_cents or rate_percent is a non-int number such as a float THEN the committed code computes (net*rate+50)//100 without type validation and returns that result.",
+        "spec_gap": true
+      }
+    ],
+    "riskiest_assumptions": [
+      "The gate report's passing tests reflect the committed code",
+      "Integer inputs are the only inputs relevant to the criteria",
+      "The package pricing is importable as src/pricing per project config"
+    ],
+    "feedback": null
+  },
+  "cx_runs": {},
+  "tests": {
+    "tests.test_alerts::test_low_stock_message_returns_restock_message_below_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_none_at_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_none_above_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_restock_message_at_zero": "passed",
+    "tests.test_alerts::test_low_stock_message_raises_value_error_for_negative_on_hand": "passed",
+    "tests.test_alerts::test_low_stock_message_raises_value_error_for_various_negative_values": "passed",
+    "tests.test_alerts::test_low_stock_message_uses_env_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_defaults_to_5_when_env_not_set": "passed",
+    "tests.test_ledger::test_receive_reports_units_on_hand": "passed",
+    "tests.test_ledger::test_receive_then_ship_reports_remaining_on_hand": "passed",
+    "tests.test_ledger::test_never_received_sku_reports_zero_on_hand": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[0]": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-1]": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-5]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[0]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-1]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-5]": "passed",
+    "tests.test_ledger::test_skus_lists_received_skus_sorted": "passed",
+    "tests.test_ledger::test_ship_above_on_hand_raises_and_keeps_count": "passed",
+    "tests.test_money::test_to_cents": "passed",
+    "tests.test_money::test_to_cents_rejects_a_missing_fraction": "passed",
+    "tests.test_money::test_from_cents_whole_and_fractional_parts": "passed",
+    "tests.test_money::test_from_cents_small_negative_amount": "passed",
+    "tests.test_money::test_from_cents_zero": "passed",
+    "tests.test_reorder::test_stock_below_target_is_topped_up": "passed",
+    "tests.test_reorder::test_stock_at_or_above_target_is_not_ordered": "passed",
+    "tests.test_shelf::test_shelf_code_is_zero_padded": "passed",
+    "tests.test_shelf::test_shelf_code_rejects_aisle_below_one": "passed",
+    "tests.test_stock::test_units_short": "passed",
+    "tests.test_vat::test_vat_cents_rounds_half_up": "passed",
+    "tests.test_vat::test_vat_cents_exact_amount": "passed",
+    "tests.test_vat::test_vat_cents_rejects_negative_inputs": "passed"
+  },
+  "red_green": {
+    "tests.test_vat::test_vat_cents_exact_amount": "1.1",
+    "tests.test_vat::test_vat_cents_rejects_negative_inputs": "1.1",
+    "tests.test_vat::test_vat_cents_rounds_half_up": "1.1"
+  },
+  "guards": [],
+  "prompt_sha256": "4d792384b6f83f111f5cd0eecccad077a0a43126230cfeacf442c5c3a400e8d9",
+  "template": "judge@7",
+  "harness_commit": "47294b259b623ad0e26860cebdd2ca86660e9642",
+  "judge_calls": 1,
+  "judge_reply": "valid",
+  "judge_replies": {
+    "valid": 1,
+    "repaired": 0,
+    "retried": 0,
+    "discarded": 0
+  },
+  "profiles": {
+    "judge": "claude-judge",
+    "implementer": [
+      "deepseek"
+    ]
+  },
+  "judge_model": "claude-sonnet-5-5",
+  "independence": {
+    "mode": "different_vendor",
+    "status": "declared (unverified)",
+    "verified": false,
+    "judge": {
+      "profile": "claude-judge",
+      "vendor": "anthropic",
+      "model": null,
+      "provenance": "served",
+      "served": "claude-sonnet-5-5"
+    },
+    "implementers": [
+      {
+        "profile": "deepseek",
+        "vendor": "deepseek",
+        "model": "opencode-go/deepseek-v4.1-flash",
+        "provenance": "declared",
+        "served": null
+      }
+    ]
+  },
+  "cost_usd": 0.028081799999999997
+}
