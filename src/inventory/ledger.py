@@ -20,3 +20,6 @@ class StockLedger:
 
     def on_hand(self, sku: str) -> int:
         return self._counts.get(sku, 0)
+
+    def skus(self) -> list[str]:
+        raise NotImplementedError

@@ -46,6 +46,14 @@ def test_ship_below_one_raises_value_error(bad_qty):
     assert ledger.on_hand("sku-1") == 5
 
 
+@pytest.mark.l4("C-d9d7248c")
+def test_skus_lists_received_skus_sorted():
+    ledger = StockLedger()
+    ledger.receive("sku-b", 1)
+    ledger.receive("sku-a", 1)
+    assert ledger.skus() == ["sku-a", "sku-b"]
+
+
 @pytest.mark.l4("C-82179eee")
 def test_ship_above_on_hand_raises_and_keeps_count():
     ledger = StockLedger()
