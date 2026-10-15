@@ -1,0 +1,566 @@
+{
+  "schema": "l4/verdict@1",
+  "round": 1,
+  "verdict": "PASS",
+  "base_sha": "8b6155995ad69a23bb666359dc1f6e18adaff456",
+  "head_sha": "95dba2e0160b1e72f822f202c478dc78fd6cc17b",
+  "steps": [
+    {
+      "step": "0",
+      "name": "preconditions",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "base l4/main@8b6155995a contained"
+    },
+    {
+      "step": "1",
+      "name": "integrity",
+      "status": "ok",
+      "seconds": 0.1,
+      "note": "7 sub-checks; scope: 4 changed file(s)"
+    },
+    {
+      "step": "2",
+      "name": "build",
+      "status": "ok",
+      "seconds": 0.1,
+      "note": ""
+    },
+    {
+      "step": "3",
+      "name": "tests",
+      "status": "ok",
+      "seconds": 0.5,
+      "note": ""
+    },
+    {
+      "step": "4",
+      "name": "traceability",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "3/3 criteria covered"
+    },
+    {
+      "step": "4a",
+      "name": "audit sampling",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "roles.verifier_agent is empty"
+    },
+    {
+      "step": "5",
+      "name": "ui test generation",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "verifier.playwright.enabled is off"
+    },
+    {
+      "step": "6",
+      "name": "quality",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "diff coverage not measured: coverage.py is not importable in the project environment"
+    },
+    {
+      "step": "8",
+      "name": "s1 judge",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "roles.s1_judge is empty"
+    },
+    {
+      "step": "9",
+      "name": "judge",
+      "status": "ok",
+      "seconds": 7.5,
+      "note": "1 call(s)"
+    },
+    {
+      "step": "10",
+      "name": "aggregation",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "PASS"
+    }
+  ],
+  "gates": [
+    {
+      "name": "setup",
+      "command": "uv sync --frozen",
+      "status": "pass",
+      "reason": "",
+      "log": ".l4-out/gates/r-20261015T0606Z-a32e/018-setup.log",
+      "digest": null
+    },
+    {
+      "name": "test",
+      "command": ".venv/bin/python -m pytest --junitxml=.l4-out/junit.xml",
+      "status": "pass",
+      "reason": "",
+      "log": ".l4-out/gates/r-20261015T0606Z-a32e/019-test.log",
+      "digest": null
+    }
+  ],
+  "criteria": [
+    {
+      "id": "C-c9bc333b",
+      "alias": "Req 1.1",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_surplus::test_units_surplus_is_zero_when_wanted_at_least_on_hand",
+        "tests.test_surplus::test_units_surplus_returns_remainder"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-7bbe703f",
+      "alias": "Req 1.2",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_surplus::test_units_surplus_is_zero_when_wanted_at_least_on_hand"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-5078cdbe",
+      "alias": "Req 2.1",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_surplus::test_units_surplus_rejects_negative_counts"
+      ],
+      "s1_p": null
+    }
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "title": "Validation precedence for negative inputs not pinned",
+      "detail": "Negative inputs raise ValueError before any computation; zero inputs are accepted. Not specified for e.g. on_hand=0, wanted=0.",
+      "source": "judge",
+      "criterion": "C-5078cdbe",
+      "log": null,
+      "spec_gap": true,
+      "suggested_fix": "WHEN on_hand and wanted are both 0 THEN the code returns 0 without raising.",
+      "id": "F-911c5de6",
+      "feedback": null
+    }
+  ],
+  "holds": [],
+  "subject_sha": "95dba2e0160b1e72f822f202c478dc78fd6cc17b",
+  "family_criteria": [
+    "C-c9bc333b",
+    "C-7bbe703f",
+    "C-5078cdbe"
+  ],
+  "reused_from": null,
+  "integrity": {
+    "checks": [
+      {
+        "name": "protected paths",
+        "status": "ok",
+        "note": "no protected path differs from the base"
+      },
+      {
+        "name": "pre-existing tests",
+        "status": "ok",
+        "note": "1 test file(s) compared with the base"
+      },
+      {
+        "name": "red-green freeze",
+        "status": "ok",
+        "note": "2 task(s): red and green compared"
+      },
+      {
+        "name": "test path freeze",
+        "status": "ok",
+        "note": "2 harness step commit(s) checked"
+      },
+      {
+        "name": "content scan",
+        "status": "ok",
+        "note": "no result-manipulating construct in the changed support and runner files"
+      },
+      {
+        "name": "suppressions",
+        "status": "skipped",
+        "note": "no new suppression comment"
+      },
+      {
+        "name": "tdd history",
+        "status": "ok",
+        "note": "2 task(s); red tests passing at head: step 3"
+      }
+    ],
+    "findings": [],
+    "declared": [],
+    "human_protected": [],
+    "human_tests": [],
+    "unfrozen": [],
+    "human_suppressions": [],
+    "human_scan": []
+  },
+  "trace": [
+    {
+      "criterion": "C-c9bc333b",
+      "alias": "Req 1.1",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_surplus::test_units_surplus_is_zero_when_wanted_at_least_on_hand",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_surplus::test_units_surplus_returns_remainder",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-7bbe703f",
+      "alias": "Req 1.2",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_surplus::test_units_surplus_is_zero_when_wanted_at_least_on_hand",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-5078cdbe",
+      "alias": "Req 2.1",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_surplus::test_units_surplus_rejects_negative_counts",
+          "status": "passed",
+          "proof": "red_assertion",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    }
+  ],
+  "audit": [],
+  "generated": [],
+  "s1": [],
+  "evidence": {
+    "schema": "l4/evidence@1",
+    "holds": [],
+    "items": {},
+    "scope": {
+      "declared": [
+        "src/inventory/stock.py",
+        "tests/test_surplus.py",
+        "module inventory",
+        "module tests"
+      ],
+      "skipped": false,
+      "note": "",
+      "holds": [],
+      "files": [
+        {
+          "path": ".kiro/specs/units-surplus/.l4/ledger/r-20261015T0606Z-a32e.jsonl",
+          "module": null,
+          "kind": "exempt",
+          "label": null,
+          "reason": "exempt: harness, spec or documentation path"
+        },
+        {
+          "path": ".kiro/specs/units-surplus/tasks.md",
+          "module": null,
+          "kind": "exempt",
+          "label": null,
+          "reason": "exempt: harness, spec or documentation path"
+        },
+        {
+          "path": "src/inventory/stock.py",
+          "module": "inventory",
+          "kind": "code",
+          "label": "relevant",
+          "reason": "named in the spec"
+        },
+        {
+          "path": "tests/test_surplus.py",
+          "module": null,
+          "kind": "test",
+          "label": "relevant",
+          "reason": "new test file"
+        }
+      ]
+    },
+    "diff_coverage": {
+      "status": "not_run",
+      "reason": "coverage.py is not importable in the project environment",
+      "percent": 0.0,
+      "unmeasured_files": [],
+      "other_files": [],
+      "functions": [
+        {
+          "path": "src/inventory/stock.py",
+          "qualname": "<module>",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        },
+        {
+          "path": "src/inventory/stock.py",
+          "qualname": "units_surplus",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        }
+      ]
+    },
+    "tests_ran": {
+      "tests_ok": true,
+      "summary": {
+        "total": 60,
+        "passed": 60,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0,
+        "new": 3,
+        "new_passed": 3,
+        "skipped_unchanged": []
+      },
+      "findings": []
+    }
+  },
+  "human": [],
+  "fix": null,
+  "judge_verdict": {
+    "criteria": [
+      {
+        "id": "C-c9bc333b",
+        "verdict": "pass",
+        "confidence": "high",
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/stock.py",
+            "quote": "return max(on_hand - wanted, 0)"
+          },
+          {
+            "kind": "test",
+            "ref": "tests.test_surplus::test_units_surplus_returns_remainder",
+            "quote": null
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-7bbe703f",
+        "verdict": "pass",
+        "confidence": "high",
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/stock.py",
+            "quote": "return max(on_hand - wanted, 0)"
+          },
+          {
+            "kind": "test",
+            "ref": "tests.test_surplus::test_units_surplus_is_zero_when_wanted_at_least_on_hand",
+            "quote": null
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-5078cdbe",
+        "verdict": "pass",
+        "confidence": "high",
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/stock.py",
+            "quote": "if on_hand < 0 or wanted < 0:\n        raise ValueError"
+          },
+          {
+            "kind": "test",
+            "ref": "tests.test_surplus::test_units_surplus_rejects_negative_counts",
+            "quote": null
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      }
+    ],
+    "test_adequacy": [
+      {
+        "test": "tests.test_surplus::test_units_surplus_returns_remainder",
+        "criterion": "C-c9bc333b",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_surplus::test_units_surplus_is_zero_when_wanted_at_least_on_hand",
+        "criterion": "C-7bbe703f",
+        "adequate": true,
+        "reason": "Checks 3,4 -> 0; equality case untested but code is clear.",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_surplus::test_units_surplus_rejects_negative_counts",
+        "criterion": "C-5078cdbe",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      }
+    ],
+    "findings": [
+      {
+        "severity": "minor",
+        "criterion": "C-5078cdbe",
+        "title": "Validation precedence for negative inputs not pinned",
+        "detail": "Negative inputs raise ValueError before any computation; zero inputs are accepted. Not specified for e.g. on_hand=0, wanted=0.",
+        "evidence": [],
+        "suggested_fix": "WHEN on_hand and wanted are both 0 THEN the code returns 0 without raising.",
+        "spec_gap": true
+      }
+    ],
+    "riskiest_assumptions": [
+      "The gate report's passing tests reflect the committed code",
+      "No other definition of units_surplus overrides this one",
+      "Zero counts are meant to be valid (non-negative)"
+    ],
+    "feedback": null
+  },
+  "cx_runs": {},
+  "tests": {
+    "tests.test_alerts::test_low_stock_message_returns_restock_message_below_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_none_at_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_none_above_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_restock_message_at_zero": "passed",
+    "tests.test_alerts::test_low_stock_message_raises_value_error_for_negative_on_hand": "passed",
+    "tests.test_alerts::test_low_stock_message_raises_value_error_for_various_negative_values": "passed",
+    "tests.test_alerts::test_low_stock_message_uses_env_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_defaults_to_5_when_env_not_set": "passed",
+    "tests.test_invoice::test_invoice_line_three_units_amounts": "passed",
+    "tests.test_invoice::test_invoice_line_vat_rounds_half_up": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_qty_above_on_hand": "passed",
+    "tests.test_invoice::test_invoice_line_accepts_qty_equal_to_on_hand": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_sku_never_received": "passed",
+    "tests.test_invoice::test_invoice_line_leaves_ledger_unchanged": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_qty_below_one_before_stock_check": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_negative_price_before_stock_check": "passed",
+    "tests.test_invoice::test_invoice_line_passes_negative_rate_vat_error_through_unchanged": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_rejects_empty_items_before_reading_ledger": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_all_lines_in_item_order": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_rejects_total_of_one_sku_above_stock": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_accepts_split_sku_quantities_within_stock": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_passes_a_bad_line_value_error_through_unchanged": "passed",
+    "tests.test_ledger::test_receive_reports_units_on_hand": "passed",
+    "tests.test_ledger::test_receive_then_ship_reports_remaining_on_hand": "passed",
+    "tests.test_ledger::test_never_received_sku_reports_zero_on_hand": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[0]": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-1]": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-5]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[0]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-1]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-5]": "passed",
+    "tests.test_ledger::test_skus_lists_received_skus_sorted": "passed",
+    "tests.test_ledger::test_ship_above_on_hand_raises_and_keeps_count": "passed",
+    "tests.test_money::test_to_cents": "passed",
+    "tests.test_money::test_to_cents_rejects_a_missing_fraction": "passed",
+    "tests.test_money::test_from_cents_whole_and_fractional_parts": "passed",
+    "tests.test_money::test_from_cents_small_negative_amount": "passed",
+    "tests.test_money::test_from_cents_zero": "passed",
+    "tests.test_reorder::test_stock_below_target_is_topped_up": "passed",
+    "tests.test_reorder::test_stock_at_or_above_target_is_not_ordered": "passed",
+    "tests.test_shelf::test_shelf_code_is_zero_padded": "passed",
+    "tests.test_shelf::test_shelf_code_rejects_aisle_below_one": "passed",
+    "tests.test_shelf::test_shelf_label_combines_code_and_stripped_name": "passed",
+    "tests.test_shelf::test_shelf_label_rejects_whitespace_only_name": "passed",
+    "tests.test_stock::test_units_short": "passed",
+    "tests.test_summary::test_valuation_summary_two_skus_at_ten_percent": "passed",
+    "tests.test_summary::test_valuation_summary_nothing_on_hand": "passed",
+    "tests.test_summary::test_valuation_summary_sku_on_hand_without_price_raises": "passed",
+    "tests.test_summary::test_valuation_summary_currency_after_each_amount": "passed",
+    "tests.test_summary::test_valuation_summary_without_currency_unchanged": "passed",
+    "tests.test_surplus::test_units_surplus_returns_remainder": "passed",
+    "tests.test_surplus::test_units_surplus_is_zero_when_wanted_at_least_on_hand": "passed",
+    "tests.test_surplus::test_units_surplus_rejects_negative_counts": "passed",
+    "tests.test_valuation::test_stock_value_two_skus_at_ten_percent": "passed",
+    "tests.test_valuation::test_stock_value_nothing_on_hand": "passed",
+    "tests.test_valuation::test_stock_value_sku_on_hand_without_price_raises": "passed",
+    "tests.test_valuation::test_stock_value_skipped_sku_without_price": "passed",
+    "tests.test_vat::test_vat_cents_rounds_half_up": "passed",
+    "tests.test_vat::test_vat_cents_exact_amount": "passed",
+    "tests.test_vat::test_vat_cents_rejects_negative_inputs": "passed"
+  },
+  "red_green": {
+    "tests.test_surplus::test_units_surplus_is_zero_when_wanted_at_least_on_hand": "1.1",
+    "tests.test_surplus::test_units_surplus_returns_remainder": "1.1",
+    "tests.test_surplus::test_units_surplus_rejects_negative_counts": "2.1"
+  },
+  "guards": [],
+  "prompt_sha256": "768a84651433469aa6785185aff68a054c1f66033b2f04b878e5dd615a287e0c",
+  "template": "judge@7",
+  "harness_commit": "47294b259b623ad0e26860cebdd2ca86660e9642",
+  "judge_calls": 1,
+  "judge_reply": "valid",
+  "judge_replies": {
+    "valid": 1,
+    "repaired": 0,
+    "retried": 0,
+    "discarded": 0
+  },
+  "profiles": {
+    "judge": "claude-judge",
+    "implementer": [
+      "deepseek"
+    ]
+  },
+  "judge_model": "claude-sonnet-5-5",
+  "independence": {
+    "mode": "different_vendor",
+    "status": "declared (unverified)",
+    "verified": false,
+    "judge": {
+      "profile": "claude-judge",
+      "vendor": "anthropic",
+      "model": null,
+      "provenance": "served",
+      "served": "claude-sonnet-5-5"
+    },
+    "implementers": [
+      {
+        "profile": "deepseek",
+        "vendor": "deepseek",
+        "model": "opencode-go/deepseek-v4.1-flash",
+        "provenance": "declared",
+        "served": null
+      }
+    ]
+  },
+  "cost_usd": 0.0325578
+}
