@@ -17,3 +17,6 @@
 {"at":"2026-10-15T05:36:29Z","run":"r-20261015T0536Z-cad2","type":"unit.dispatched","unit":"kiro:stock-ledger"}
 {"at":"2026-10-15T05:39:52Z","head":"8b86507e338b0419128689301435d6c4af7a1693","pr":3,"target_before":"d7fd9fba201f83f274248f4b26e3ed3b04a20a1d","type":"unit.merge_requested","unit":"kiro:stock-ledger"}
 {"at":"2026-10-15T05:39:56Z","head":"8b86507e338b0419128689301435d6c4af7a1693","merge_commit":"8b86507e338b0419128689301435d6c4af7a1693","pr":3,"type":"unit.merged","unit":"kiro:stock-ledger"}
+{"at":"2026-10-15T05:39:58Z","detail":"2 gate(s) passed; skipped (not configured): build, lint, typecheck, e2e","profile":"all","revision":"8b86507e338b0419128689301435d6c4af7a1693","status":"pass","type":"unit.postcheck","unit":"kiro:stock-ledger"}
+{"at":"2026-10-15T05:39:58Z","revision":"8b86507e338b0419128689301435d6c4af7a1693","type":"unit.integrated","unit":"kiro:stock-ledger"}
+{"at":"2026-10-15T05:39:58Z","attempt":1,"cost_usd":0.060813,"runs":1,"type":"plan.charged","unit":"kiro:stock-ledger"}

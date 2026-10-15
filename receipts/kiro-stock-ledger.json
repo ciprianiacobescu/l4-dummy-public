@@ -1,0 +1,15 @@
+{
+  "confirmed_at": "2026-10-15T05:39:58Z",
+  "integrated_revision": "8b86507e338b0419128689301435d6c4af7a1693",
+  "merge_commit": "8b86507e338b0419128689301435d6c4af7a1693",
+  "plan_digest": "f21bbabe2a3fa4bb",
+  "plan_id": "valuation",
+  "postcheck": "pass",
+  "pr": 3,
+  "receipt_id": "valuation/kiro:stock-ledger/1",
+  "repository": "https://github.com/ciprianiacobescu/l4-dummy-public",
+  "reviewed_head": "8b86507e338b0419128689301435d6c4af7a1693",
+  "spec_digest": "66911b64b9aa028f",
+  "target": "l4/main",
+  "unit_id": "kiro:stock-ledger"
+}
