@@ -20,3 +20,7 @@ def taxed_total(amounts: list[int], percent: int, rate_percent: int) -> int:
     """The discounted total of `amounts` with VAT at `rate_percent`, in cents."""
     net = discounted_total(amounts, percent)
     return net + vat_cents(net, rate_percent)
+
+
+def taxed_total_text(amounts: list[int], percent: int, rate_percent: int) -> str:
+    raise NotImplementedError
