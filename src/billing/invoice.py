@@ -28,3 +28,11 @@ def invoice_line(
         "vat": money.from_cents(vat_cents),
         "gross": money.from_cents(gross),
     }
+
+
+def invoice_lines(
+    ledger: StockLedger,
+    items: list[tuple[str, int, int]],
+    rate_percent: int,
+) -> list[dict]:
+    raise NotImplementedError
