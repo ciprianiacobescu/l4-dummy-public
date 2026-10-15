@@ -1,7 +1,7 @@
 # Implementation Plan
 
-- [ ] 1. Implement the invoice line
-  - [ ] 1.1 Create the billing package and the invoice module with invoice_line returning sku, qty, net, vat and gross, and unit tests
+- [x] 1. Implement the invoice line
+  - [x] 1.1 Create the billing package and the invoice module with invoice_line returning sku, qty, net, vat and gross, and unit tests
     - _Requirements: 1.1, 1.2, 1.3_
 
 - [ ] 2. Check the stock
