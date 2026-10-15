@@ -37,3 +37,4 @@
 {"at":"2026-10-15T05:46:26Z","attempt":1,"cost_usd":0.052898,"runs":1,"type":"plan.charged","unit":"openspec:add-stock-valuation"}
 {"at":"2026-10-15T05:47:01Z","attempt":1,"cost_usd":0.0,"runs":1,"type":"plan.charged","unit":"kiro:invoice-line"}
 {"at":"2026-10-15T05:47:01Z","run":"r-20261015T0546Z-d8a7","type":"unit.dispatched","unit":"kiro:invoice-line"}
+{"at":"2026-10-15T05:50:39Z","head":"48a5f1553ee3dacbd717e521e84cf3d6054cfd2b","pr":8,"target_before":"41c545e6f8c296d6e6486169af3bd9209882dfe6","type":"unit.merge_requested","unit":"kiro:invoice-line"}
