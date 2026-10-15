@@ -2,4 +2,4 @@
 
 ## 1. Taxed total as text
 
-- [ ] 1.1 Add `pricing.discount.taxed_total_text(amounts, percent, rate_percent)` formatting `taxed_total`
+- [x] 1.1 Add `pricing.discount.taxed_total_text(amounts, percent, rate_percent)` formatting `taxed_total`

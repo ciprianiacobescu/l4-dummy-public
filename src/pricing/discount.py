@@ -1,5 +1,6 @@
 """Discount helpers of the eval base project."""
 
+from pricing.money import from_cents
 from pricing.vat import vat_cents
 
 
@@ -23,4 +24,5 @@ def taxed_total(amounts: list[int], percent: int, rate_percent: int) -> int:
 
 
 def taxed_total_text(amounts: list[int], percent: int, rate_percent: int) -> str:
-    raise NotImplementedError
+    """The taxed total of `amounts` as text, e.g. `"2.52"`."""
+    return from_cents(taxed_total(amounts, percent, rate_percent))
