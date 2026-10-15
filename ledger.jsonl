@@ -58,3 +58,5 @@
 {"at":"2026-10-15T05:58:56Z","revision":"43accb443f783bf26e05649650a04a106f9c3911","type":"unit.integrated","unit":"kiro:invoice-lines"}
 {"at":"2026-10-15T05:58:56Z","attempt":1,"cost_usd":0.07939,"runs":1,"type":"plan.charged","unit":"kiro:invoice-lines"}
 {"at":"2026-10-15T05:59:21Z","batch":"w3","profile":"none","revision":"43accb443f783bf26e05649650a04a106f9c3911","type":"batch.accepted"}
+{"at":"2026-10-15T05:59:47Z","attempt":1,"cost_usd":0.0,"runs":1,"type":"plan.charged","unit":"openspec:add-summary-currency"}
+{"at":"2026-10-15T05:59:47Z","run":"r-20261015T0559Z-212f","type":"unit.dispatched","unit":"openspec:add-summary-currency"}
