@@ -35,4 +35,8 @@ def invoice_lines(
     items: list[tuple[str, int, int]],
     rate_percent: int,
 ) -> list[dict]:
-    raise NotImplementedError
+    """Every line of an invoice, in the order of the items."""
+    return [
+        invoice_line(ledger, sku, qty, unit_price_cents, rate_percent)
+        for sku, qty, unit_price_cents in items
+    ]

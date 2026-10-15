@@ -1,7 +1,7 @@
 # Implementation Plan
 
-- [ ] 1. Implement all the lines of an invoice
-  - [ ] 1.1 Add invoice_lines calling invoice_line for each item in order, with a unit test
+- [x] 1. Implement all the lines of an invoice
+  - [x] 1.1 Add invoice_lines calling invoice_line for each item in order, with a unit test
     - _Requirements: 1.1_
 
 - [ ] 2. Reject an empty invoice
