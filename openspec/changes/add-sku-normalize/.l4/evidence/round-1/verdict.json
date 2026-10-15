@@ -1,0 +1,519 @@
+{
+  "schema": "l4/verdict@1",
+  "round": 1,
+  "verdict": "PASS",
+  "base_sha": "cfbb3273f1e0582b08964d1cf2c056a7f42f2789",
+  "head_sha": "f5aab7045902b42c31ce9d9a3398a4efa992e67c",
+  "steps": [
+    {
+      "step": "0",
+      "name": "preconditions",
+      "status": "ok",
+      "seconds": 0.3,
+      "note": "base l4/main@cfbb3273f1 contained"
+    },
+    {
+      "step": "1",
+      "name": "integrity",
+      "status": "ok",
+      "seconds": 0.1,
+      "note": "7 sub-checks; scope: 4 changed file(s)"
+    },
+    {
+      "step": "2",
+      "name": "build",
+      "status": "ok",
+      "seconds": 0.1,
+      "note": ""
+    },
+    {
+      "step": "3",
+      "name": "tests",
+      "status": "ok",
+      "seconds": 0.6,
+      "note": ""
+    },
+    {
+      "step": "4",
+      "name": "traceability",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "2/2 criteria covered"
+    },
+    {
+      "step": "4a",
+      "name": "audit sampling",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "roles.verifier_agent is empty"
+    },
+    {
+      "step": "5",
+      "name": "ui test generation",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "verifier.playwright.enabled is off"
+    },
+    {
+      "step": "6",
+      "name": "quality",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "diff coverage not measured: coverage.py is not importable in the project environment"
+    },
+    {
+      "step": "8",
+      "name": "s1 judge",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "roles.s1_judge is empty"
+    },
+    {
+      "step": "9",
+      "name": "judge",
+      "status": "ok",
+      "seconds": 6.9,
+      "note": "1 call(s)"
+    },
+    {
+      "step": "10",
+      "name": "aggregation",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "PASS"
+    }
+  ],
+  "gates": [
+    {
+      "name": "setup",
+      "command": "uv sync --frozen",
+      "status": "pass",
+      "reason": "",
+      "log": ".l4-out/gates/r-20261015T0936Z-9774/011-setup.log",
+      "digest": null
+    },
+    {
+      "name": "test",
+      "command": ".venv/bin/python -m pytest --junitxml=.l4-out/junit.xml",
+      "status": "pass",
+      "reason": "",
+      "log": ".l4-out/gates/r-20261015T0936Z-9774/012-test.log",
+      "digest": null
+    }
+  ],
+  "criteria": [
+    {
+      "id": "C-dfed5b51",
+      "alias": "sku › Normalized SKU › Spaces and lower case",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_sku::test_normalize_rejects_whitespace_only_sku",
+        "tests.test_sku::test_normalize_strips_surrounding_spaces_and_upper_cases"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-3c7d5cfa",
+      "alias": "sku › Normalized SKU › Only spaces",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_sku::test_normalize_rejects_whitespace_only_sku"
+      ],
+      "s1_p": null
+    }
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "title": "strip() removes all whitespace, not just spaces",
+      "detail": "str.strip() also removes tabs/newlines; spec says 'spaces'. Tab-only input raises ValueError in the code; spec does not pin this.",
+      "source": "judge",
+      "criterion": "C-3c7d5cfa",
+      "log": null,
+      "spec_gap": true,
+      "suggested_fix": "WHEN the SKU contains surrounding tabs or newlines THEN normalize removes them as well as spaces and raises ValueError if only whitespace remains.",
+      "id": "F-240cf4c1",
+      "feedback": null
+    }
+  ],
+  "holds": [],
+  "subject_sha": "f5aab7045902b42c31ce9d9a3398a4efa992e67c",
+  "family_criteria": [
+    "C-dfed5b51",
+    "C-3c7d5cfa"
+  ],
+  "reused_from": null,
+  "integrity": {
+    "checks": [
+      {
+        "name": "protected paths",
+        "status": "ok",
+        "note": "no protected path differs from the base"
+      },
+      {
+        "name": "pre-existing tests",
+        "status": "ok",
+        "note": "1 test file(s) compared with the base"
+      },
+      {
+        "name": "red-green freeze",
+        "status": "ok",
+        "note": "1 task(s): red and green compared"
+      },
+      {
+        "name": "test path freeze",
+        "status": "ok",
+        "note": "1 harness step commit(s) checked"
+      },
+      {
+        "name": "content scan",
+        "status": "ok",
+        "note": "no result-manipulating construct in the changed support and runner files"
+      },
+      {
+        "name": "suppressions",
+        "status": "skipped",
+        "note": "no new suppression comment"
+      },
+      {
+        "name": "tdd history",
+        "status": "ok",
+        "note": "1 task(s); red tests passing at head: step 3"
+      }
+    ],
+    "findings": [],
+    "declared": [],
+    "human_protected": [],
+    "human_tests": [],
+    "unfrozen": [],
+    "human_suppressions": [],
+    "human_scan": []
+  },
+  "trace": [
+    {
+      "criterion": "C-dfed5b51",
+      "alias": "sku › Normalized SKU › Spaces and lower case",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_sku::test_normalize_rejects_whitespace_only_sku",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_sku::test_normalize_strips_surrounding_spaces_and_upper_cases",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-3c7d5cfa",
+      "alias": "sku › Normalized SKU › Only spaces",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_sku::test_normalize_rejects_whitespace_only_sku",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    }
+  ],
+  "audit": [],
+  "generated": [],
+  "s1": [],
+  "evidence": {
+    "schema": "l4/evidence@1",
+    "holds": [],
+    "items": {},
+    "scope": {
+      "declared": [
+        "src/inventory/sku.py",
+        "tests",
+        "module inventory"
+      ],
+      "skipped": false,
+      "note": "",
+      "holds": [],
+      "files": [
+        {
+          "path": "openspec/changes/add-sku-normalize/.l4/ledger/r-20261015T0936Z-9774.jsonl",
+          "module": null,
+          "kind": "exempt",
+          "label": null,
+          "reason": "exempt: harness, spec or documentation path"
+        },
+        {
+          "path": "openspec/changes/add-sku-normalize/tasks.md",
+          "module": null,
+          "kind": "exempt",
+          "label": null,
+          "reason": "exempt: harness, spec or documentation path"
+        },
+        {
+          "path": "src/inventory/sku.py",
+          "module": "inventory",
+          "kind": "code",
+          "label": "relevant",
+          "reason": "named in the spec"
+        },
+        {
+          "path": "tests/test_sku.py",
+          "module": null,
+          "kind": "test",
+          "label": "relevant",
+          "reason": "new test file"
+        }
+      ]
+    },
+    "diff_coverage": {
+      "status": "not_run",
+      "reason": "coverage.py is not importable in the project environment",
+      "percent": 0.0,
+      "unmeasured_files": [],
+      "other_files": [],
+      "functions": [
+        {
+          "path": "src/inventory/sku.py",
+          "qualname": "<module>",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        },
+        {
+          "path": "src/inventory/sku.py",
+          "qualname": "normalize",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        }
+      ]
+    },
+    "tests_ran": {
+      "tests_ok": true,
+      "summary": {
+        "total": 69,
+        "passed": 69,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0,
+        "new": 2,
+        "new_passed": 2,
+        "skipped_unchanged": []
+      },
+      "findings": []
+    }
+  },
+  "human": [],
+  "fix": null,
+  "judge_verdict": {
+    "criteria": [
+      {
+        "id": "C-dfed5b51",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/sku.py",
+            "quote": "normalized = sku.strip().upper()"
+          },
+          {
+            "kind": "test",
+            "ref": "tests.test_sku::test_normalize_strips_surrounding_spaces_and_upper_cases",
+            "quote": null
+          }
+        ],
+        "reasoning": "strip().upper() on '  ab-12 ' gives 'AB-12'; test passed.",
+        "counterexample": null
+      },
+      {
+        "id": "C-3c7d5cfa",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/sku.py",
+            "quote": "if not normalized:\n        raise ValueError"
+          },
+          {
+            "kind": "test",
+            "ref": "tests.test_sku::test_normalize_rejects_whitespace_only_sku",
+            "quote": null
+          }
+        ],
+        "reasoning": "Whitespace-only input strips to empty and raises ValueError; test passed.",
+        "counterexample": null
+      }
+    ],
+    "test_adequacy": [
+      {
+        "test": "tests.test_sku::test_normalize_strips_surrounding_spaces_and_upper_cases",
+        "criterion": "C-dfed5b51",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_sku::test_normalize_rejects_whitespace_only_sku",
+        "criterion": "C-3c7d5cfa",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      }
+    ],
+    "findings": [
+      {
+        "severity": "minor",
+        "criterion": "C-3c7d5cfa",
+        "title": "strip() removes all whitespace, not just spaces",
+        "detail": "str.strip() also removes tabs/newlines; spec says 'spaces'. Tab-only input raises ValueError in the code; spec does not pin this.",
+        "evidence": [],
+        "suggested_fix": "WHEN the SKU contains surrounding tabs or newlines THEN normalize removes them as well as spaces and raises ValueError if only whitespace remains.",
+        "spec_gap": true
+      }
+    ],
+    "riskiest_assumptions": [
+      "Passing gate tests reflect the committed code accurately",
+      "Spec 'spaces' is intended to include other whitespace or is untested",
+      "inventory package imports resolve as in the tests"
+    ],
+    "feedback": null
+  },
+  "cx_runs": {},
+  "tests": {
+    "tests.test_alerts::test_low_stock_message_returns_restock_message_below_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_none_at_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_none_above_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_restock_message_at_zero": "passed",
+    "tests.test_alerts::test_low_stock_message_raises_value_error_for_negative_on_hand": "passed",
+    "tests.test_alerts::test_low_stock_message_raises_value_error_for_various_negative_values": "passed",
+    "tests.test_alerts::test_low_stock_message_uses_env_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_defaults_to_5_when_env_not_set": "passed",
+    "tests.test_discount::test_percent_off_rounds_half_up": "passed",
+    "tests.test_discount::test_percent_off_nothing_off": "passed",
+    "tests.test_discount::test_percent_off_rejects_percent_above_100": "passed",
+    "tests.test_discount::test_percent_off_everything_off": "passed",
+    "tests.test_discount::test_discounted_total_two_lines_at_15_percent": "passed",
+    "tests.test_discount::test_discounted_total_empty_basket": "passed",
+    "tests.test_discount::test_discounted_total_empty_basket_rejects_percent_above_100": "passed",
+    "tests.test_invoice::test_invoice_line_three_units_amounts": "passed",
+    "tests.test_invoice::test_invoice_line_vat_rounds_half_up": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_qty_above_on_hand": "passed",
+    "tests.test_invoice::test_invoice_line_accepts_qty_equal_to_on_hand": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_sku_never_received": "passed",
+    "tests.test_invoice::test_invoice_line_leaves_ledger_unchanged": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_qty_below_one_before_stock_check": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_negative_price_before_stock_check": "passed",
+    "tests.test_invoice::test_invoice_line_passes_negative_rate_vat_error_through_unchanged": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_rejects_empty_items_before_reading_ledger": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_all_lines_in_item_order": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_rejects_total_of_one_sku_above_stock": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_accepts_split_sku_quantities_within_stock": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_passes_a_bad_line_value_error_through_unchanged": "passed",
+    "tests.test_ledger::test_receive_reports_units_on_hand": "passed",
+    "tests.test_ledger::test_receive_then_ship_reports_remaining_on_hand": "passed",
+    "tests.test_ledger::test_never_received_sku_reports_zero_on_hand": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[0]": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-1]": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-5]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[0]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-1]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-5]": "passed",
+    "tests.test_ledger::test_skus_lists_received_skus_sorted": "passed",
+    "tests.test_ledger::test_ship_above_on_hand_raises_and_keeps_count": "passed",
+    "tests.test_money::test_to_cents": "passed",
+    "tests.test_money::test_to_cents_rejects_a_missing_fraction": "passed",
+    "tests.test_money::test_from_cents_whole_and_fractional_parts": "passed",
+    "tests.test_money::test_from_cents_small_negative_amount": "passed",
+    "tests.test_money::test_from_cents_zero": "passed",
+    "tests.test_reorder::test_stock_below_target_is_topped_up": "passed",
+    "tests.test_reorder::test_stock_at_or_above_target_is_not_ordered": "passed",
+    "tests.test_shelf::test_shelf_code_is_zero_padded": "passed",
+    "tests.test_shelf::test_shelf_code_rejects_aisle_below_one": "passed",
+    "tests.test_shelf::test_shelf_label_combines_code_and_stripped_name": "passed",
+    "tests.test_shelf::test_shelf_label_rejects_whitespace_only_name": "passed",
+    "tests.test_sku::test_normalize_strips_surrounding_spaces_and_upper_cases": "passed",
+    "tests.test_sku::test_normalize_rejects_whitespace_only_sku": "passed",
+    "tests.test_stock::test_units_short": "passed",
+    "tests.test_summary::test_valuation_summary_two_skus_at_ten_percent": "passed",
+    "tests.test_summary::test_valuation_summary_nothing_on_hand": "passed",
+    "tests.test_summary::test_valuation_summary_sku_on_hand_without_price_raises": "passed",
+    "tests.test_summary::test_valuation_summary_currency_after_each_amount": "passed",
+    "tests.test_summary::test_valuation_summary_without_currency_unchanged": "passed",
+    "tests.test_surplus::test_units_surplus_returns_remainder": "passed",
+    "tests.test_surplus::test_units_surplus_is_zero_when_wanted_at_least_on_hand": "passed",
+    "tests.test_surplus::test_units_surplus_rejects_negative_counts": "passed",
+    "tests.test_valuation::test_stock_value_two_skus_at_ten_percent": "passed",
+    "tests.test_valuation::test_stock_value_nothing_on_hand": "passed",
+    "tests.test_valuation::test_stock_value_sku_on_hand_without_price_raises": "passed",
+    "tests.test_valuation::test_stock_value_skipped_sku_without_price": "passed",
+    "tests.test_vat::test_vat_cents_rounds_half_up": "passed",
+    "tests.test_vat::test_vat_cents_exact_amount": "passed",
+    "tests.test_vat::test_vat_cents_rejects_negative_inputs": "passed"
+  },
+  "red_green": {
+    "tests.test_sku::test_normalize_rejects_whitespace_only_sku": "1.1",
+    "tests.test_sku::test_normalize_strips_surrounding_spaces_and_upper_cases": "1.1"
+  },
+  "guards": [],
+  "prompt_sha256": "a3da4e775c666f0af871447911f982f7538fcfd13eb767001da482d0a312c55a",
+  "template": "judge@7",
+  "harness_commit": "8388c1a44df73ceba531c3115228fdd80711663a",
+  "judge_calls": 1,
+  "judge_reply": "valid",
+  "judge_replies": {
+    "valid": 1,
+    "repaired": 0,
+    "retried": 0,
+    "discarded": 0
+  },
+  "profiles": {
+    "judge": "claude-judge",
+    "implementer": [
+      "deepseek"
+    ]
+  },
+  "judge_model": "claude-sonnet-5-5",
+  "independence": {
+    "mode": "different_vendor",
+    "status": "declared (unverified)",
+    "verified": false,
+    "judge": {
+      "profile": "claude-judge",
+      "vendor": "anthropic",
+      "model": null,
+      "provenance": "served",
+      "served": "claude-sonnet-5-5"
+    },
+    "implementers": [
+      {
+        "profile": "deepseek",
+        "vendor": "deepseek",
+        "model": "opencode-go/deepseek-v4.1-flash",
+        "provenance": "declared",
+        "served": null
+      }
+    ]
+  },
+  "cost_usd": 0.0310418
+}
