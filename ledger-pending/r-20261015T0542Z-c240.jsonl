@@ -1,0 +1,2 @@
+{"ts": "2026-10-15T05:42:57.334808Z", "run_id": "r-20261015T0542Z-c240", "unit": "openspec:add-vat", "seq": 1, "type": "run.started", "harness_version": "0.3.0", "harness_commit": "47294b259b623ad0e26860cebdd2ca86660e9642", "command": "plan --sweep", "branch": "l4/openspec/add-vat"}
+{"ts": "2026-10-15T05:42:57.335505Z", "run_id": "r-20261015T0542Z-c240", "unit": "openspec:add-vat", "seq": 2, "type": "phase.changed", "from": "in_review", "to": "merged", "trigger": "pr_merged", "exit_code": 0, "pr": 4, "merge_commit": "1fca646c2401634d93f905b06af557b22ee0e936"}
