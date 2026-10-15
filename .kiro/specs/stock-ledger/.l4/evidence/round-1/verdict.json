@@ -1,0 +1,766 @@
+{
+  "schema": "l4/verdict@1",
+  "round": 1,
+  "verdict": "PASS",
+  "base_sha": "d7fd9fba201f83f274248f4b26e3ed3b04a20a1d",
+  "head_sha": "6ea2b4fcf47a4de7678e1c308326829e693f1777",
+  "steps": [
+    {
+      "step": "0",
+      "name": "preconditions",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "base l4/main@d7fd9fba20 contained"
+    },
+    {
+      "step": "1",
+      "name": "integrity",
+      "status": "ok",
+      "seconds": 0.1,
+      "note": "7 sub-checks; scope: 4 changed file(s)"
+    },
+    {
+      "step": "2",
+      "name": "build",
+      "status": "ok",
+      "seconds": 0.1,
+      "note": ""
+    },
+    {
+      "step": "3",
+      "name": "tests",
+      "status": "ok",
+      "seconds": 0.5,
+      "note": ""
+    },
+    {
+      "step": "4",
+      "name": "traceability",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "6/6 criteria covered"
+    },
+    {
+      "step": "4a",
+      "name": "audit sampling",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "roles.verifier_agent is empty"
+    },
+    {
+      "step": "5",
+      "name": "ui test generation",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "verifier.playwright.enabled is off"
+    },
+    {
+      "step": "6",
+      "name": "quality",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "diff coverage not measured: coverage.py is not importable in the project environment"
+    },
+    {
+      "step": "8",
+      "name": "s1 judge",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "roles.s1_judge is empty"
+    },
+    {
+      "step": "9",
+      "name": "judge",
+      "status": "ok",
+      "seconds": 9.0,
+      "note": "1 call(s)"
+    },
+    {
+      "step": "10",
+      "name": "aggregation",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "PASS"
+    }
+  ],
+  "gates": [
+    {
+      "name": "setup",
+      "command": "uv sync --frozen",
+      "status": "pass",
+      "reason": "",
+      "log": ".l4-out/gates/r-20261015T0536Z-cad2/024-setup.log",
+      "digest": null
+    },
+    {
+      "name": "test",
+      "command": ".venv/bin/python -m pytest --junitxml=.l4-out/junit.xml",
+      "status": "pass",
+      "reason": "",
+      "log": ".l4-out/gates/r-20261015T0536Z-cad2/025-test.log",
+      "digest": null
+    }
+  ],
+  "criteria": [
+    {
+      "id": "C-d8b024d8",
+      "alias": "Req 1.1",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_ledger::test_never_received_sku_reports_zero_on_hand",
+        "tests.test_ledger::test_receive_reports_units_on_hand"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-0c0ba66b",
+      "alias": "Req 1.2",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_ledger::test_receive_then_ship_reports_remaining_on_hand"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-64e536b9",
+      "alias": "Req 1.3",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_ledger::test_never_received_sku_reports_zero_on_hand"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-d458b25f",
+      "alias": "Req 2.1",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_ledger::test_receive_below_one_raises_value_error[-1]",
+        "tests.test_ledger::test_receive_below_one_raises_value_error[-5]",
+        "tests.test_ledger::test_receive_below_one_raises_value_error[0]",
+        "tests.test_ledger::test_ship_below_one_raises_value_error[-1]",
+        "tests.test_ledger::test_ship_below_one_raises_value_error[-5]",
+        "tests.test_ledger::test_ship_below_one_raises_value_error[0]"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-82179eee",
+      "alias": "Req 2.2",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_ledger::test_ship_above_on_hand_raises_and_keeps_count"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-d9d7248c",
+      "alias": "Req 3.1",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_ledger::test_skus_lists_received_skus_sorted"
+      ],
+      "s1_p": null
+    }
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "title": "Shipping a never-received SKU / fully shipped SKU listing unpinned",
+      "detail": "A SKU shipped down to 0 remains in skus(); shipping a never-received SKU raises ValueError without adding it. Not pinned by a scenario.",
+      "source": "judge",
+      "criterion": "C-d9d7248c",
+      "log": null,
+      "spec_gap": true,
+      "suggested_fix": "WHEN a SKU is received and then fully shipped THEN skus() still lists it with 0 on hand.",
+      "id": "F-63ebe314",
+      "feedback": null
+    }
+  ],
+  "holds": [],
+  "subject_sha": "6ea2b4fcf47a4de7678e1c308326829e693f1777",
+  "family_criteria": [
+    "C-d8b024d8",
+    "C-0c0ba66b",
+    "C-64e536b9",
+    "C-d458b25f",
+    "C-82179eee",
+    "C-d9d7248c"
+  ],
+  "reused_from": null,
+  "integrity": {
+    "checks": [
+      {
+        "name": "protected paths",
+        "status": "ok",
+        "note": "no protected path differs from the base"
+      },
+      {
+        "name": "pre-existing tests",
+        "status": "ok",
+        "note": "1 test file(s) compared with the base"
+      },
+      {
+        "name": "red-green freeze",
+        "status": "ok",
+        "note": "2 task(s): red and green compared"
+      },
+      {
+        "name": "test path freeze",
+        "status": "ok",
+        "note": "2 harness step commit(s) checked"
+      },
+      {
+        "name": "content scan",
+        "status": "ok",
+        "note": "no result-manipulating construct in the changed support and runner files"
+      },
+      {
+        "name": "suppressions",
+        "status": "skipped",
+        "note": "no new suppression comment"
+      },
+      {
+        "name": "tdd history",
+        "status": "ok",
+        "note": "3 task(s); red tests passing at head: step 3"
+      }
+    ],
+    "findings": [],
+    "declared": [],
+    "human_protected": [],
+    "human_tests": [],
+    "unfrozen": [],
+    "human_suppressions": [],
+    "human_scan": []
+  },
+  "trace": [
+    {
+      "criterion": "C-d8b024d8",
+      "alias": "Req 1.1",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_ledger::test_never_received_sku_reports_zero_on_hand",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_ledger::test_receive_reports_units_on_hand",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-0c0ba66b",
+      "alias": "Req 1.2",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_ledger::test_receive_then_ship_reports_remaining_on_hand",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-64e536b9",
+      "alias": "Req 1.3",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_ledger::test_never_received_sku_reports_zero_on_hand",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-d458b25f",
+      "alias": "Req 2.1",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_ledger::test_receive_below_one_raises_value_error[-1]",
+          "status": "passed",
+          "proof": "pre_satisfied",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_ledger::test_receive_below_one_raises_value_error[-5]",
+          "status": "passed",
+          "proof": "pre_satisfied",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_ledger::test_receive_below_one_raises_value_error[0]",
+          "status": "passed",
+          "proof": "pre_satisfied",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_ledger::test_ship_below_one_raises_value_error[-1]",
+          "status": "passed",
+          "proof": "pre_satisfied",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_ledger::test_ship_below_one_raises_value_error[-5]",
+          "status": "passed",
+          "proof": "pre_satisfied",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_ledger::test_ship_below_one_raises_value_error[0]",
+          "status": "passed",
+          "proof": "pre_satisfied",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-82179eee",
+      "alias": "Req 2.2",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_ledger::test_ship_above_on_hand_raises_and_keeps_count",
+          "status": "passed",
+          "proof": "pre_satisfied",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-d9d7248c",
+      "alias": "Req 3.1",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_ledger::test_skus_lists_received_skus_sorted",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    }
+  ],
+  "audit": [],
+  "generated": [],
+  "s1": [],
+  "evidence": {
+    "schema": "l4/evidence@1",
+    "holds": [],
+    "items": {},
+    "scope": {
+      "declared": [
+        "src/inventory/ledger.py",
+        "tests/test_ledger.py",
+        "module inventory",
+        "module tests"
+      ],
+      "skipped": false,
+      "note": "",
+      "holds": [],
+      "files": [
+        {
+          "path": ".kiro/specs/stock-ledger/.l4/ledger/r-20261015T0536Z-cad2.jsonl",
+          "module": null,
+          "kind": "exempt",
+          "label": null,
+          "reason": "exempt: harness, spec or documentation path"
+        },
+        {
+          "path": ".kiro/specs/stock-ledger/tasks.md",
+          "module": null,
+          "kind": "exempt",
+          "label": null,
+          "reason": "exempt: harness, spec or documentation path"
+        },
+        {
+          "path": "src/inventory/ledger.py",
+          "module": "inventory",
+          "kind": "code",
+          "label": "relevant",
+          "reason": "named in the spec"
+        },
+        {
+          "path": "tests/test_ledger.py",
+          "module": null,
+          "kind": "test",
+          "label": "relevant",
+          "reason": "new test file"
+        }
+      ]
+    },
+    "diff_coverage": {
+      "status": "not_run",
+      "reason": "coverage.py is not importable in the project environment",
+      "percent": 0.0,
+      "unmeasured_files": [],
+      "other_files": [],
+      "functions": [
+        {
+          "path": "src/inventory/ledger.py",
+          "qualname": "<module>",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        },
+        {
+          "path": "src/inventory/ledger.py",
+          "qualname": "StockLedger",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        },
+        {
+          "path": "src/inventory/ledger.py",
+          "qualname": "StockLedger.__init__",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        },
+        {
+          "path": "src/inventory/ledger.py",
+          "qualname": "StockLedger.receive",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        },
+        {
+          "path": "src/inventory/ledger.py",
+          "qualname": "StockLedger.ship",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        },
+        {
+          "path": "src/inventory/ledger.py",
+          "qualname": "StockLedger.on_hand",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        },
+        {
+          "path": "src/inventory/ledger.py",
+          "qualname": "StockLedger.skus",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        }
+      ]
+    },
+    "tests_ran": {
+      "tests_ok": true,
+      "summary": {
+        "total": 29,
+        "passed": 29,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0,
+        "new": 11,
+        "new_passed": 11,
+        "skipped_unchanged": []
+      },
+      "findings": []
+    }
+  },
+  "human": [],
+  "fix": null,
+  "judge_verdict": {
+    "criteria": [
+      {
+        "id": "C-d8b024d8",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "test",
+            "ref": "tests.test_ledger::test_receive_reports_units_on_hand",
+            "quote": "receive(\"sku-1\", 5); on_hand == 5"
+          },
+          {
+            "kind": "file",
+            "ref": "src/inventory/ledger.py",
+            "quote": "self._counts[sku] = self._counts.get(sku, 0) + qty"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-0c0ba66b",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "test",
+            "ref": "tests.test_ledger::test_receive_then_ship_reports_remaining_on_hand",
+            "quote": "assert ledger.on_hand(\"sku-1\") == 3"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-64e536b9",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/ledger.py",
+            "quote": "return self._counts.get(sku, 0)"
+          },
+          {
+            "kind": "test",
+            "ref": "tests.test_ledger::test_never_received_sku_reports_zero_on_hand",
+            "quote": "assert ledger.on_hand(\"sku-x\") == 0"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-d458b25f",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/ledger.py",
+            "quote": "if qty < 1:\n            raise ValueError"
+          },
+          {
+            "kind": "test",
+            "ref": "tests.test_ledger::test_ship_below_one_raises_value_error[0]",
+            "quote": "pytest.raises(ValueError)"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-82179eee",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/ledger.py",
+            "quote": "if qty > current:\n            raise ValueError"
+          },
+          {
+            "kind": "test",
+            "ref": "tests.test_ledger::test_ship_above_on_hand_raises_and_keeps_count",
+            "quote": "assert ledger.on_hand(\"sku-1\") == 3"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-d9d7248c",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/ledger.py",
+            "quote": "return sorted(self._counts)"
+          },
+          {
+            "kind": "test",
+            "ref": "tests.test_ledger::test_skus_lists_received_skus_sorted",
+            "quote": "== [\"sku-a\", \"sku-b\"]"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      }
+    ],
+    "test_adequacy": [
+      {
+        "test": "tests.test_ledger::test_never_received_sku_reports_zero_on_hand",
+        "criterion": "C-64e536b9",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_ledger::test_ship_above_on_hand_raises_and_keeps_count",
+        "criterion": "C-82179eee",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_ledger::test_skus_lists_received_skus_sorted",
+        "criterion": "C-d9d7248c",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_ledger::test_receive_below_one_raises_value_error[0]",
+        "criterion": "C-d458b25f",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      }
+    ],
+    "findings": [
+      {
+        "severity": "minor",
+        "criterion": "C-d9d7248c",
+        "title": "Shipping a never-received SKU / fully shipped SKU listing unpinned",
+        "detail": "A SKU shipped down to 0 remains in skus(); shipping a never-received SKU raises ValueError without adding it. Not pinned by a scenario.",
+        "evidence": [],
+        "suggested_fix": "WHEN a SKU is received and then fully shipped THEN skus() still lists it with 0 on hand.",
+        "spec_gap": true
+      }
+    ],
+    "riskiest_assumptions": [
+      "Tests import inventory.ledger resolvable via pytest path config (gate passed, so likely fine)",
+      "Non-int quantities (floats, bools) are out of scope",
+      "Gate report accurately reflects the committed head"
+    ],
+    "feedback": null
+  },
+  "cx_runs": {},
+  "tests": {
+    "tests.test_alerts::test_low_stock_message_returns_restock_message_below_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_none_at_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_none_above_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_restock_message_at_zero": "passed",
+    "tests.test_alerts::test_low_stock_message_raises_value_error_for_negative_on_hand": "passed",
+    "tests.test_alerts::test_low_stock_message_raises_value_error_for_various_negative_values": "passed",
+    "tests.test_alerts::test_low_stock_message_uses_env_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_defaults_to_5_when_env_not_set": "passed",
+    "tests.test_ledger::test_receive_reports_units_on_hand": "passed",
+    "tests.test_ledger::test_receive_then_ship_reports_remaining_on_hand": "passed",
+    "tests.test_ledger::test_never_received_sku_reports_zero_on_hand": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[0]": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-1]": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-5]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[0]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-1]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-5]": "passed",
+    "tests.test_ledger::test_skus_lists_received_skus_sorted": "passed",
+    "tests.test_ledger::test_ship_above_on_hand_raises_and_keeps_count": "passed",
+    "tests.test_money::test_to_cents": "passed",
+    "tests.test_money::test_to_cents_rejects_a_missing_fraction": "passed",
+    "tests.test_money::test_from_cents_whole_and_fractional_parts": "passed",
+    "tests.test_money::test_from_cents_small_negative_amount": "passed",
+    "tests.test_money::test_from_cents_zero": "passed",
+    "tests.test_reorder::test_stock_below_target_is_topped_up": "passed",
+    "tests.test_reorder::test_stock_at_or_above_target_is_not_ordered": "passed",
+    "tests.test_shelf::test_shelf_code_is_zero_padded": "passed",
+    "tests.test_shelf::test_shelf_code_rejects_aisle_below_one": "passed",
+    "tests.test_stock::test_units_short": "passed"
+  },
+  "red_green": {
+    "tests.test_ledger::test_never_received_sku_reports_zero_on_hand": "1.1",
+    "tests.test_ledger::test_receive_reports_units_on_hand": "1.1",
+    "tests.test_ledger::test_receive_then_ship_reports_remaining_on_hand": "1.1",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-1]": "2.1",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-5]": "2.1",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[0]": "2.1",
+    "tests.test_ledger::test_ship_above_on_hand_raises_and_keeps_count": "2.1",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-1]": "2.1",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-5]": "2.1",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[0]": "2.1",
+    "tests.test_ledger::test_skus_lists_received_skus_sorted": "3.1"
+  },
+  "guards": [],
+  "prompt_sha256": "945e75d8b01b4bb75486666c83b6a6d78c63beede6d0ea746540689d1fbddc24",
+  "template": "judge@7",
+  "harness_commit": "47294b259b623ad0e26860cebdd2ca86660e9642",
+  "judge_calls": 1,
+  "judge_reply": "valid",
+  "judge_replies": {
+    "valid": 1,
+    "repaired": 0,
+    "retried": 0,
+    "discarded": 0
+  },
+  "profiles": {
+    "judge": "claude-judge",
+    "implementer": [
+      "deepseek"
+    ]
+  },
+  "judge_model": "claude-sonnet-5-5",
+  "independence": {
+    "mode": "different_vendor",
+    "status": "declared (unverified)",
+    "verified": false,
+    "judge": {
+      "profile": "claude-judge",
+      "vendor": "anthropic",
+      "model": null,
+      "provenance": "served",
+      "served": "claude-sonnet-5-5"
+    },
+    "implementers": [
+      {
+        "profile": "deepseek",
+        "vendor": "deepseek",
+        "model": "opencode-go/deepseek-v4.1-flash",
+        "provenance": "declared",
+        "served": null
+      }
+    ]
+  },
+  "cost_usd": 0.0424958
+}

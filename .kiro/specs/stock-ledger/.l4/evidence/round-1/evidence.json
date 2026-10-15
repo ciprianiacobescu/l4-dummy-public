@@ -1,0 +1,132 @@
+{
+  "schema": "l4/evidence@1",
+  "holds": [],
+  "items": {},
+  "scope": {
+    "declared": [
+      "src/inventory/ledger.py",
+      "tests/test_ledger.py",
+      "module inventory",
+      "module tests"
+    ],
+    "skipped": false,
+    "note": "",
+    "holds": [],
+    "files": [
+      {
+        "path": ".kiro/specs/stock-ledger/.l4/ledger/r-20261015T0536Z-cad2.jsonl",
+        "module": null,
+        "kind": "exempt",
+        "label": null,
+        "reason": "exempt: harness, spec or documentation path"
+      },
+      {
+        "path": ".kiro/specs/stock-ledger/tasks.md",
+        "module": null,
+        "kind": "exempt",
+        "label": null,
+        "reason": "exempt: harness, spec or documentation path"
+      },
+      {
+        "path": "src/inventory/ledger.py",
+        "module": "inventory",
+        "kind": "code",
+        "label": "relevant",
+        "reason": "named in the spec"
+      },
+      {
+        "path": "tests/test_ledger.py",
+        "module": null,
+        "kind": "test",
+        "label": "relevant",
+        "reason": "new test file"
+      }
+    ]
+  },
+  "diff_coverage": {
+    "status": "not_run",
+    "reason": "coverage.py is not importable in the project environment",
+    "percent": 0.0,
+    "unmeasured_files": [],
+    "other_files": [],
+    "functions": [
+      {
+        "path": "src/inventory/ledger.py",
+        "qualname": "<module>",
+        "status": "not_run",
+        "executable": 0,
+        "executed": 0,
+        "tests": [],
+        "label": null
+      },
+      {
+        "path": "src/inventory/ledger.py",
+        "qualname": "StockLedger",
+        "status": "not_run",
+        "executable": 0,
+        "executed": 0,
+        "tests": [],
+        "label": null
+      },
+      {
+        "path": "src/inventory/ledger.py",
+        "qualname": "StockLedger.__init__",
+        "status": "not_run",
+        "executable": 0,
+        "executed": 0,
+        "tests": [],
+        "label": null
+      },
+      {
+        "path": "src/inventory/ledger.py",
+        "qualname": "StockLedger.receive",
+        "status": "not_run",
+        "executable": 0,
+        "executed": 0,
+        "tests": [],
+        "label": null
+      },
+      {
+        "path": "src/inventory/ledger.py",
+        "qualname": "StockLedger.ship",
+        "status": "not_run",
+        "executable": 0,
+        "executed": 0,
+        "tests": [],
+        "label": null
+      },
+      {
+        "path": "src/inventory/ledger.py",
+        "qualname": "StockLedger.on_hand",
+        "status": "not_run",
+        "executable": 0,
+        "executed": 0,
+        "tests": [],
+        "label": null
+      },
+      {
+        "path": "src/inventory/ledger.py",
+        "qualname": "StockLedger.skus",
+        "status": "not_run",
+        "executable": 0,
+        "executed": 0,
+        "tests": [],
+        "label": null
+      }
+    ]
+  },
+  "tests_ran": {
+    "tests_ok": true,
+    "summary": {
+      "total": 29,
+      "passed": 29,
+      "failed": 0,
+      "errored": 0,
+      "skipped": 0,
+      "new": 11,
+      "new_passed": 11,
+      "skipped_unchanged": []
+    },
+    "findings": []
+  }
+}
