@@ -11,14 +11,14 @@ Do not change question IDs. Commit and push to the l4/… branch to resume the r
 <!-- l4:index:start -->
 | ID | Status | Blocking | Kind | Question |
 |----|--------|----------|------|----------|
-| Q-001 | open | none | verdict | Criterion C-cc44872e (discount › Percent off in cents › Everything off): accept as satisfied? |
+| Q-001 | answered | none | verdict | Criterion C-cc44872e (discount › Percent off in cents › Everything off): accept as satisfied? |
 <!-- l4:index:end -->
 
 ---
 
 ## Q-001: Criterion C-cc44872e (discount › Percent off in cents › Everything off): accept as satisfied?
 
-- **Status:** open
+- **Status:** answered
 - **Blocking tasks:** none
 - **Kind:** verdict
 - **Asked:** round 2, verifier
@@ -45,3 +45,6 @@ If the code is right and the scenarios are incomplete, `reject` with a scenario:
 
 ### Answer
 <!-- write below this line -->
+
+### Answer
+reject: the code is right, but no test traces this criterion. Add a test that asserts `pricing.discount.percent_off(250, 100) == 250`.
