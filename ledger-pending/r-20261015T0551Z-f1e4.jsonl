@@ -1,2 +1,3 @@
 {"ts": "2026-10-15T05:51:06.164195Z", "run_id": "r-20261015T0551Z-f1e4", "unit": "kiro:invoice-line", "seq": 1, "type": "run.started", "harness_version": "0.3.0", "harness_commit": "47294b259b623ad0e26860cebdd2ca86660e9642", "command": "plan --sweep", "branch": "l4/kiro/invoice-line"}
 {"ts": "2026-10-15T05:51:06.165141Z", "run_id": "r-20261015T0551Z-f1e4", "unit": "kiro:invoice-line", "seq": 2, "type": "phase.changed", "from": "in_review", "to": "merged", "trigger": "pr_merged", "exit_code": 0, "pr": 8, "merge_commit": "48a5f1553ee3dacbd717e521e84cf3d6054cfd2b"}
+{"ts": "2026-10-15T05:51:07.916375Z", "run_id": "r-20261015T0551Z-f1e4", "unit": "kiro:invoice-line", "seq": 3, "type": "archive.done", "via": "done_gate", "base": "48a5f1553ee3dacbd717e521e84cf3d6054cfd2b"}
