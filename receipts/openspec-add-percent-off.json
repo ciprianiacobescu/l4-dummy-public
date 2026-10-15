@@ -1,0 +1,15 @@
+{
+  "confirmed_at": "2026-10-15T09:29:55Z",
+  "integrated_revision": "5d3b660dab662fe1182785d35e74a4874224ac86",
+  "merge_commit": "5d3b660dab662fe1182785d35e74a4874224ac86",
+  "plan_digest": "f28da8239a8842e1",
+  "plan_id": "stops-a",
+  "postcheck": "pass",
+  "pr": 17,
+  "receipt_id": "stops-a/openspec:add-percent-off/1",
+  "repository": "https://github.com/ciprianiacobescu/l4-dummy-public",
+  "reviewed_head": "5d3b660dab662fe1182785d35e74a4874224ac86",
+  "spec_digest": "2885b2a37a3722aa",
+  "target": "l4/main",
+  "unit_id": "openspec:add-percent-off"
+}
