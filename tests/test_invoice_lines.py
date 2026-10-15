@@ -4,6 +4,19 @@ from billing.invoice import invoice_lines
 from inventory.ledger import StockLedger
 
 
+class _LedgerThatMustNotBeRead:
+    """A ledger that fails loudly if the empty-list check lets a read happen."""
+
+    def on_hand(self, sku: str) -> int:
+        raise AssertionError("the ledger must not be read for an empty invoice")
+
+
+@pytest.mark.l4("C-0e717055")
+def test_invoice_lines_rejects_empty_items_before_reading_ledger():
+    with pytest.raises(ValueError):
+        invoice_lines(_LedgerThatMustNotBeRead(), [], 10)
+
+
 @pytest.mark.l4("C-c9886635")
 def test_invoice_lines_all_lines_in_item_order():
     ledger = StockLedger()
