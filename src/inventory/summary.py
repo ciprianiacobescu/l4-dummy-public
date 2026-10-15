@@ -9,7 +9,10 @@ def valuation_summary(
     rate_percent: int,
     currency: str | None = None,
 ) -> str:
-    if currency is not None:
-        raise NotImplementedError
     value = stock_value(ledger, price_cents, rate_percent)
-    return f"net {value['net']} | vat {value['vat']} | gross {value['gross']}"
+    suffix = f" {currency}" if currency is not None else ""
+    return (
+        f"net {value['net']}{suffix} | "
+        f"vat {value['vat']}{suffix} | "
+        f"gross {value['gross']}{suffix}"
+    )
