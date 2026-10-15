@@ -1,0 +1,32 @@
+{
+  "schema": "l4/delivery-plan@1",
+  "plan_id": "smoke-gh",
+  "target": "l4/main",
+  "merge": "auto",
+  "limits": {
+    "max_unit_attempts": 2,
+    "max_runs": 20,
+    "max_cost_usd": 5
+  },
+  "external_dependencies": [],
+  "batches": [
+    {
+      "id": "till",
+      "depends_on": [],
+      "acceptance_profile": "smoke",
+      "units": [
+        {
+          "id": "openspec:add-taxed-total",
+          "depends_on": []
+        },
+        {
+          "id": "openspec:add-taxed-text",
+          "depends_on": [
+            "openspec:add-taxed-total"
+          ]
+        }
+      ]
+    }
+  ],
+  "exclude": []
+}
