@@ -1,7 +1,7 @@
 # Implementation Plan
 
-- [ ] 1. Implement receiving, shipping and the count on hand
-  - [ ] 1.1 Create the ledger module with StockLedger.receive, ship and on_hand, and unit tests
+- [x] 1. Implement receiving, shipping and the count on hand
+  - [x] 1.1 Create the ledger module with StockLedger.receive, ship and on_hand, and unit tests
     - _Requirements: 1.1, 1.2, 1.3_
 
 - [ ] 2. Reject invalid movements
