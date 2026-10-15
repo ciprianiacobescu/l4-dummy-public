@@ -1,0 +1,590 @@
+{
+  "schema": "l4/verdict@1",
+  "round": 1,
+  "verdict": "PASS",
+  "base_sha": "f910360ca811a7d32c3ef97c78681c1b1acd311f",
+  "head_sha": "e3a73cd63fd797feec7e4178bb954bf1f6bc627d",
+  "steps": [
+    {
+      "step": "0",
+      "name": "preconditions",
+      "status": "ok",
+      "seconds": 0.4,
+      "note": "base l4/main@f910360ca8 contained"
+    },
+    {
+      "step": "1",
+      "name": "integrity",
+      "status": "ok",
+      "seconds": 0.1,
+      "note": "7 sub-checks; scope: 4 changed file(s)"
+    },
+    {
+      "step": "2",
+      "name": "build",
+      "status": "ok",
+      "seconds": 0.1,
+      "note": ""
+    },
+    {
+      "step": "3",
+      "name": "tests",
+      "status": "ok",
+      "seconds": 0.6,
+      "note": ""
+    },
+    {
+      "step": "4",
+      "name": "traceability",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "4/4 criteria covered"
+    },
+    {
+      "step": "4a",
+      "name": "audit sampling",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "roles.verifier_agent is empty"
+    },
+    {
+      "step": "5",
+      "name": "ui test generation",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "verifier.playwright.enabled is off"
+    },
+    {
+      "step": "6",
+      "name": "quality",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "diff coverage not measured: coverage.py is not importable in the project environment"
+    },
+    {
+      "step": "8",
+      "name": "s1 judge",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "roles.s1_judge is empty"
+    },
+    {
+      "step": "9",
+      "name": "judge",
+      "status": "ok",
+      "seconds": 7.8,
+      "note": "1 call(s)"
+    },
+    {
+      "step": "10",
+      "name": "aggregation",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "PASS"
+    }
+  ],
+  "gates": [
+    {
+      "name": "setup",
+      "command": "uv sync --frozen",
+      "status": "pass",
+      "reason": "",
+      "log": ".l4-out/gates/r-20261015T0543Z-195d/011-setup.log",
+      "digest": null
+    },
+    {
+      "name": "test",
+      "command": ".venv/bin/python -m pytest --junitxml=.l4-out/junit.xml",
+      "status": "pass",
+      "reason": "",
+      "log": ".l4-out/gates/r-20261015T0543Z-195d/012-test.log",
+      "digest": null
+    }
+  ],
+  "criteria": [
+    {
+      "id": "C-4ab2ef17",
+      "alias": "stock-valuation › Stock value › Two SKUs at 10 percent",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_valuation::test_stock_value_two_skus_at_ten_percent"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-0151315f",
+      "alias": "stock-valuation › Stock value › Nothing on hand",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_valuation::test_stock_value_nothing_on_hand"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-3b801c40",
+      "alias": "stock-valuation › Missing prices › A SKU without a price",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_valuation::test_stock_value_sku_on_hand_without_price_raises"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-b333d8d8",
+      "alias": "stock-valuation › Missing prices › A SKU shipped out has no price",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_valuation::test_stock_value_skipped_sku_without_price"
+      ],
+      "s1_p": null
+    }
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "title": "Negative rate with empty stock",
+      "detail": "vat_cents is called unconditionally so a negative rate raises ValueError even when nothing is on hand; the spec does not pin this for empty stock, and the code propagates the error.",
+      "source": "judge",
+      "criterion": "C-0151315f",
+      "log": null,
+      "spec_gap": true,
+      "suggested_fix": "WHEN the rate is negative and nothing is on hand THEN the committed code raises the ValueError of vat_cents unchanged.",
+      "id": "F-35403df1",
+      "feedback": null
+    }
+  ],
+  "holds": [],
+  "subject_sha": "e3a73cd63fd797feec7e4178bb954bf1f6bc627d",
+  "family_criteria": [
+    "C-4ab2ef17",
+    "C-0151315f",
+    "C-3b801c40",
+    "C-b333d8d8"
+  ],
+  "reused_from": null,
+  "integrity": {
+    "checks": [
+      {
+        "name": "protected paths",
+        "status": "ok",
+        "note": "no protected path differs from the base"
+      },
+      {
+        "name": "pre-existing tests",
+        "status": "ok",
+        "note": "1 test file(s) compared with the base"
+      },
+      {
+        "name": "red-green freeze",
+        "status": "ok",
+        "note": "1 task(s): red and green compared"
+      },
+      {
+        "name": "test path freeze",
+        "status": "ok",
+        "note": "1 harness step commit(s) checked"
+      },
+      {
+        "name": "content scan",
+        "status": "ok",
+        "note": "no result-manipulating construct in the changed support and runner files"
+      },
+      {
+        "name": "suppressions",
+        "status": "skipped",
+        "note": "no new suppression comment"
+      },
+      {
+        "name": "tdd history",
+        "status": "ok",
+        "note": "1 task(s); red tests passing at head: step 3"
+      }
+    ],
+    "findings": [],
+    "declared": [],
+    "human_protected": [],
+    "human_tests": [],
+    "unfrozen": [],
+    "human_suppressions": [],
+    "human_scan": []
+  },
+  "trace": [
+    {
+      "criterion": "C-4ab2ef17",
+      "alias": "stock-valuation › Stock value › Two SKUs at 10 percent",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_valuation::test_stock_value_two_skus_at_ten_percent",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-0151315f",
+      "alias": "stock-valuation › Stock value › Nothing on hand",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_valuation::test_stock_value_nothing_on_hand",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-3b801c40",
+      "alias": "stock-valuation › Missing prices › A SKU without a price",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_valuation::test_stock_value_sku_on_hand_without_price_raises",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-b333d8d8",
+      "alias": "stock-valuation › Missing prices › A SKU shipped out has no price",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_valuation::test_stock_value_skipped_sku_without_price",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    }
+  ],
+  "audit": [],
+  "generated": [],
+  "s1": [],
+  "evidence": {
+    "schema": "l4/evidence@1",
+    "holds": [],
+    "items": {},
+    "scope": {
+      "declared": [
+        "src/inventory/valuation.py",
+        "tests",
+        "module inventory",
+        "module pricing"
+      ],
+      "skipped": false,
+      "note": "",
+      "holds": [],
+      "files": [
+        {
+          "path": "openspec/changes/add-stock-valuation/.l4/ledger/r-20261015T0543Z-195d.jsonl",
+          "module": null,
+          "kind": "exempt",
+          "label": null,
+          "reason": "exempt: harness, spec or documentation path"
+        },
+        {
+          "path": "openspec/changes/add-stock-valuation/tasks.md",
+          "module": null,
+          "kind": "exempt",
+          "label": null,
+          "reason": "exempt: harness, spec or documentation path"
+        },
+        {
+          "path": "src/inventory/valuation.py",
+          "module": "inventory",
+          "kind": "code",
+          "label": "relevant",
+          "reason": "named in the spec"
+        },
+        {
+          "path": "tests/test_valuation.py",
+          "module": null,
+          "kind": "test",
+          "label": "relevant",
+          "reason": "new test file"
+        }
+      ]
+    },
+    "diff_coverage": {
+      "status": "not_run",
+      "reason": "coverage.py is not importable in the project environment",
+      "percent": 0.0,
+      "unmeasured_files": [],
+      "other_files": [],
+      "functions": [
+        {
+          "path": "src/inventory/valuation.py",
+          "qualname": "<module>",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        },
+        {
+          "path": "src/inventory/valuation.py",
+          "qualname": "stock_value",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        }
+      ]
+    },
+    "tests_ran": {
+      "tests_ok": true,
+      "summary": {
+        "total": 36,
+        "passed": 36,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0,
+        "new": 4,
+        "new_passed": 4,
+        "skipped_unchanged": []
+      },
+      "findings": []
+    }
+  },
+  "human": [],
+  "fix": null,
+  "judge_verdict": {
+    "criteria": [
+      {
+        "id": "C-4ab2ef17",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "test",
+            "ref": "tests.test_valuation::test_stock_value_two_skus_at_ten_percent",
+            "quote": "passed"
+          },
+          {
+            "kind": "file",
+            "ref": "src/inventory/valuation.py",
+            "quote": "net += on_hand * price_cents[sku]"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-0151315f",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "test",
+            "ref": "tests.test_valuation::test_stock_value_nothing_on_hand",
+            "quote": "passed"
+          },
+          {
+            "kind": "file",
+            "ref": "src/inventory/valuation.py",
+            "quote": "vat = vat_cents(net, rate_percent)"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-3b801c40",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "test",
+            "ref": "tests.test_valuation::test_stock_value_sku_on_hand_without_price_raises",
+            "quote": "passed"
+          },
+          {
+            "kind": "file",
+            "ref": "src/inventory/valuation.py",
+            "quote": "raise ValueError(f\"missing price for SKU: {sku}\")"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-b333d8d8",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "test",
+            "ref": "tests.test_valuation::test_stock_value_skipped_sku_without_price",
+            "quote": "passed"
+          },
+          {
+            "kind": "file",
+            "ref": "src/inventory/valuation.py",
+            "quote": "if on_hand <= 0:\n            continue"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      }
+    ],
+    "test_adequacy": [
+      {
+        "test": "tests.test_valuation::test_stock_value_two_skus_at_ten_percent",
+        "criterion": "C-4ab2ef17",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_valuation::test_stock_value_nothing_on_hand",
+        "criterion": "C-0151315f",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_valuation::test_stock_value_sku_on_hand_without_price_raises",
+        "criterion": "C-3b801c40",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_valuation::test_stock_value_skipped_sku_without_price",
+        "criterion": "C-b333d8d8",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      }
+    ],
+    "findings": [
+      {
+        "severity": "minor",
+        "criterion": "C-0151315f",
+        "title": "Negative rate with empty stock",
+        "detail": "vat_cents is called unconditionally so a negative rate raises ValueError even when nothing is on hand; the spec does not pin this for empty stock, and the code propagates the error.",
+        "evidence": [],
+        "suggested_fix": "WHEN the rate is negative and nothing is on hand THEN the committed code raises the ValueError of vat_cents unchanged.",
+        "spec_gap": true
+      }
+    ],
+    "riskiest_assumptions": [
+      "StockLedger.skus() includes SKUs shipped down to 0 and on_hand returns ints",
+      "vat_cents and from_cents behave as described by their own changes (rounding, str output)",
+      "Gate tests passing reflect the real ledger implementation, not stubs"
+    ],
+    "feedback": null
+  },
+  "cx_runs": {},
+  "tests": {
+    "tests.test_alerts::test_low_stock_message_returns_restock_message_below_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_none_at_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_none_above_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_restock_message_at_zero": "passed",
+    "tests.test_alerts::test_low_stock_message_raises_value_error_for_negative_on_hand": "passed",
+    "tests.test_alerts::test_low_stock_message_raises_value_error_for_various_negative_values": "passed",
+    "tests.test_alerts::test_low_stock_message_uses_env_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_defaults_to_5_when_env_not_set": "passed",
+    "tests.test_ledger::test_receive_reports_units_on_hand": "passed",
+    "tests.test_ledger::test_receive_then_ship_reports_remaining_on_hand": "passed",
+    "tests.test_ledger::test_never_received_sku_reports_zero_on_hand": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[0]": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-1]": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-5]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[0]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-1]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-5]": "passed",
+    "tests.test_ledger::test_skus_lists_received_skus_sorted": "passed",
+    "tests.test_ledger::test_ship_above_on_hand_raises_and_keeps_count": "passed",
+    "tests.test_money::test_to_cents": "passed",
+    "tests.test_money::test_to_cents_rejects_a_missing_fraction": "passed",
+    "tests.test_money::test_from_cents_whole_and_fractional_parts": "passed",
+    "tests.test_money::test_from_cents_small_negative_amount": "passed",
+    "tests.test_money::test_from_cents_zero": "passed",
+    "tests.test_reorder::test_stock_below_target_is_topped_up": "passed",
+    "tests.test_reorder::test_stock_at_or_above_target_is_not_ordered": "passed",
+    "tests.test_shelf::test_shelf_code_is_zero_padded": "passed",
+    "tests.test_shelf::test_shelf_code_rejects_aisle_below_one": "passed",
+    "tests.test_stock::test_units_short": "passed",
+    "tests.test_valuation::test_stock_value_two_skus_at_ten_percent": "passed",
+    "tests.test_valuation::test_stock_value_nothing_on_hand": "passed",
+    "tests.test_valuation::test_stock_value_sku_on_hand_without_price_raises": "passed",
+    "tests.test_valuation::test_stock_value_skipped_sku_without_price": "passed",
+    "tests.test_vat::test_vat_cents_rounds_half_up": "passed",
+    "tests.test_vat::test_vat_cents_exact_amount": "passed",
+    "tests.test_vat::test_vat_cents_rejects_negative_inputs": "passed"
+  },
+  "red_green": {
+    "tests.test_valuation::test_stock_value_nothing_on_hand": "1.1",
+    "tests.test_valuation::test_stock_value_skipped_sku_without_price": "1.1",
+    "tests.test_valuation::test_stock_value_sku_on_hand_without_price_raises": "1.1",
+    "tests.test_valuation::test_stock_value_two_skus_at_ten_percent": "1.1"
+  },
+  "guards": [],
+  "prompt_sha256": "a42270b8c44b1dce0616caab8b9abd67315659af1a71a38c4de0696840abb3c2",
+  "template": "judge@7",
+  "harness_commit": "47294b259b623ad0e26860cebdd2ca86660e9642",
+  "judge_calls": 1,
+  "judge_reply": "valid",
+  "judge_replies": {
+    "valid": 1,
+    "repaired": 0,
+    "retried": 0,
+    "discarded": 0
+  },
+  "profiles": {
+    "judge": "claude-judge",
+    "implementer": [
+      "deepseek"
+    ]
+  },
+  "judge_model": "claude-sonnet-5-5",
+  "independence": {
+    "mode": "different_vendor",
+    "status": "declared (unverified)",
+    "verified": false,
+    "judge": {
+      "profile": "claude-judge",
+      "vendor": "anthropic",
+      "model": null,
+      "provenance": "served",
+      "served": "claude-sonnet-5-5"
+    },
+    "implementers": [
+      {
+        "profile": "deepseek",
+        "vendor": "deepseek",
+        "model": "opencode-go/deepseek-v4.1-flash",
+        "provenance": "declared",
+        "served": null
+      }
+    ]
+  },
+  "cost_usd": 0.0378338
+}
