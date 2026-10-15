@@ -1,5 +1,5 @@
 import pytest
-from pricing.discount import discounted_total, percent_off
+from pricing.discount import discounted_total, percent_off, taxed_total
 
 
 @pytest.mark.l4("C-424b9938")
@@ -40,3 +40,14 @@ def test_discounted_total_empty_basket_rejects_percent_above_100():
     assert discounted_total([200], 25) == 150
     with pytest.raises(ValueError):
         discounted_total([], 101)
+
+
+@pytest.mark.l4("C-0853868a")
+def test_taxed_total_two_lines_at_15_percent_with_19_percent_vat():
+    assert taxed_total([100, 150], 15, 19) == 252
+
+
+@pytest.mark.l4("C-fac6bef2", "C-0853868a")
+def test_taxed_total_empty_basket_and_single_line():
+    assert taxed_total([], 15, 19) == 0
+    assert taxed_total([100], 15, 19) == 101
