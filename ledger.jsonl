@@ -7,3 +7,5 @@
 {"at":"2026-10-15T07:52:22Z","attempt":1,"cost_usd":0.0,"runs":1,"type":"plan.charged","unit":"openspec:add-percent-off"}
 {"at":"2026-10-15T07:52:22Z","run":"r-20261015T0752Z-cbf8","type":"unit.dispatched","unit":"openspec:add-percent-off"}
 {"at":"2026-10-15T07:54:36Z","detail":"the target l4/main (e2de14112f) is not in the unit head","reason":"stale","type":"unit.merge_refused","unit":"openspec:add-percent-off"}
+{"at":"2026-10-15T07:55:02Z","attempt":1,"cost_usd":0.047415,"runs":2,"type":"plan.charged","unit":"openspec:add-percent-off"}
+{"at":"2026-10-15T07:55:02Z","run":"r-20261015T0755Z-7a25","type":"unit.dispatched","unit":"openspec:add-percent-off"}
