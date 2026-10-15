@@ -2,3 +2,4 @@
 {"ts": "2026-10-15T05:42:57.335505Z", "run_id": "r-20261015T0542Z-c240", "unit": "openspec:add-vat", "seq": 2, "type": "phase.changed", "from": "in_review", "to": "merged", "trigger": "pr_merged", "exit_code": 0, "pr": 4, "merge_commit": "1fca646c2401634d93f905b06af557b22ee0e936"}
 {"ts": "2026-10-15T05:43:02.280087Z", "run_id": "r-20261015T0542Z-c240", "unit": "openspec:add-vat", "seq": 3, "type": "archive.opened", "number": 5, "url": "<forge>/ciprianiacobescu/l4-dummy-public/pull/5", "branch": "l4/archive/openspec/add-vat"}
 {"ts": "2026-10-15T05:43:03.596675Z", "run_id": "r-20261015T0542Z-c240", "unit": "openspec:add-vat", "seq": 4, "type": "archive.merged", "head": "f910360ca811a7d32c3ef97c78681c1b1acd311f", "number": 5}
+{"ts": "2026-10-15T05:43:04.662316Z", "run_id": "r-20261015T0542Z-c240", "unit": "openspec:add-vat", "seq": 5, "type": "run.finished", "exit_code": 0}
