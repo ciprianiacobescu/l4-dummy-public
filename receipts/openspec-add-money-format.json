@@ -1,0 +1,15 @@
+{
+  "confirmed_at": "2026-10-15T05:35:52Z",
+  "integrated_revision": "f8df4b5faea947219215b96d9c7bc626e4747b07",
+  "merge_commit": "f8df4b5faea947219215b96d9c7bc626e4747b07",
+  "plan_digest": "f21bbabe2a3fa4bb",
+  "plan_id": "valuation",
+  "postcheck": "pass",
+  "pr": 1,
+  "receipt_id": "valuation/openspec:add-money-format/1",
+  "repository": "https://github.com/ciprianiacobescu/l4-dummy-public",
+  "reviewed_head": "f8df4b5faea947219215b96d9c7bc626e4747b07",
+  "spec_digest": "ccabcefbd012d0f6",
+  "target": "l4/main",
+  "unit_id": "openspec:add-money-format"
+}
