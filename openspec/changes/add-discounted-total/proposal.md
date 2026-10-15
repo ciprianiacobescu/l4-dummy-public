@@ -5,8 +5,8 @@ A basket total after a promotion, from the line amounts in cents.
 
 ## What Changes
 - Add `pricing.discount.discounted_total(amounts, percent)`: the sum of `amounts` minus
-  `pricing.discount.percent_off(sum, percent)` (change `add-percent-off`). An empty list gives `0`; a `ValueError` of
-  `percent_off` is raised unchanged.
+  `pricing.discount.percent_off(sum, percent)` (change `add-percent-off`). `percent_off` is always called, so its `ValueError` for a
+  bad percent is raised unchanged, even for an empty list; an empty list with a valid percent gives `0`.
 
 ## Capabilities
 
