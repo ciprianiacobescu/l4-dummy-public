@@ -75,3 +75,4 @@
 {"at":"2026-10-15T06:05:35Z","attempt":1,"cost_usd":0.039703,"runs":1,"type":"plan.charged","unit":"openspec:add-shelf-label"}
 {"at":"2026-10-15T06:06:11Z","attempt":1,"cost_usd":0.0,"runs":1,"type":"plan.charged","unit":"kiro:units-surplus"}
 {"at":"2026-10-15T06:06:11Z","run":"r-20261015T0606Z-a32e","type":"unit.dispatched","unit":"kiro:units-surplus"}
+{"at":"2026-10-15T06:08:43Z","head":"f5ed57abc7f292d442fd581719df2ddbd866adc1","pr":16,"target_before":"8b6155995ad69a23bb666359dc1f6e18adaff456","type":"unit.merge_requested","unit":"kiro:units-surplus"}
