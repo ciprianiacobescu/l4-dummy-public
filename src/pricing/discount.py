@@ -10,4 +10,5 @@ def percent_off(cents: int, percent: int) -> int:
 
 def discounted_total(amounts: list[int], percent: int) -> int:
     """The total of `amounts` after `percent` off, in cents."""
-    raise NotImplementedError
+    total = sum(amounts)
+    return total - percent_off(total, percent)
