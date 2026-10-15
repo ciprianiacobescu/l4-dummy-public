@@ -1,0 +1,15 @@
+{
+  "confirmed_at": "2026-10-15T13:45:08Z",
+  "integrated_revision": "5ed0cf03e8cd8d10db46f5870148a322905c9bd8",
+  "merge_commit": "5ed0cf03e8cd8d10db46f5870148a322905c9bd8",
+  "plan_digest": "a7169fbdd5af8443",
+  "plan_id": "smoke-gh",
+  "postcheck": "pass",
+  "pr": 22,
+  "receipt_id": "smoke-gh/openspec:add-taxed-total/1",
+  "repository": "https://github.com/ciprianiacobescu/l4-dummy-public",
+  "reviewed_head": "5ed0cf03e8cd8d10db46f5870148a322905c9bd8",
+  "spec_digest": "00c3cda1db0e6ea4",
+  "target": "l4/main",
+  "unit_id": "openspec:add-taxed-total"
+}
