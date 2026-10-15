@@ -20,3 +20,7 @@ half up, and SHALL raise `ValueError` when `cents` is negative or `percent` is b
 #### Scenario: A percent above 100 is rejected
 - **WHEN** a promotion asks for `pricing.discount.percent_off(100, 101)`
 - **THEN** it raises `ValueError`
+
+#### Scenario: Everything off
+- **WHEN** a promotion asks for `pricing.discount.percent_off(250, 100)`
+- **THEN** it returns exactly `250`
