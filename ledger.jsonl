@@ -5,3 +5,4 @@
 {"at":"2026-10-15T13:41:45Z","attempt":1,"cost_usd":0.0,"runs":1,"type":"plan.charged","unit":"openspec:add-taxed-total"}
 {"at":"2026-10-15T13:41:45Z","run":"r-20261015T1341Z-d74f","type":"unit.dispatched","unit":"openspec:add-taxed-total"}
 {"at":"2026-10-15T13:45:01Z","head":"5ed0cf03e8cd8d10db46f5870148a322905c9bd8","pr":22,"target_before":"43a9585ddb8633fa7f82da0556334134542cf21c","type":"unit.merge_requested","unit":"openspec:add-taxed-total"}
+{"at":"2026-10-15T13:45:06Z","head":"5ed0cf03e8cd8d10db46f5870148a322905c9bd8","merge_commit":"5ed0cf03e8cd8d10db46f5870148a322905c9bd8","pr":22,"type":"unit.merged","unit":"openspec:add-taxed-total"}
