@@ -1,0 +1,12 @@
+{
+  "schema": "l4/fix-unit@1",
+  "parent": "openspec:add-percent-off",
+  "round": 1,
+  "findings": [
+    "F-a2855589"
+  ],
+  "chores": [],
+  "test_chores": [],
+  "refactors": [],
+  "retakes": []
+}
