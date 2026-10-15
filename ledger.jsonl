@@ -42,3 +42,4 @@
 {"at":"2026-10-15T05:50:45Z","detail":"2 gate(s) passed; skipped (not configured): build, lint, typecheck, e2e","profile":"all","revision":"48a5f1553ee3dacbd717e521e84cf3d6054cfd2b","status":"pass","type":"unit.postcheck","unit":"kiro:invoice-line"}
 {"at":"2026-10-15T05:50:45Z","revision":"48a5f1553ee3dacbd717e521e84cf3d6054cfd2b","type":"unit.integrated","unit":"kiro:invoice-line"}
 {"at":"2026-10-15T05:50:45Z","attempt":1,"cost_usd":0.074011,"runs":1,"type":"plan.charged","unit":"kiro:invoice-line"}
+{"at":"2026-10-15T05:51:12Z","batch":"w2","profile":"none","revision":"48a5f1553ee3dacbd717e521e84cf3d6054cfd2b","type":"batch.accepted"}
