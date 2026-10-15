@@ -17,3 +17,8 @@ def test_percent_off_nothing_off():
 def test_percent_off_rejects_percent_above_100():
     with pytest.raises(ValueError):
         percent_off(100, 101)
+
+
+@pytest.mark.l4("C-cc44872e")
+def test_percent_off_everything_off():
+    assert percent_off(250, 100) == 250
