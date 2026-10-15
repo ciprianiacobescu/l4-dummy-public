@@ -6,3 +6,4 @@
 {"at":"2026-10-15T07:51:57Z","attempt_base":{"openspec:add-discounted-total":0,"openspec:add-percent-off":0},"by":"the+github@ciprianiacobescu.com","current":null,"digests":{"openspec:add-discounted-total":"8c530ddbbd79f937","openspec:add-percent-off":"8ee7664b204855a3"},"limits":{"deadline":null,"max_cost_usd":5.0,"max_runs":20,"max_unit_attempts":2},"merge":"auto","plan_digest":"f28da8239a8842e1","reason":"stop case 9.3a: a spec push to the current unit must stop the plan with inputs_changed","type":"plan.activated"}
 {"at":"2026-10-15T07:52:22Z","attempt":1,"cost_usd":0.0,"runs":1,"type":"plan.charged","unit":"openspec:add-percent-off"}
 {"at":"2026-10-15T07:52:22Z","run":"r-20261015T0752Z-cbf8","type":"unit.dispatched","unit":"openspec:add-percent-off"}
+{"at":"2026-10-15T07:54:36Z","detail":"the target l4/main (e2de14112f) is not in the unit head","reason":"stale","type":"unit.merge_refused","unit":"openspec:add-percent-off"}
