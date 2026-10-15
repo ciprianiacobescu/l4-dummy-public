@@ -8,4 +8,7 @@ def shelf_code(aisle: int, slot: int) -> str:
 
 
 def shelf_label(aisle: int, slot: int, name: str) -> str:
-    raise NotImplementedError
+    stripped = name.strip()
+    if not stripped:
+        raise ValueError("shelf label name must not be empty")
+    return f"{shelf_code(aisle, slot)} {stripped}"
