@@ -12,6 +12,6 @@
   - [x] 3.1 Sum the quantities per SKU and raise ValueError naming a SKU whose sum is above its count on hand, with unit tests
     - _Requirements: 3.1, 3.2_
 
-- [ ] 4. Reject a bad line
-  - [ ] 4.1 Let a ValueError of invoice_line through with no partial result, with a unit test
+- [x] 4. Reject a bad line
+  - [x] 4.1 Let a ValueError of invoice_line through with no partial result, with a unit test
     - _Requirements: 4.1_

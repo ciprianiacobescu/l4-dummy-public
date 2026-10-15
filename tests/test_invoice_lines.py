@@ -1,6 +1,6 @@
 import pytest
 
-from billing.invoice import invoice_lines
+from billing.invoice import invoice_line, invoice_lines
 from inventory.ledger import StockLedger
 
 
@@ -47,3 +47,18 @@ def test_invoice_lines_accepts_split_sku_quantities_within_stock():
         {"sku": "a", "qty": 2, "net": "2.00", "vat": "0.20", "gross": "2.20"},
         {"sku": "a", "qty": 3, "net": "3.00", "vat": "0.30", "gross": "3.30"},
     ]
+
+
+@pytest.mark.l4("C-5deb824d")
+def test_invoice_lines_passes_a_bad_line_value_error_through_unchanged():
+    ledger = StockLedger()
+    ledger.receive("a", 5)
+    good = invoice_lines(ledger, [("a", 1, 100)], 10)
+    assert good == [
+        {"sku": "a", "qty": 1, "net": "1.00", "vat": "0.10", "gross": "1.10"},
+    ]
+    with pytest.raises(ValueError) as raised:
+        invoice_lines(ledger, [("a", 1, 100), ("b", 0, 50)], 10)
+    with pytest.raises(ValueError) as line:
+        invoice_line(ledger, "b", 0, 50, 10)
+    assert str(raised.value) == str(line.value)
