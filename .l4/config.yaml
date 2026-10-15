@@ -40,3 +40,7 @@ ci:
   time_budget: 21m
   soft_deadline_margin: 20m
   upload_artifacts: false   # a public repository: the l4-out artifact (prompts, transcripts) would be downloadable
+
+yolo:
+  profiles:
+    smoke: [test]             # a batch acceptance check: the test gate on the target after the batch is integrated
