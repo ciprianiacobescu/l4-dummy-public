@@ -1,0 +1,25 @@
+{
+  "schema": "l4/delivery-plan@1",
+  "plan_id": "stops-b",
+  "target": "l4/main",
+  "merge": "human",
+  "limits": {
+    "max_unit_attempts": 2,
+    "max_runs": 10,
+    "max_cost_usd": 5
+  },
+  "external_dependencies": [],
+  "batches": [
+    {
+      "id": "sku",
+      "depends_on": [],
+      "units": [
+        {
+          "id": "openspec:add-sku-normalize",
+          "depends_on": []
+        }
+      ]
+    }
+  ],
+  "exclude": []
+}
