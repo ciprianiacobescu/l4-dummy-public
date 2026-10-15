@@ -1,0 +1,15 @@
+{
+  "confirmed_at": "2026-10-15T06:05:35Z",
+  "integrated_revision": "ad6ddf2952b040b11be702fdd6f67b7c4781afc7",
+  "merge_commit": "ad6ddf2952b040b11be702fdd6f67b7c4781afc7",
+  "plan_digest": "f21bbabe2a3fa4bb",
+  "plan_id": "valuation",
+  "postcheck": "pass",
+  "pr": 14,
+  "receipt_id": "valuation/openspec:add-shelf-label/1",
+  "repository": "https://github.com/ciprianiacobescu/l4-dummy-public",
+  "reviewed_head": "ad6ddf2952b040b11be702fdd6f67b7c4781afc7",
+  "spec_digest": "b3ff8ec2ae6e2495",
+  "target": "l4/main",
+  "unit_id": "openspec:add-shelf-label"
+}
