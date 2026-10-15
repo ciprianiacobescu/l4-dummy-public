@@ -1,0 +1,15 @@
+{
+  "confirmed_at": "2026-10-15T05:53:49Z",
+  "integrated_revision": "3cf267baea0977529527bddf121557fcca68542c",
+  "merge_commit": "3cf267baea0977529527bddf121557fcca68542c",
+  "plan_digest": "f21bbabe2a3fa4bb",
+  "plan_id": "valuation",
+  "postcheck": "pass",
+  "pr": 9,
+  "receipt_id": "valuation/openspec:add-valuation-summary/1",
+  "repository": "https://github.com/ciprianiacobescu/l4-dummy-public",
+  "reviewed_head": "3cf267baea0977529527bddf121557fcca68542c",
+  "spec_digest": "fe8e4fd52dba94d1",
+  "target": "l4/main",
+  "unit_id": "openspec:add-valuation-summary"
+}
