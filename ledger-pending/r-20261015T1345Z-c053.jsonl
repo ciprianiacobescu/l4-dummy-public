@@ -2,3 +2,4 @@
 {"ts": "2026-10-15T13:45:37.089405Z", "run_id": "r-20261015T1345Z-c053", "unit": "openspec:add-taxed-total", "seq": 2, "type": "phase.changed", "from": "in_review", "to": "merged", "trigger": "pr_merged", "exit_code": 0, "pr": 22, "merge_commit": "5ed0cf03e8cd8d10db46f5870148a322905c9bd8"}
 {"ts": "2026-10-15T13:45:44.624025Z", "run_id": "r-20261015T1345Z-c053", "unit": "openspec:add-taxed-total", "seq": 3, "type": "archive.opened", "number": 23, "url": "<forge>/ciprianiacobescu/l4-dummy-public/pull/23", "branch": "l4/archive/openspec/add-taxed-total"}
 {"ts": "2026-10-15T13:45:47.134802Z", "run_id": "r-20261015T1345Z-c053", "unit": "openspec:add-taxed-total", "seq": 4, "type": "archive.merged", "head": "28a005170da565fa4f0c75cbd36f46a16aa4c94e", "number": 23}
+{"ts": "2026-10-15T13:45:49.157502Z", "run_id": "r-20261015T1345Z-c053", "unit": "openspec:add-taxed-total", "seq": 5, "type": "run.finished", "exit_code": 0}
