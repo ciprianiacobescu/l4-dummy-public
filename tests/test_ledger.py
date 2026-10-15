@@ -24,3 +24,32 @@ def test_never_received_sku_reports_zero_on_hand():
     assert ledger.on_hand("sku-x") == 0
     ledger.receive("sku-x", 4)
     assert ledger.on_hand("sku-x") == 4
+
+
+@pytest.mark.l4("C-d458b25f")
+@pytest.mark.parametrize("bad_qty", [0, -1, -5])
+def test_receive_below_one_raises_value_error(bad_qty):
+    ledger = StockLedger()
+    ledger.receive("sku-1", 5)
+    with pytest.raises(ValueError):
+        ledger.receive("sku-1", bad_qty)
+    assert ledger.on_hand("sku-1") == 5
+
+
+@pytest.mark.l4("C-d458b25f")
+@pytest.mark.parametrize("bad_qty", [0, -1, -5])
+def test_ship_below_one_raises_value_error(bad_qty):
+    ledger = StockLedger()
+    ledger.receive("sku-1", 5)
+    with pytest.raises(ValueError):
+        ledger.ship("sku-1", bad_qty)
+    assert ledger.on_hand("sku-1") == 5
+
+
+@pytest.mark.l4("C-82179eee")
+def test_ship_above_on_hand_raises_and_keeps_count():
+    ledger = StockLedger()
+    ledger.receive("sku-1", 3)
+    with pytest.raises(ValueError):
+        ledger.ship("sku-1", 4)
+    assert ledger.on_hand("sku-1") == 3
