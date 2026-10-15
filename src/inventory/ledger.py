@@ -22,4 +22,4 @@ class StockLedger:
         return self._counts.get(sku, 0)
 
     def skus(self) -> list[str]:
-        raise NotImplementedError
+        return sorted(self._counts)
