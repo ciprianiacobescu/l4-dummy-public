@@ -21,3 +21,5 @@
 {"at":"2026-10-15T09:25:22Z","attempt_base":{"openspec:add-discounted-total":0,"openspec:add-percent-off":0},"by":"the+github@ciprianiacobescu.com","current":"openspec:add-percent-off","digests":{"openspec:add-discounted-total":"8c530ddbbd79f937","openspec:add-percent-off":"2885b2a37a3722aa"},"limits":{"deadline":null,"max_cost_usd":5.0,"max_runs":20,"max_unit_attempts":2},"merge":"auto","plan_digest":"f28da8239a8842e1","reason":"stop case 9.3a recovery: the spec edit is reviewed, the verdict question answered","type":"plan.activated"}
 {"at":"2026-10-15T09:26:25Z","detail":"awaiting_human: no new answers (verdicts open: Q-001)","reason":"unit_awaiting_human","type":"plan.waiting","unit":"openspec:add-percent-off"}
 {"at":"2026-10-15T09:27:26Z","by":"harness","reason":"the cause is gone: openspec:add-percent-off is awaiting_human","type":"plan.resumed"}
+{"at":"2026-10-15T09:27:27Z","attempt":1,"cost_usd":0.080227,"runs":3,"type":"plan.charged","unit":"openspec:add-percent-off"}
+{"at":"2026-10-15T09:27:27Z","run":"r-20261015T0927Z-2dab","type":"unit.dispatched","unit":"openspec:add-percent-off"}
