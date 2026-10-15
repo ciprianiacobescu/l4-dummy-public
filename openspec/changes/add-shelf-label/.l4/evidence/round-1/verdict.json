@@ -1,0 +1,507 @@
+{
+  "schema": "l4/verdict@1",
+  "round": 1,
+  "verdict": "PASS",
+  "base_sha": "f6c7372a153ffcd040b7857c1e0b87ad734b2da3",
+  "head_sha": "67e382b3fc4e5b094cbb4d84a1b9914c78b89254",
+  "steps": [
+    {
+      "step": "0",
+      "name": "preconditions",
+      "status": "ok",
+      "seconds": 0.2,
+      "note": "base l4/main@f6c7372a15 contained"
+    },
+    {
+      "step": "1",
+      "name": "integrity",
+      "status": "ok",
+      "seconds": 0.1,
+      "note": "7 sub-checks; scope: 4 changed file(s)"
+    },
+    {
+      "step": "2",
+      "name": "build",
+      "status": "ok",
+      "seconds": 0.1,
+      "note": ""
+    },
+    {
+      "step": "3",
+      "name": "tests",
+      "status": "ok",
+      "seconds": 0.4,
+      "note": ""
+    },
+    {
+      "step": "4",
+      "name": "traceability",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "2/2 criteria covered"
+    },
+    {
+      "step": "4a",
+      "name": "audit sampling",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "roles.verifier_agent is empty"
+    },
+    {
+      "step": "5",
+      "name": "ui test generation",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "verifier.playwright.enabled is off"
+    },
+    {
+      "step": "6",
+      "name": "quality",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "diff coverage not measured: coverage.py is not importable in the project environment"
+    },
+    {
+      "step": "8",
+      "name": "s1 judge",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "roles.s1_judge is empty"
+    },
+    {
+      "step": "9",
+      "name": "judge",
+      "status": "ok",
+      "seconds": 6.1,
+      "note": "1 call(s)"
+    },
+    {
+      "step": "10",
+      "name": "aggregation",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "PASS"
+    }
+  ],
+  "gates": [
+    {
+      "name": "setup",
+      "command": "uv sync --frozen",
+      "status": "pass",
+      "reason": "",
+      "log": ".l4-out/gates/r-20261015T0603Z-ec67/011-setup.log",
+      "digest": null
+    },
+    {
+      "name": "test",
+      "command": ".venv/bin/python -m pytest --junitxml=.l4-out/junit.xml",
+      "status": "pass",
+      "reason": "",
+      "log": ".l4-out/gates/r-20261015T0603Z-ec67/012-test.log",
+      "digest": null
+    }
+  ],
+  "criteria": [
+    {
+      "id": "C-70ccb449",
+      "alias": "shelf-label › Shelf label › A label",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_shelf::test_shelf_label_combines_code_and_stripped_name",
+        "tests.test_shelf::test_shelf_label_rejects_whitespace_only_name"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-87d7c93e",
+      "alias": "shelf-label › Shelf label › An empty name",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_shelf::test_shelf_label_rejects_whitespace_only_name"
+      ],
+      "s1_p": null
+    }
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "title": "Invalid position with empty name: which error",
+      "detail": "Name is validated before shelf_code; both raise ValueError, so indistinguishable to callers.",
+      "source": "judge",
+      "criterion": "C-87d7c93e",
+      "log": null,
+      "spec_gap": true,
+      "suggested_fix": "WHEN the name is empty and the aisle or slot is also below 1 THEN shelf_label raises ValueError for the empty name before shelf_code is evaluated.",
+      "id": "F-0c3142da",
+      "feedback": null
+    }
+  ],
+  "holds": [],
+  "subject_sha": "67e382b3fc4e5b094cbb4d84a1b9914c78b89254",
+  "family_criteria": [
+    "C-70ccb449",
+    "C-87d7c93e"
+  ],
+  "reused_from": null,
+  "integrity": {
+    "checks": [
+      {
+        "name": "protected paths",
+        "status": "ok",
+        "note": "no protected path differs from the base"
+      },
+      {
+        "name": "pre-existing tests",
+        "status": "ok",
+        "note": "1 test file(s) compared with the base"
+      },
+      {
+        "name": "red-green freeze",
+        "status": "ok",
+        "note": "1 task(s): red and green compared"
+      },
+      {
+        "name": "test path freeze",
+        "status": "ok",
+        "note": "1 harness step commit(s) checked"
+      },
+      {
+        "name": "content scan",
+        "status": "ok",
+        "note": "no result-manipulating construct in the changed support and runner files"
+      },
+      {
+        "name": "suppressions",
+        "status": "skipped",
+        "note": "no new suppression comment"
+      },
+      {
+        "name": "tdd history",
+        "status": "ok",
+        "note": "1 task(s); red tests passing at head: step 3"
+      }
+    ],
+    "findings": [],
+    "declared": [],
+    "human_protected": [],
+    "human_tests": [],
+    "unfrozen": [],
+    "human_suppressions": [],
+    "human_scan": []
+  },
+  "trace": [
+    {
+      "criterion": "C-70ccb449",
+      "alias": "shelf-label › Shelf label › A label",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_shelf::test_shelf_label_combines_code_and_stripped_name",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_shelf::test_shelf_label_rejects_whitespace_only_name",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-87d7c93e",
+      "alias": "shelf-label › Shelf label › An empty name",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_shelf::test_shelf_label_rejects_whitespace_only_name",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    }
+  ],
+  "audit": [],
+  "generated": [],
+  "s1": [],
+  "evidence": {
+    "schema": "l4/evidence@1",
+    "holds": [],
+    "items": {},
+    "scope": {
+      "declared": [
+        "src/inventory/shelf.py",
+        "tests",
+        "module inventory"
+      ],
+      "skipped": false,
+      "note": "",
+      "holds": [],
+      "files": [
+        {
+          "path": "openspec/changes/add-shelf-label/.l4/ledger/r-20261015T0603Z-ec67.jsonl",
+          "module": null,
+          "kind": "exempt",
+          "label": null,
+          "reason": "exempt: harness, spec or documentation path"
+        },
+        {
+          "path": "openspec/changes/add-shelf-label/tasks.md",
+          "module": null,
+          "kind": "exempt",
+          "label": null,
+          "reason": "exempt: harness, spec or documentation path"
+        },
+        {
+          "path": "src/inventory/shelf.py",
+          "module": "inventory",
+          "kind": "code",
+          "label": "relevant",
+          "reason": "named in the spec"
+        },
+        {
+          "path": "tests/test_shelf.py",
+          "module": null,
+          "kind": "test",
+          "label": "relevant",
+          "reason": "named in the spec"
+        }
+      ]
+    },
+    "diff_coverage": {
+      "status": "not_run",
+      "reason": "coverage.py is not importable in the project environment",
+      "percent": 0.0,
+      "unmeasured_files": [],
+      "other_files": [],
+      "functions": [
+        {
+          "path": "src/inventory/shelf.py",
+          "qualname": "<module>",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        },
+        {
+          "path": "src/inventory/shelf.py",
+          "qualname": "shelf_label",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        }
+      ]
+    },
+    "tests_ran": {
+      "tests_ok": true,
+      "summary": {
+        "total": 57,
+        "passed": 57,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0,
+        "new": 2,
+        "new_passed": 2,
+        "skipped_unchanged": []
+      },
+      "findings": []
+    }
+  },
+  "human": [],
+  "fix": null,
+  "judge_verdict": {
+    "criteria": [
+      {
+        "id": "C-70ccb449",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/shelf.py",
+            "quote": "return f\"{shelf_code(aisle, slot)} {stripped}\""
+          },
+          {
+            "kind": "test",
+            "ref": "tests.test_shelf::test_shelf_label_combines_code_and_stripped_name",
+            "quote": "assert shelf_label(3, 7, \" bolts \") == \"A03-S07 bolts\""
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-87d7c93e",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/shelf.py",
+            "quote": "if not stripped:\n        raise ValueError"
+          },
+          {
+            "kind": "test",
+            "ref": "tests.test_shelf::test_shelf_label_rejects_whitespace_only_name",
+            "quote": "with pytest.raises(ValueError):\n        shelf_label(3, 7, \"  \")"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      }
+    ],
+    "test_adequacy": [
+      {
+        "test": "tests.test_shelf::test_shelf_label_combines_code_and_stripped_name",
+        "criterion": "C-70ccb449",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_shelf::test_shelf_label_rejects_whitespace_only_name",
+        "criterion": "C-87d7c93e",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      }
+    ],
+    "findings": [
+      {
+        "severity": "minor",
+        "criterion": "C-87d7c93e",
+        "title": "Invalid position with empty name: which error",
+        "detail": "Name is validated before shelf_code; both raise ValueError, so indistinguishable to callers.",
+        "evidence": [],
+        "suggested_fix": "WHEN the name is empty and the aisle or slot is also below 1 THEN shelf_label raises ValueError for the empty name before shelf_code is evaluated.",
+        "spec_gap": true
+      }
+    ],
+    "riskiest_assumptions": [
+      "Gate report passing tests reflect the committed shelf.py",
+      "shelf_code behaves as shown for (3,7) giving A03-S07",
+      "str.strip semantics match the spec's 'surrounding spaces'"
+    ],
+    "feedback": null
+  },
+  "cx_runs": {},
+  "tests": {
+    "tests.test_alerts::test_low_stock_message_returns_restock_message_below_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_none_at_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_none_above_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_restock_message_at_zero": "passed",
+    "tests.test_alerts::test_low_stock_message_raises_value_error_for_negative_on_hand": "passed",
+    "tests.test_alerts::test_low_stock_message_raises_value_error_for_various_negative_values": "passed",
+    "tests.test_alerts::test_low_stock_message_uses_env_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_defaults_to_5_when_env_not_set": "passed",
+    "tests.test_invoice::test_invoice_line_three_units_amounts": "passed",
+    "tests.test_invoice::test_invoice_line_vat_rounds_half_up": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_qty_above_on_hand": "passed",
+    "tests.test_invoice::test_invoice_line_accepts_qty_equal_to_on_hand": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_sku_never_received": "passed",
+    "tests.test_invoice::test_invoice_line_leaves_ledger_unchanged": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_qty_below_one_before_stock_check": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_negative_price_before_stock_check": "passed",
+    "tests.test_invoice::test_invoice_line_passes_negative_rate_vat_error_through_unchanged": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_rejects_empty_items_before_reading_ledger": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_all_lines_in_item_order": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_rejects_total_of_one_sku_above_stock": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_accepts_split_sku_quantities_within_stock": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_passes_a_bad_line_value_error_through_unchanged": "passed",
+    "tests.test_ledger::test_receive_reports_units_on_hand": "passed",
+    "tests.test_ledger::test_receive_then_ship_reports_remaining_on_hand": "passed",
+    "tests.test_ledger::test_never_received_sku_reports_zero_on_hand": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[0]": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-1]": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-5]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[0]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-1]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-5]": "passed",
+    "tests.test_ledger::test_skus_lists_received_skus_sorted": "passed",
+    "tests.test_ledger::test_ship_above_on_hand_raises_and_keeps_count": "passed",
+    "tests.test_money::test_to_cents": "passed",
+    "tests.test_money::test_to_cents_rejects_a_missing_fraction": "passed",
+    "tests.test_money::test_from_cents_whole_and_fractional_parts": "passed",
+    "tests.test_money::test_from_cents_small_negative_amount": "passed",
+    "tests.test_money::test_from_cents_zero": "passed",
+    "tests.test_reorder::test_stock_below_target_is_topped_up": "passed",
+    "tests.test_reorder::test_stock_at_or_above_target_is_not_ordered": "passed",
+    "tests.test_shelf::test_shelf_code_is_zero_padded": "passed",
+    "tests.test_shelf::test_shelf_code_rejects_aisle_below_one": "passed",
+    "tests.test_shelf::test_shelf_label_combines_code_and_stripped_name": "passed",
+    "tests.test_shelf::test_shelf_label_rejects_whitespace_only_name": "passed",
+    "tests.test_stock::test_units_short": "passed",
+    "tests.test_summary::test_valuation_summary_two_skus_at_ten_percent": "passed",
+    "tests.test_summary::test_valuation_summary_nothing_on_hand": "passed",
+    "tests.test_summary::test_valuation_summary_sku_on_hand_without_price_raises": "passed",
+    "tests.test_summary::test_valuation_summary_currency_after_each_amount": "passed",
+    "tests.test_summary::test_valuation_summary_without_currency_unchanged": "passed",
+    "tests.test_valuation::test_stock_value_two_skus_at_ten_percent": "passed",
+    "tests.test_valuation::test_stock_value_nothing_on_hand": "passed",
+    "tests.test_valuation::test_stock_value_sku_on_hand_without_price_raises": "passed",
+    "tests.test_valuation::test_stock_value_skipped_sku_without_price": "passed",
+    "tests.test_vat::test_vat_cents_rounds_half_up": "passed",
+    "tests.test_vat::test_vat_cents_exact_amount": "passed",
+    "tests.test_vat::test_vat_cents_rejects_negative_inputs": "passed"
+  },
+  "red_green": {
+    "tests.test_shelf::test_shelf_label_combines_code_and_stripped_name": "1.1",
+    "tests.test_shelf::test_shelf_label_rejects_whitespace_only_name": "1.1"
+  },
+  "guards": [],
+  "prompt_sha256": "7cdb463cf051e86eae801c5c0c540642d34e89692385940eb3a56508dee5b512",
+  "template": "judge@7",
+  "harness_commit": "47294b259b623ad0e26860cebdd2ca86660e9642",
+  "judge_calls": 1,
+  "judge_reply": "valid",
+  "judge_replies": {
+    "valid": 1,
+    "repaired": 0,
+    "retried": 0,
+    "discarded": 0
+  },
+  "profiles": {
+    "judge": "claude-judge",
+    "implementer": [
+      "deepseek"
+    ]
+  },
+  "judge_model": "claude-sonnet-5-5",
+  "independence": {
+    "mode": "different_vendor",
+    "status": "declared (unverified)",
+    "verified": false,
+    "judge": {
+      "profile": "claude-judge",
+      "vendor": "anthropic",
+      "model": null,
+      "provenance": "served",
+      "served": "claude-sonnet-5-5"
+    },
+    "implementers": [
+      {
+        "profile": "deepseek",
+        "vendor": "deepseek",
+        "model": "opencode-go/deepseek-v4.1-flash",
+        "provenance": "declared",
+        "served": null
+      }
+    ]
+  },
+  "cost_usd": 0.0311178
+}
