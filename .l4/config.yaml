@@ -1,0 +1,42 @@
+# Written by `l4 init --ci github --action --action-copy`, then set for the delivery-plan scenario on a public repository.
+version: 1
+harness:
+  delivery: action
+spec:
+  frameworks:
+  - openspec
+  - kiro
+gates:
+  setup:
+  - uv sync --frozen
+  test:
+    command: .venv/bin/python -m pytest --junitxml=.l4-out/junit.xml
+  lint: []
+profiles:
+  deepseek:                 # OpenCode Go, key in OPENCODE_API_KEY (L4-PRV-028): the scenario's implementer
+    adapter: opencode
+    model: opencode-go/deepseek-v4.1-flash
+    vendor: deepseek
+    auth: api_key
+  claude-judge:             # CLAUDE_CODE_OAUTH_TOKEN
+    adapter: claude-code
+    auth: subscription
+    vendor: anthropic
+roles:
+  implementer:
+  - deepseek
+  judges:
+  - claude-judge
+forge:
+  type: github
+  token_env: GITHUB_TOKEN
+  base_branch: l4/main      # the integration branch of delivery plans; main is promoted by a person
+  merge_policy: auto        # only units of an active `merge: auto` plan are merged (L4-YOLO-008)
+ci:
+  platform: github
+  runner_tags: []
+  self_provision: true
+  continuation: dispatch
+  time_budget: 21m
+  soft_deadline_margin: 20m
+  upload_artifacts: false   # a public repository: the l4-out artifact (prompts, transcripts) would be downloadable
