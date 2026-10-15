@@ -28,3 +28,5 @@
 {"at":"2026-10-15T05:42:25Z","revision":"1fca646c2401634d93f905b06af557b22ee0e936","type":"unit.integrated","unit":"openspec:add-vat"}
 {"at":"2026-10-15T05:42:25Z","attempt":1,"cost_usd":0.034178,"runs":1,"type":"plan.charged","unit":"openspec:add-vat"}
 {"at":"2026-10-15T05:43:07Z","batch":"w1","profile":"none","revision":"f910360ca811a7d32c3ef97c78681c1b1acd311f","type":"batch.accepted"}
+{"at":"2026-10-15T05:43:45Z","attempt":1,"cost_usd":0.0,"runs":1,"type":"plan.charged","unit":"openspec:add-stock-valuation"}
+{"at":"2026-10-15T05:43:45Z","run":"r-20261015T0543Z-195d","type":"unit.dispatched","unit":"openspec:add-stock-valuation"}
