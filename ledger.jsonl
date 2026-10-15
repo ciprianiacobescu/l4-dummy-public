@@ -53,3 +53,4 @@
 {"at":"2026-10-15T05:54:21Z","attempt":1,"cost_usd":0.0,"runs":1,"type":"plan.charged","unit":"kiro:invoice-lines"}
 {"at":"2026-10-15T05:54:21Z","run":"r-20261015T0554Z-c82b","type":"unit.dispatched","unit":"kiro:invoice-lines"}
 {"at":"2026-10-15T05:58:49Z","head":"43accb443f783bf26e05649650a04a106f9c3911","pr":11,"target_before":"b62dc257440489a36d8f0491e04f33900bafb2a6","type":"unit.merge_requested","unit":"kiro:invoice-lines"}
+{"at":"2026-10-15T05:58:54Z","head":"43accb443f783bf26e05649650a04a106f9c3911","merge_commit":"43accb443f783bf26e05649650a04a106f9c3911","pr":11,"type":"unit.merged","unit":"kiro:invoice-lines"}
