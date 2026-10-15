@@ -1,0 +1,15 @@
+{
+  "confirmed_at": "2026-10-15T05:58:56Z",
+  "integrated_revision": "43accb443f783bf26e05649650a04a106f9c3911",
+  "merge_commit": "43accb443f783bf26e05649650a04a106f9c3911",
+  "plan_digest": "f21bbabe2a3fa4bb",
+  "plan_id": "valuation",
+  "postcheck": "pass",
+  "pr": 11,
+  "receipt_id": "valuation/kiro:invoice-lines/1",
+  "repository": "https://github.com/ciprianiacobescu/l4-dummy-public",
+  "reviewed_head": "43accb443f783bf26e05649650a04a106f9c3911",
+  "spec_digest": "3863f45cab65fafb",
+  "target": "l4/main",
+  "unit_id": "kiro:invoice-lines"
+}
