@@ -1,0 +1,15 @@
+{
+  "confirmed_at": "2026-10-15T09:33:08Z",
+  "integrated_revision": "d6c16abd0eaba6ffe243c4d6b18d57156fcbdc4f",
+  "merge_commit": "d6c16abd0eaba6ffe243c4d6b18d57156fcbdc4f",
+  "plan_digest": "f28da8239a8842e1",
+  "plan_id": "stops-a",
+  "postcheck": "pass",
+  "pr": 19,
+  "receipt_id": "stops-a/openspec:add-discounted-total/1",
+  "repository": "https://github.com/ciprianiacobescu/l4-dummy-public",
+  "reviewed_head": "d6c16abd0eaba6ffe243c4d6b18d57156fcbdc4f",
+  "spec_digest": "8c530ddbbd79f937",
+  "target": "l4/main",
+  "unit_id": "openspec:add-discounted-total"
+}
