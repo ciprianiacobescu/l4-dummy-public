@@ -45,6 +45,4 @@ If the code is right and the scenarios are incomplete, `reject` with a scenario:
 
 ### Answer
 <!-- write below this line -->
-
-### Answer
 reject: the code is right, but no test traces this criterion. Add a test that asserts `pricing.discount.percent_off(250, 100) == 250`.
