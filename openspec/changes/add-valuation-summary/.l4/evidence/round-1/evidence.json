@@ -1,0 +1,86 @@
+{
+  "schema": "l4/evidence@1",
+  "holds": [],
+  "items": {},
+  "scope": {
+    "declared": [
+      "src/inventory/summary.py",
+      "tests",
+      "module inventory"
+    ],
+    "skipped": false,
+    "note": "",
+    "holds": [],
+    "files": [
+      {
+        "path": "openspec/changes/add-valuation-summary/.l4/ledger/r-20261015T0551Z-905c.jsonl",
+        "module": null,
+        "kind": "exempt",
+        "label": null,
+        "reason": "exempt: harness, spec or documentation path"
+      },
+      {
+        "path": "openspec/changes/add-valuation-summary/tasks.md",
+        "module": null,
+        "kind": "exempt",
+        "label": null,
+        "reason": "exempt: harness, spec or documentation path"
+      },
+      {
+        "path": "src/inventory/summary.py",
+        "module": "inventory",
+        "kind": "code",
+        "label": "relevant",
+        "reason": "named in the spec"
+      },
+      {
+        "path": "tests/test_summary.py",
+        "module": null,
+        "kind": "test",
+        "label": "relevant",
+        "reason": "new test file"
+      }
+    ]
+  },
+  "diff_coverage": {
+    "status": "not_run",
+    "reason": "coverage.py is not importable in the project environment",
+    "percent": 0.0,
+    "unmeasured_files": [],
+    "other_files": [],
+    "functions": [
+      {
+        "path": "src/inventory/summary.py",
+        "qualname": "<module>",
+        "status": "not_run",
+        "executable": 0,
+        "executed": 0,
+        "tests": [],
+        "label": null
+      },
+      {
+        "path": "src/inventory/summary.py",
+        "qualname": "valuation_summary",
+        "status": "not_run",
+        "executable": 0,
+        "executed": 0,
+        "tests": [],
+        "label": null
+      }
+    ]
+  },
+  "tests_ran": {
+    "tests_ok": true,
+    "summary": {
+      "total": 48,
+      "passed": 48,
+      "failed": 0,
+      "errored": 0,
+      "skipped": 0,
+      "new": 3,
+      "new_passed": 3,
+      "skipped_unchanged": []
+    },
+    "findings": []
+  }
+}
