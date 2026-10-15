@@ -8,3 +8,7 @@ def to_cents(amount: str) -> int:
         raise ValueError("amount must look like 12.34")
     sign = -1 if whole.startswith("-") else 1
     return sign * (abs(int(whole)) * 100 + int(frac))
+
+
+def from_cents(cents: int) -> str:
+    raise NotImplementedError
