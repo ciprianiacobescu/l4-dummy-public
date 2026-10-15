@@ -2,3 +2,4 @@
 {"ts": "2026-10-15T06:05:59.190773Z", "run_id": "r-20261015T0605Z-3e4e", "unit": "openspec:add-shelf-label", "seq": 2, "type": "phase.changed", "from": "in_review", "to": "merged", "trigger": "pr_merged", "exit_code": 0, "pr": 14, "merge_commit": "ad6ddf2952b040b11be702fdd6f67b7c4781afc7"}
 {"ts": "2026-10-15T06:06:04.851232Z", "run_id": "r-20261015T0605Z-3e4e", "unit": "openspec:add-shelf-label", "seq": 3, "type": "archive.opened", "number": 15, "url": "<forge>/ciprianiacobescu/l4-dummy-public/pull/15", "branch": "l4/archive/openspec/add-shelf-label"}
 {"ts": "2026-10-15T06:06:06.823904Z", "run_id": "r-20261015T0605Z-3e4e", "unit": "openspec:add-shelf-label", "seq": 4, "type": "archive.merged", "head": "8b6155995ad69a23bb666359dc1f6e18adaff456", "number": 15}
+{"ts": "2026-10-15T06:06:08.279776Z", "run_id": "r-20261015T0605Z-3e4e", "unit": "openspec:add-shelf-label", "seq": 5, "type": "run.finished", "exit_code": 0}
