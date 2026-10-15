@@ -32,6 +32,35 @@ def test_invoice_line_vat_rounds_half_up():
     }
 
 
+@pytest.mark.l4("C-1a62d66b")
+def test_invoice_line_rejects_qty_above_on_hand():
+    ledger = StockLedger()
+    ledger.receive("a", 5)
+    with pytest.raises(ValueError):
+        invoice_line(ledger, "a", 6, 250, 10)
+
+
+@pytest.mark.l4("C-a2d99d30")
+def test_invoice_line_accepts_qty_equal_to_on_hand():
+    ledger = StockLedger()
+    ledger.receive("a", 5)
+    result = invoice_line(ledger, "a", 5, 250, 10)
+    assert result == {
+        "sku": "a",
+        "qty": 5,
+        "net": "12.50",
+        "vat": "1.25",
+        "gross": "13.75",
+    }
+
+
+@pytest.mark.l4("C-b100e3f9")
+def test_invoice_line_rejects_sku_never_received():
+    ledger = StockLedger()
+    with pytest.raises(ValueError):
+        invoice_line(ledger, "b", 1, 250, 10)
+
+
 @pytest.mark.l4("C-4c441964", "C-47c7a274")
 def test_invoice_line_leaves_ledger_unchanged():
     ledger = StockLedger()

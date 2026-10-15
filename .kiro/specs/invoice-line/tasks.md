@@ -4,8 +4,8 @@
   - [x] 1.1 Create the billing package and the invoice module with invoice_line returning sku, qty, net, vat and gross, and unit tests
     - _Requirements: 1.1, 1.2, 1.3_
 
-- [ ] 2. Check the stock
-  - [ ] 2.1 Reject a quantity above the count on hand, accept one equal to it, reject a SKU never received, with unit tests
+- [x] 2. Check the stock
+  - [x] 2.1 Reject a quantity above the count on hand, accept one equal to it, reject a SKU never received, with unit tests
     - _Requirements: 2.1, 2.2, 2.3_
 
 - [ ] 3. Check the input
