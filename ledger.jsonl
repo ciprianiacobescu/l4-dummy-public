@@ -80,3 +80,4 @@
 {"at":"2026-10-15T06:08:50Z","detail":"2 gate(s) passed; skipped (not configured): build, lint, typecheck, e2e","profile":"all","revision":"f5ed57abc7f292d442fd581719df2ddbd866adc1","status":"pass","type":"unit.postcheck","unit":"kiro:units-surplus"}
 {"at":"2026-10-15T06:08:50Z","revision":"f5ed57abc7f292d442fd581719df2ddbd866adc1","type":"unit.integrated","unit":"kiro:units-surplus"}
 {"at":"2026-10-15T06:08:50Z","attempt":1,"cost_usd":0.043204,"runs":1,"type":"plan.charged","unit":"kiro:units-surplus"}
+{"at":"2026-10-15T06:09:18Z","batch":"w5","profile":"none","revision":"f5ed57abc7f292d442fd581719df2ddbd866adc1","type":"batch.accepted"}
