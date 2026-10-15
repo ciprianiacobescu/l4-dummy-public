@@ -1,0 +1,15 @@
+{
+  "confirmed_at": "2026-10-15T13:49:09Z",
+  "integrated_revision": "41cd4fee087cfa7270d9a4d8eed679c515564659",
+  "merge_commit": "41cd4fee087cfa7270d9a4d8eed679c515564659",
+  "plan_digest": "a7169fbdd5af8443",
+  "plan_id": "smoke-gh",
+  "postcheck": "pass",
+  "pr": 24,
+  "receipt_id": "smoke-gh/openspec:add-taxed-text/1",
+  "repository": "https://github.com/ciprianiacobescu/l4-dummy-public",
+  "reviewed_head": "41cd4fee087cfa7270d9a4d8eed679c515564659",
+  "spec_digest": "7e40ac8cdab998f1",
+  "target": "l4/main",
+  "unit_id": "openspec:add-taxed-text"
+}
