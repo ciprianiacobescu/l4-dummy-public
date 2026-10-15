@@ -17,3 +17,4 @@
 {"at":"2026-10-15T13:49:09Z","revision":"41cd4fee087cfa7270d9a4d8eed679c515564659","type":"unit.integrated","unit":"openspec:add-taxed-text"}
 {"at":"2026-10-15T13:49:09Z","attempt":1,"cost_usd":0.0399,"runs":1,"type":"plan.charged","unit":"openspec:add-taxed-text"}
 {"at":"2026-10-15T13:49:49Z","batch":"till","profile":"smoke","revision":"75c73418f7f86c57ec61f9464ed4b5a12c619c35","type":"batch.accepted"}
+{"at":"2026-10-15T13:50:19Z","revision":"75c73418f7f86c57ec61f9464ed4b5a12c619c35","type":"plan.completed"}
