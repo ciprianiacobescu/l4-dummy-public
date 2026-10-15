@@ -36,6 +36,8 @@ def invoice_lines(
     rate_percent: int,
 ) -> list[dict]:
     """Every line of an invoice, in the order of the items."""
+    if not items:
+        raise ValueError("items must not be empty")
     return [
         invoice_line(ledger, sku, qty, unit_price_cents, rate_percent)
         for sku, qty, unit_price_cents in items

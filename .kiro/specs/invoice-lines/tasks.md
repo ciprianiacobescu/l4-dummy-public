@@ -4,8 +4,8 @@
   - [x] 1.1 Add invoice_lines calling invoice_line for each item in order, with a unit test
     - _Requirements: 1.1_
 
-- [ ] 2. Reject an empty invoice
-  - [ ] 2.1 Raise ValueError for an empty item list before reading the ledger, with a unit test
+- [x] 2. Reject an empty invoice
+  - [x] 2.1 Raise ValueError for an empty item list before reading the ledger, with a unit test
     - _Requirements: 2.1_
 
 - [ ] 3. Check the stock across lines
