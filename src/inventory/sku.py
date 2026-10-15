@@ -3,4 +3,7 @@
 
 def normalize(sku: str) -> str:
     """Return `sku` with the surrounding spaces removed, in upper case."""
-    raise NotImplementedError
+    normalized = sku.strip().upper()
+    if not normalized:
+        raise ValueError("SKU is empty after removing surrounding spaces")
+    return normalized
