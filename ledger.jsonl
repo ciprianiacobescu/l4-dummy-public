@@ -9,3 +9,5 @@
 {"at":"2026-10-15T07:54:36Z","detail":"the target l4/main (e2de14112f) is not in the unit head","reason":"stale","type":"unit.merge_refused","unit":"openspec:add-percent-off"}
 {"at":"2026-10-15T07:55:02Z","attempt":1,"cost_usd":0.047415,"runs":2,"type":"plan.charged","unit":"openspec:add-percent-off"}
 {"at":"2026-10-15T07:55:02Z","run":"r-20261015T0755Z-7a25","type":"unit.dispatched","unit":"openspec:add-percent-off"}
+{"at":"2026-10-15T07:55:52Z","attempt":1,"cost_usd":0.080227,"runs":2,"type":"plan.charged","unit":"openspec:add-percent-off"}
+{"at":"2026-10-15T07:55:52Z","detail":"the spec of openspec:add-percent-off changed after the activation","reason":"inputs_changed","type":"plan.stopped","unit":"openspec:add-percent-off"}
