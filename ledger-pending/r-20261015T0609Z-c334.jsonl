@@ -1,0 +1,2 @@
+{"ts": "2026-10-15T06:09:13.239562Z", "run_id": "r-20261015T0609Z-c334", "unit": "kiro:units-surplus", "seq": 1, "type": "run.started", "harness_version": "0.3.0", "harness_commit": "47294b259b623ad0e26860cebdd2ca86660e9642", "command": "plan --sweep", "branch": "l4/kiro/units-surplus"}
+{"ts": "2026-10-15T06:09:13.240346Z", "run_id": "r-20261015T0609Z-c334", "unit": "kiro:units-surplus", "seq": 2, "type": "phase.changed", "from": "in_review", "to": "merged", "trigger": "pr_merged", "exit_code": 0, "pr": 16, "merge_commit": "f5ed57abc7f292d442fd581719df2ddbd866adc1"}
