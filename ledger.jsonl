@@ -13,3 +13,6 @@
 {"at":"2026-10-16T20:00:29Z","run":"r-20261016T2000Z-a11e","type":"unit.dispatched","unit":"openspec:add-price-rounding"}
 {"at":"2026-10-16T20:04:39Z","head":"5499395530200c47d9aa70fa4472272290cd78e1","pr":27,"target_before":"1408786a0e39206c1ae307d6395db16c8a99dba6","type":"unit.merge_requested","unit":"openspec:add-price-rounding"}
 {"at":"2026-10-16T20:04:44Z","head":"5499395530200c47d9aa70fa4472272290cd78e1","merge_commit":"5499395530200c47d9aa70fa4472272290cd78e1","pr":27,"type":"unit.merged","unit":"openspec:add-price-rounding"}
+{"at":"2026-10-16T20:04:46Z","detail":"2 gate(s) passed; skipped (not configured): build, lint, typecheck, e2e","profile":"all","revision":"5499395530200c47d9aa70fa4472272290cd78e1","status":"pass","type":"unit.postcheck","unit":"openspec:add-price-rounding"}
+{"at":"2026-10-16T20:04:46Z","revision":"5499395530200c47d9aa70fa4472272290cd78e1","type":"unit.integrated","unit":"openspec:add-price-rounding"}
+{"at":"2026-10-16T20:04:46Z","attempt":1,"cost_usd":0.084821,"runs":1,"type":"plan.charged","unit":"openspec:add-price-rounding"}

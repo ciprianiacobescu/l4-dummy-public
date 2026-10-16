@@ -1,0 +1,15 @@
+{
+  "confirmed_at": "2026-10-16T20:04:46Z",
+  "integrated_revision": "5499395530200c47d9aa70fa4472272290cd78e1",
+  "merge_commit": "5499395530200c47d9aa70fa4472272290cd78e1",
+  "plan_digest": "5829a6d4aaad14dd",
+  "plan_id": "kiro-mix",
+  "postcheck": "pass",
+  "pr": 27,
+  "receipt_id": "kiro-mix/openspec:add-price-rounding/1",
+  "repository": "https://github.com/ciprianiacobescu/l4-dummy-public",
+  "reviewed_head": "5499395530200c47d9aa70fa4472272290cd78e1",
+  "spec_digest": "01f841277c17c462",
+  "target": "l4/main",
+  "unit_id": "openspec:add-price-rounding"
+}
