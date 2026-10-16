@@ -1,0 +1,36 @@
+{
+  "schema": "l4/delivery-plan@1",
+  "plan_id": "kiro-mix",
+  "target": "l4/main",
+  "merge": "auto",
+  "limits": {
+    "max_unit_attempts": 2,
+    "max_runs": 40,
+    "max_cost_usd": 15
+  },
+  "external_dependencies": [],
+  "batches": [
+    {
+      "id": "catalog",
+      "depends_on": [],
+      "units": [
+        {
+          "id": "kiro:sku-catalog",
+          "depends_on": []
+        },
+        {
+          "id": "openspec:add-price-rounding",
+          "depends_on": []
+        },
+        {
+          "id": "kiro:catalog-total",
+          "depends_on": [
+            "kiro:sku-catalog",
+            "openspec:add-price-rounding"
+          ]
+        }
+      ]
+    }
+  ],
+  "exclude": []
+}
