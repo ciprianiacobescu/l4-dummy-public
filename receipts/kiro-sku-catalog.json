@@ -1,0 +1,15 @@
+{
+  "confirmed_at": "2026-10-16T19:59:48Z",
+  "integrated_revision": "1408786a0e39206c1ae307d6395db16c8a99dba6",
+  "merge_commit": "1408786a0e39206c1ae307d6395db16c8a99dba6",
+  "plan_digest": "5829a6d4aaad14dd",
+  "plan_id": "kiro-mix",
+  "postcheck": "pass",
+  "pr": 26,
+  "receipt_id": "kiro-mix/kiro:sku-catalog/1",
+  "repository": "https://github.com/ciprianiacobescu/l4-dummy-public",
+  "reviewed_head": "1408786a0e39206c1ae307d6395db16c8a99dba6",
+  "spec_digest": "bfc5bbe64b79527f",
+  "target": "l4/main",
+  "unit_id": "kiro:sku-catalog"
+}
