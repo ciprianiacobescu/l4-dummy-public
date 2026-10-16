@@ -80,3 +80,13 @@ def test_register_rejects_non_decimal_price(bad_price):
     with pytest.raises(TypeError):
         catalog.register("N-1", bad_price)
     assert catalog.skus() == ["A-1"]
+
+
+@pytest.mark.l4("C-3a97dc52")
+def test_unit_price_of_unknown_sku_raises_key_error_naming_it():
+    catalog = SkuCatalog()
+    catalog.register("A-1", Decimal("2.50"))
+    with pytest.raises(KeyError) as excinfo:
+        catalog.unit_price("Z-9")
+    assert "Z-9" in str(excinfo.value)
+    assert catalog.unit_price("A-1") == Decimal("2.50")
