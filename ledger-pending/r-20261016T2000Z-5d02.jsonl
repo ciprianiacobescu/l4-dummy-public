@@ -1,2 +1,3 @@
 {"ts": "2026-10-16T20:00:19.813324Z", "run_id": "r-20261016T2000Z-5d02", "unit": "kiro:sku-catalog", "seq": 1, "type": "run.started", "harness_version": "0.4.5", "harness_commit": "f6a0132a3a1e22903561c0d41424f35bae1375ba", "command": "plan --sweep", "branch": "l4/kiro/sku-catalog"}
 {"ts": "2026-10-16T20:00:19.814003Z", "run_id": "r-20261016T2000Z-5d02", "unit": "kiro:sku-catalog", "seq": 2, "type": "phase.changed", "from": "in_review", "to": "merged", "trigger": "pr_merged", "exit_code": 0, "pr": 26, "merge_commit": "1408786a0e39206c1ae307d6395db16c8a99dba6"}
+{"ts": "2026-10-16T20:00:21.455393Z", "run_id": "r-20261016T2000Z-5d02", "unit": "kiro:sku-catalog", "seq": 3, "type": "archive.done", "via": "done_gate", "base": "1408786a0e39206c1ae307d6395db16c8a99dba6"}
