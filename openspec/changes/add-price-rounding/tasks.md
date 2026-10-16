@@ -7,4 +7,4 @@
 ## 2. Bad amounts
 
 - [x] 2.1 Raise `TypeError` from `round_cents` for an amount that is not a `decimal.Decimal`
-- [ ] 2.2 Raise `ValueError` from `round_cents` for a non-finite `decimal.Decimal` (`NaN`, `Infinity`)
+- [x] 2.2 Raise `ValueError` from `round_cents` for a non-finite `decimal.Decimal` (`NaN`, `Infinity`)

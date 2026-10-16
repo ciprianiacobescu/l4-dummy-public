@@ -100,3 +100,21 @@ def test_int_bool_str_amounts_are_rejected_with_type_error():
         round_cents(True)
     with pytest.raises(TypeError):
         round_cents("0.125")
+
+
+@pytest.mark.l4("C-5948ccfa")
+def test_nan_amounts_are_rejected_with_value_error():
+    assert round_cents(Decimal("2.50")) == 250
+    with pytest.raises(ValueError):
+        round_cents(Decimal("NaN"))
+    with pytest.raises(ValueError):
+        round_cents(Decimal("sNaN"))
+
+
+@pytest.mark.l4("C-89184fc1")
+def test_infinite_amounts_are_rejected_with_value_error():
+    assert round_cents(Decimal("2.50")) == 250
+    with pytest.raises(ValueError):
+        round_cents(Decimal("Infinity"))
+    with pytest.raises(ValueError):
+        round_cents(Decimal("-Infinity"))
