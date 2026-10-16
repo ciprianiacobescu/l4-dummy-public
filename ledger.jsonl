@@ -20,3 +20,6 @@
 {"at":"2026-10-16T20:05:34Z","run":"r-20261016T2005Z-ae86","type":"unit.dispatched","unit":"kiro:catalog-total"}
 {"at":"2026-10-16T20:09:57Z","head":"84e495e977eb7c6a5109a78777499ee5dc57683b","pr":29,"target_before":"d6abab89932b73de552a6893e865740b7d69e24a","type":"unit.merge_requested","unit":"kiro:catalog-total"}
 {"at":"2026-10-16T20:10:01Z","head":"84e495e977eb7c6a5109a78777499ee5dc57683b","merge_commit":"84e495e977eb7c6a5109a78777499ee5dc57683b","pr":29,"type":"unit.merged","unit":"kiro:catalog-total"}
+{"at":"2026-10-16T20:10:03Z","detail":"2 gate(s) passed; skipped (not configured): build, lint, typecheck, e2e","profile":"all","revision":"84e495e977eb7c6a5109a78777499ee5dc57683b","status":"pass","type":"unit.postcheck","unit":"kiro:catalog-total"}
+{"at":"2026-10-16T20:10:03Z","revision":"84e495e977eb7c6a5109a78777499ee5dc57683b","type":"unit.integrated","unit":"kiro:catalog-total"}
+{"at":"2026-10-16T20:10:03Z","attempt":1,"cost_usd":0.081358,"runs":1,"type":"plan.charged","unit":"kiro:catalog-total"}
