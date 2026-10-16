@@ -9,3 +9,5 @@
 {"at":"2026-10-16T19:59:48Z","detail":"2 gate(s) passed; skipped (not configured): build, lint, typecheck, e2e","profile":"all","revision":"1408786a0e39206c1ae307d6395db16c8a99dba6","status":"pass","type":"unit.postcheck","unit":"kiro:sku-catalog"}
 {"at":"2026-10-16T19:59:48Z","revision":"1408786a0e39206c1ae307d6395db16c8a99dba6","type":"unit.integrated","unit":"kiro:sku-catalog"}
 {"at":"2026-10-16T19:59:48Z","attempt":1,"cost_usd":0.08889,"runs":1,"type":"plan.charged","unit":"kiro:sku-catalog"}
+{"at":"2026-10-16T20:00:29Z","attempt":1,"cost_usd":0.0,"runs":1,"type":"plan.charged","unit":"openspec:add-price-rounding"}
+{"at":"2026-10-16T20:00:29Z","run":"r-20261016T2000Z-a11e","type":"unit.dispatched","unit":"openspec:add-price-rounding"}
