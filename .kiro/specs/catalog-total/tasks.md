@@ -7,7 +7,7 @@
     - _Requirements: 2.1_
 
 - [ ] 2. Reject bad orders
-  - [ ] 2.1 Check every quantity before calling the catalog: TypeError for a non-int or bool, ValueError below 1, each naming the SKU, with unit tests
+  - [x] 2.1 Check every quantity before calling the catalog: TypeError for a non-int or bool, ValueError below 1, each naming the SKU, with unit tests
     - _Requirements: 3.1, 3.2_
   - [ ] 2.2 Let the KeyError of unit_price for an unknown SKU through unchanged, with a unit test
     - _Requirements: 4.1_
