@@ -2,7 +2,7 @@
 
 ## 1. Half-up rounding
 
-- [ ] 1.1 Add `pricing.rounding.round_cents(amount)` returning whole cents with ties away from zero (`decimal.ROUND_HALF_UP`)
+- [x] 1.1 Add `pricing.rounding.round_cents(amount)` returning whole cents with ties away from zero (`decimal.ROUND_HALF_UP`)
 
 ## 2. Bad amounts
 
