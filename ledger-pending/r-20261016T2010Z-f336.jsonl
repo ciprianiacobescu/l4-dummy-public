@@ -1,0 +1,2 @@
+{"ts": "2026-10-16T20:10:29.057061Z", "run_id": "r-20261016T2010Z-f336", "unit": "kiro:catalog-total", "seq": 1, "type": "run.started", "harness_version": "0.4.5", "harness_commit": "f6a0132a3a1e22903561c0d41424f35bae1375ba", "command": "plan --sweep", "branch": "l4/kiro/catalog-total"}
+{"ts": "2026-10-16T20:10:29.058102Z", "run_id": "r-20261016T2010Z-f336", "unit": "kiro:catalog-total", "seq": 2, "type": "phase.changed", "from": "in_review", "to": "merged", "trigger": "pr_merged", "exit_code": 0, "pr": 29, "merge_commit": "84e495e977eb7c6a5109a78777499ee5dc57683b"}
