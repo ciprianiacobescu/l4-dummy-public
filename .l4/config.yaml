@@ -18,6 +18,11 @@ profiles:
     model: opencode-go/deepseek-v4.1-flash
     vendor: deepseek
     auth: api_key
+  glm:                      # OpenCode Go, the same OPENCODE_API_KEY: the second implementer after deepseek
+    adapter: opencode
+    model: opencode-go/glm-5.3-flash
+    vendor: zhipu
+    auth: api_key
   claude-judge:             # CLAUDE_CODE_OAUTH_TOKEN
     adapter: claude-code
     auth: subscription
@@ -25,6 +30,7 @@ profiles:
 roles:
   implementer:
   - deepseek
+  - glm
   judges:
   - claude-judge
 forge:
