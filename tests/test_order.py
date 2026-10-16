@@ -48,3 +48,11 @@ def test_non_int_or_bool_quantity_raises_type_error_naming_sku(bad_qty):
     with pytest.raises(TypeError) as excinfo:
         order_total_cents(_NoCallCatalog(), [("A-1", bad_qty)])
     assert "A-1" in str(excinfo.value)
+
+
+@pytest.mark.l4("C-b54f3b47")
+def test_unknown_sku_lets_the_key_error_through_unchanged(sku_catalog: SkuCatalog):
+    with pytest.raises(KeyError) as excinfo:
+        order_total_cents(sku_catalog, [("A-1", 1), ("Z-9", 1)])
+    assert excinfo.value.args == ("Z-9",)
+    assert "Z-9" in str(excinfo.value)
