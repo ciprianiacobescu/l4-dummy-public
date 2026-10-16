@@ -1,0 +1,799 @@
+{
+  "schema": "l4/verdict@1",
+  "round": 1,
+  "verdict": "PASS",
+  "base_sha": "d6abab89932b73de552a6893e865740b7d69e24a",
+  "head_sha": "1e803010f84e4229e227e44d4320be93731e65b8",
+  "steps": [
+    {
+      "step": "0",
+      "name": "preconditions",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "base l4/main@d6abab8993 contained"
+    },
+    {
+      "step": "1",
+      "name": "integrity",
+      "status": "ok",
+      "seconds": 0.1,
+      "note": "7 sub-checks; scope: 4 changed file(s)"
+    },
+    {
+      "step": "2",
+      "name": "build",
+      "status": "ok",
+      "seconds": 0.1,
+      "note": ""
+    },
+    {
+      "step": "3",
+      "name": "tests",
+      "status": "ok",
+      "seconds": 0.7,
+      "note": ""
+    },
+    {
+      "step": "4",
+      "name": "traceability",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "7/7 criteria covered"
+    },
+    {
+      "step": "4a",
+      "name": "audit sampling",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "roles.verifier_agent is empty"
+    },
+    {
+      "step": "5",
+      "name": "ui test generation",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "verifier.playwright.enabled is off"
+    },
+    {
+      "step": "6",
+      "name": "quality",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "diff coverage not measured: coverage.py is not importable in the project environment"
+    },
+    {
+      "step": "8",
+      "name": "s1 judge",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "roles.s1_judge is empty"
+    },
+    {
+      "step": "9",
+      "name": "judge",
+      "status": "ok",
+      "seconds": 10.9,
+      "note": "1 call(s)"
+    },
+    {
+      "step": "10",
+      "name": "aggregation",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "PASS"
+    }
+  ],
+  "gates": [
+    {
+      "name": "setup",
+      "command": "uv sync --frozen",
+      "status": "pass",
+      "reason": "",
+      "log": ".l4-out/gates/r-20261016T2005Z-ae86/026-setup.log",
+      "digest": null
+    },
+    {
+      "name": "test",
+      "command": ".venv/bin/python -m pytest --junitxml=.l4-out/junit.xml",
+      "status": "pass",
+      "reason": "",
+      "log": ".l4-out/gates/r-20261016T2005Z-ae86/027-test.log",
+      "digest": null
+    }
+  ],
+  "criteria": [
+    {
+      "id": "C-195630bc",
+      "alias": "Req 1.1",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_order::test_order_total_sums_and_rounds_once"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-33b6327b",
+      "alias": "Req 1.2",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_order::test_order_total_rounds_sum_not_each_item"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-eb22bf33",
+      "alias": "Req 1.3",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_order::test_order_total_single_item"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-5511b8fe",
+      "alias": "Req 2.1",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_order::test_empty_order_returns_zero_without_calling_catalog"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-0559ea74",
+      "alias": "Req 3.1",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_order::test_quantity_below_one_raises_value_error_naming_sku[-1]",
+        "tests.test_order::test_quantity_below_one_raises_value_error_naming_sku[0]"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-cdb7a4f0",
+      "alias": "Req 3.2",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_order::test_non_int_or_bool_quantity_raises_type_error_naming_sku[1.5]",
+        "tests.test_order::test_non_int_or_bool_quantity_raises_type_error_naming_sku[True]"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-b54f3b47",
+      "alias": "Req 4.1",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_order::test_unknown_sku_lets_the_key_error_through_unchanged"
+      ],
+      "s1_p": null
+    }
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "title": "Mixed bad quantities ordering unpinned",
+      "detail": "When a TypeError qty and a ValueError qty occur in different items, the first in item order raises; the spec says in order of items, which the code does.",
+      "source": "judge",
+      "criterion": "C-0559ea74",
+      "log": null,
+      "spec_gap": true,
+      "suggested_fix": "WHEN several items have bad quantities THEN the code raises for the first bad item in the order of items.",
+      "id": "F-fa570d61",
+      "feedback": null
+    }
+  ],
+  "holds": [],
+  "subject_sha": "1e803010f84e4229e227e44d4320be93731e65b8",
+  "family_criteria": [
+    "C-195630bc",
+    "C-33b6327b",
+    "C-eb22bf33",
+    "C-5511b8fe",
+    "C-0559ea74",
+    "C-cdb7a4f0",
+    "C-b54f3b47"
+  ],
+  "reused_from": null,
+  "integrity": {
+    "checks": [
+      {
+        "name": "protected paths",
+        "status": "ok",
+        "note": "no protected path differs from the base"
+      },
+      {
+        "name": "pre-existing tests",
+        "status": "ok",
+        "note": "1 test file(s) compared with the base"
+      },
+      {
+        "name": "red-green freeze",
+        "status": "ok",
+        "note": "1 task(s): red and green compared"
+      },
+      {
+        "name": "test path freeze",
+        "status": "ok",
+        "note": "1 harness step commit(s) checked"
+      },
+      {
+        "name": "content scan",
+        "status": "ok",
+        "note": "no result-manipulating construct in the changed support and runner files"
+      },
+      {
+        "name": "suppressions",
+        "status": "skipped",
+        "note": "no new suppression comment"
+      },
+      {
+        "name": "tdd history",
+        "status": "ok",
+        "note": "4 task(s); red tests passing at head: step 3"
+      }
+    ],
+    "findings": [],
+    "declared": [],
+    "human_protected": [],
+    "human_tests": [],
+    "unfrozen": [],
+    "human_suppressions": [],
+    "human_scan": []
+  },
+  "trace": [
+    {
+      "criterion": "C-195630bc",
+      "alias": "Req 1.1",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_order::test_order_total_sums_and_rounds_once",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-33b6327b",
+      "alias": "Req 1.2",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_order::test_order_total_rounds_sum_not_each_item",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-eb22bf33",
+      "alias": "Req 1.3",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_order::test_order_total_single_item",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-5511b8fe",
+      "alias": "Req 2.1",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_order::test_empty_order_returns_zero_without_calling_catalog",
+          "status": "passed",
+          "proof": "pre_satisfied",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-0559ea74",
+      "alias": "Req 3.1",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_order::test_quantity_below_one_raises_value_error_naming_sku[-1]",
+          "status": "passed",
+          "proof": "pre_satisfied",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_order::test_quantity_below_one_raises_value_error_naming_sku[0]",
+          "status": "passed",
+          "proof": "pre_satisfied",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-cdb7a4f0",
+      "alias": "Req 3.2",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_order::test_non_int_or_bool_quantity_raises_type_error_naming_sku[1.5]",
+          "status": "passed",
+          "proof": "pre_satisfied",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_order::test_non_int_or_bool_quantity_raises_type_error_naming_sku[True]",
+          "status": "passed",
+          "proof": "pre_satisfied",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-b54f3b47",
+      "alias": "Req 4.1",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_order::test_unknown_sku_lets_the_key_error_through_unchanged",
+          "status": "passed",
+          "proof": "pre_satisfied",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    }
+  ],
+  "audit": [],
+  "generated": [],
+  "s1": [],
+  "evidence": {
+    "schema": "l4/evidence@1",
+    "holds": [],
+    "items": {},
+    "scope": {
+      "declared": [
+        "src/billing/order.py",
+        "tests/test_order.py",
+        "module billing",
+        "module pricing",
+        "module tests"
+      ],
+      "skipped": false,
+      "note": "",
+      "holds": [],
+      "files": [
+        {
+          "path": ".kiro/specs/catalog-total/.l4/ledger/r-20261016T2005Z-ae86.jsonl",
+          "module": null,
+          "kind": "exempt",
+          "label": null,
+          "reason": "exempt: harness, spec or documentation path"
+        },
+        {
+          "path": ".kiro/specs/catalog-total/tasks.md",
+          "module": null,
+          "kind": "exempt",
+          "label": null,
+          "reason": "exempt: harness, spec or documentation path"
+        },
+        {
+          "path": "src/billing/order.py",
+          "module": "billing",
+          "kind": "code",
+          "label": "relevant",
+          "reason": "named in the spec"
+        },
+        {
+          "path": "tests/test_order.py",
+          "module": null,
+          "kind": "test",
+          "label": "relevant",
+          "reason": "new test file"
+        }
+      ]
+    },
+    "diff_coverage": {
+      "status": "not_run",
+      "reason": "coverage.py is not importable in the project environment",
+      "percent": 0.0,
+      "unmeasured_files": [],
+      "other_files": [],
+      "functions": [
+        {
+          "path": "src/billing/order.py",
+          "qualname": "<module>",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        },
+        {
+          "path": "src/billing/order.py",
+          "qualname": "order_total_cents",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        }
+      ]
+    },
+    "tests_ran": {
+      "tests_ok": true,
+      "summary": {
+        "total": 113,
+        "passed": 113,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0,
+        "new": 9,
+        "new_passed": 9,
+        "skipped_unchanged": []
+      },
+      "findings": []
+    }
+  },
+  "human": [],
+  "fix": null,
+  "judge_verdict": {
+    "criteria": [
+      {
+        "id": "C-195630bc",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "test",
+            "ref": "tests.test_order::test_order_total_sums_and_rounds_once",
+            "quote": "== 538"
+          }
+        ],
+        "reasoning": "2*2.50+3*0.125=5.375 exact Decimal, round_cents -> 538.",
+        "counterexample": null
+      },
+      {
+        "id": "C-33b6327b",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/billing/order.py",
+            "quote": "total += qty * catalog.unit_price(sku)\n    return round_cents(total)"
+          }
+        ],
+        "reasoning": "Rounds once on sum 0.250 -> 25.",
+        "counterexample": null
+      },
+      {
+        "id": "C-eb22bf33",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "test",
+            "ref": "tests.test_order::test_order_total_single_item",
+            "quote": "== 250"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-5511b8fe",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/billing/order.py",
+            "quote": "total = Decimal(\"0\")"
+          },
+          {
+            "kind": "test",
+            "ref": "tests.test_order::test_empty_order_returns_zero_without_calling_catalog",
+            "quote": "order_total_cents(_NoCallCatalog(), []) == 0"
+          }
+        ],
+        "reasoning": "Empty loop, no catalog call; round_cents(Decimal 0) gives 0.",
+        "counterexample": null
+      },
+      {
+        "id": "C-0559ea74",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/billing/order.py",
+            "quote": "raise ValueError(f\"quantity of {sku} must be at least 1: {qty}\")"
+          }
+        ],
+        "reasoning": "Validation loop precedes catalog calls; message names SKU.",
+        "counterexample": null
+      },
+      {
+        "id": "C-cdb7a4f0",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/billing/order.py",
+            "quote": "if isinstance(qty, bool) or not isinstance(qty, int):"
+          }
+        ],
+        "reasoning": "TypeError names SKU before catalog use.",
+        "counterexample": null
+      },
+      {
+        "id": "C-b54f3b47",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "test",
+            "ref": "tests.test_order::test_unknown_sku_lets_the_key_error_through_unchanged",
+            "quote": "excinfo.value.args == (\"Z-9\",)"
+          }
+        ],
+        "reasoning": "KeyError not caught.",
+        "counterexample": null
+      }
+    ],
+    "test_adequacy": [
+      {
+        "test": "tests.test_order::test_empty_order_returns_zero_without_calling_catalog",
+        "criterion": "C-5511b8fe",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_order::test_quantity_below_one_raises_value_error_naming_sku",
+        "criterion": "C-0559ea74",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_order::test_non_int_or_bool_quantity_raises_type_error_naming_sku",
+        "criterion": "C-cdb7a4f0",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_order::test_unknown_sku_lets_the_key_error_through_unchanged",
+        "criterion": "C-b54f3b47",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      }
+    ],
+    "findings": [
+      {
+        "severity": "minor",
+        "criterion": "C-0559ea74",
+        "title": "Mixed bad quantities ordering unpinned",
+        "detail": "When a TypeError qty and a ValueError qty occur in different items, the first in item order raises; the spec says in order of items, which the code does.",
+        "evidence": [],
+        "suggested_fix": "WHEN several items have bad quantities THEN the code raises for the first bad item in the order of items.",
+        "spec_gap": true
+      }
+    ],
+    "riskiest_assumptions": [
+      "round_cents(Decimal('0')) returns 0 as an int",
+      "The sku_catalog fixture matches the described prices",
+      "Decimal * int multiplication yields exact results under default context"
+    ],
+    "feedback": null,
+    "accepted": null
+  },
+  "cx_runs": {},
+  "tests": {
+    "tests.test_alerts::test_low_stock_message_returns_restock_message_below_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_none_at_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_none_above_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_restock_message_at_zero": "passed",
+    "tests.test_alerts::test_low_stock_message_raises_value_error_for_negative_on_hand": "passed",
+    "tests.test_alerts::test_low_stock_message_raises_value_error_for_various_negative_values": "passed",
+    "tests.test_alerts::test_low_stock_message_uses_env_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_defaults_to_5_when_env_not_set": "passed",
+    "tests.test_catalog::test_register_and_look_up_a_price": "passed",
+    "tests.test_catalog::test_register_keeps_sub_cent_price_exact": "passed",
+    "tests.test_catalog::test_register_accepts_zero_price": "passed",
+    "tests.test_catalog::test_skus_are_sorted_and_new_catalog_is_empty": "passed",
+    "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price0]": "passed",
+    "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price1]": "passed",
+    "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price2]": "passed",
+    "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price3]": "passed",
+    "tests.test_catalog::test_register_rejects_duplicate_sku_and_keeps_first_price": "passed",
+    "tests.test_catalog::test_register_rejects_blank_sku[]": "passed",
+    "tests.test_catalog::test_register_rejects_blank_sku[   ]": "passed",
+    "tests.test_catalog::test_register_rejects_blank_sku[\\t]": "passed",
+    "tests.test_catalog::test_register_rejects_non_decimal_price[2.5]": "passed",
+    "tests.test_catalog::test_register_rejects_non_decimal_price[250]": "passed",
+    "tests.test_catalog::test_register_rejects_non_decimal_price[2.50]": "passed",
+    "tests.test_catalog::test_unit_price_of_unknown_sku_raises_key_error_naming_it": "passed",
+    "tests.test_catalog::test_sku_catalog_fixture_provides_shared_prices": "passed",
+    "tests.test_discount::test_percent_off_rounds_half_up": "passed",
+    "tests.test_discount::test_percent_off_nothing_off": "passed",
+    "tests.test_discount::test_percent_off_rejects_percent_above_100": "passed",
+    "tests.test_discount::test_percent_off_everything_off": "passed",
+    "tests.test_discount::test_discounted_total_two_lines_at_15_percent": "passed",
+    "tests.test_discount::test_discounted_total_empty_basket": "passed",
+    "tests.test_discount::test_discounted_total_empty_basket_rejects_percent_above_100": "passed",
+    "tests.test_discount::test_taxed_total_two_lines_at_15_percent_with_19_percent_vat": "passed",
+    "tests.test_discount::test_taxed_total_empty_basket_and_single_line": "passed",
+    "tests.test_discount::test_taxed_total_text_two_lines_at_15_percent_with_19_percent_vat": "passed",
+    "tests.test_discount::test_taxed_total_text_empty_basket": "passed",
+    "tests.test_invoice::test_invoice_line_three_units_amounts": "passed",
+    "tests.test_invoice::test_invoice_line_vat_rounds_half_up": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_qty_above_on_hand": "passed",
+    "tests.test_invoice::test_invoice_line_accepts_qty_equal_to_on_hand": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_sku_never_received": "passed",
+    "tests.test_invoice::test_invoice_line_leaves_ledger_unchanged": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_qty_below_one_before_stock_check": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_negative_price_before_stock_check": "passed",
+    "tests.test_invoice::test_invoice_line_passes_negative_rate_vat_error_through_unchanged": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_rejects_empty_items_before_reading_ledger": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_all_lines_in_item_order": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_rejects_total_of_one_sku_above_stock": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_accepts_split_sku_quantities_within_stock": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_passes_a_bad_line_value_error_through_unchanged": "passed",
+    "tests.test_ledger::test_receive_reports_units_on_hand": "passed",
+    "tests.test_ledger::test_receive_then_ship_reports_remaining_on_hand": "passed",
+    "tests.test_ledger::test_never_received_sku_reports_zero_on_hand": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[0]": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-1]": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-5]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[0]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-1]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-5]": "passed",
+    "tests.test_ledger::test_skus_lists_received_skus_sorted": "passed",
+    "tests.test_ledger::test_ship_above_on_hand_raises_and_keeps_count": "passed",
+    "tests.test_money::test_to_cents": "passed",
+    "tests.test_money::test_to_cents_rejects_a_missing_fraction": "passed",
+    "tests.test_money::test_from_cents_whole_and_fractional_parts": "passed",
+    "tests.test_money::test_from_cents_small_negative_amount": "passed",
+    "tests.test_money::test_from_cents_zero": "passed",
+    "tests.test_order::test_order_total_sums_and_rounds_once": "passed",
+    "tests.test_order::test_order_total_rounds_sum_not_each_item": "passed",
+    "tests.test_order::test_order_total_single_item": "passed",
+    "tests.test_order::test_empty_order_returns_zero_without_calling_catalog": "passed",
+    "tests.test_order::test_quantity_below_one_raises_value_error_naming_sku[0]": "passed",
+    "tests.test_order::test_quantity_below_one_raises_value_error_naming_sku[-1]": "passed",
+    "tests.test_order::test_non_int_or_bool_quantity_raises_type_error_naming_sku[1.5]": "passed",
+    "tests.test_order::test_non_int_or_bool_quantity_raises_type_error_naming_sku[True]": "passed",
+    "tests.test_order::test_unknown_sku_lets_the_key_error_through_unchanged": "passed",
+    "tests.test_reorder::test_stock_below_target_is_topped_up": "passed",
+    "tests.test_reorder::test_stock_at_or_above_target_is_not_ordered": "passed",
+    "tests.test_rounding::test_tie_rounds_up": "passed",
+    "tests.test_rounding::test_below_a_tie_rounds_down": "passed",
+    "tests.test_rounding::test_sum_of_fine_prices": "passed",
+    "tests.test_rounding::test_whole_cents_stay": "passed",
+    "tests.test_rounding::test_negative_tie_rounds_away_from_zero": "passed",
+    "tests.test_rounding::test_zero": "passed",
+    "tests.test_rounding::test_negative_amount_below_a_tie": "passed",
+    "tests.test_rounding::test_context_rounding_mode_does_not_matter": "passed",
+    "tests.test_rounding::test_float_raises_type_error": "passed",
+    "tests.test_rounding::test_int_bool_str_raise_type_error": "passed",
+    "tests.test_rounding::test_nan_raises_value_error": "passed",
+    "tests.test_rounding::test_infinity_raises_value_error": "passed",
+    "tests.test_rounding::test_float_amount_is_rejected_with_type_error": "passed",
+    "tests.test_rounding::test_int_bool_str_amounts_are_rejected_with_type_error": "passed",
+    "tests.test_rounding::test_nan_amounts_are_rejected_with_value_error": "passed",
+    "tests.test_rounding::test_infinite_amounts_are_rejected_with_value_error": "passed",
+    "tests.test_shelf::test_shelf_code_is_zero_padded": "passed",
+    "tests.test_shelf::test_shelf_code_rejects_aisle_below_one": "passed",
+    "tests.test_shelf::test_shelf_label_combines_code_and_stripped_name": "passed",
+    "tests.test_shelf::test_shelf_label_rejects_whitespace_only_name": "passed",
+    "tests.test_stock::test_units_short": "passed",
+    "tests.test_summary::test_valuation_summary_two_skus_at_ten_percent": "passed",
+    "tests.test_summary::test_valuation_summary_nothing_on_hand": "passed",
+    "tests.test_summary::test_valuation_summary_sku_on_hand_without_price_raises": "passed",
+    "tests.test_summary::test_valuation_summary_currency_after_each_amount": "passed",
+    "tests.test_summary::test_valuation_summary_without_currency_unchanged": "passed",
+    "tests.test_surplus::test_units_surplus_returns_remainder": "passed",
+    "tests.test_surplus::test_units_surplus_is_zero_when_wanted_at_least_on_hand": "passed",
+    "tests.test_surplus::test_units_surplus_rejects_negative_counts": "passed",
+    "tests.test_valuation::test_stock_value_two_skus_at_ten_percent": "passed",
+    "tests.test_valuation::test_stock_value_nothing_on_hand": "passed",
+    "tests.test_valuation::test_stock_value_sku_on_hand_without_price_raises": "passed",
+    "tests.test_valuation::test_stock_value_skipped_sku_without_price": "passed",
+    "tests.test_vat::test_vat_cents_rounds_half_up": "passed",
+    "tests.test_vat::test_vat_cents_exact_amount": "passed",
+    "tests.test_vat::test_vat_cents_rejects_negative_inputs": "passed"
+  },
+  "red_green": {
+    "tests.test_order::test_order_total_rounds_sum_not_each_item": "1.1",
+    "tests.test_order::test_order_total_single_item": "1.1",
+    "tests.test_order::test_order_total_sums_and_rounds_once": "1.1",
+    "tests.test_order::test_empty_order_returns_zero_without_calling_catalog": "1.2",
+    "tests.test_order::test_non_int_or_bool_quantity_raises_type_error_naming_sku[1.5]": "2.1",
+    "tests.test_order::test_non_int_or_bool_quantity_raises_type_error_naming_sku[True]": "2.1",
+    "tests.test_order::test_quantity_below_one_raises_value_error_naming_sku[-1]": "2.1",
+    "tests.test_order::test_quantity_below_one_raises_value_error_naming_sku[0]": "2.1",
+    "tests.test_order::test_unknown_sku_lets_the_key_error_through_unchanged": "2.2"
+  },
+  "guards": [],
+  "prompt_sha256": "c742b7d6ffebabcc9609a6d335e3bce3f5c49c6c8582d00dcdc156a6212eb2de",
+  "template": "judge@8",
+  "harness_commit": "f6a0132a3a1e22903561c0d41424f35bae1375ba",
+  "judge_calls": 1,
+  "judge_reply": "valid",
+  "judge_replies": {
+    "valid": 1,
+    "repaired": 0,
+    "retried": 0,
+    "discarded": 0
+  },
+  "profiles": {
+    "judge": "claude-judge",
+    "implementer": [
+      "deepseek"
+    ]
+  },
+  "judge_model": "claude-sonnet-5-5",
+  "independence": {
+    "mode": "different_vendor",
+    "status": "declared (unverified)",
+    "verified": false,
+    "judge": {
+      "profile": "claude-judge",
+      "vendor": "anthropic",
+      "model": null,
+      "provenance": "served",
+      "served": "claude-sonnet-5-5"
+    },
+    "implementers": [
+      {
+        "profile": "deepseek",
+        "vendor": "deepseek",
+        "model": "opencode-go/deepseek-v4.1-flash",
+        "provenance": "declared",
+        "served": null
+      }
+    ]
+  },
+  "cost_usd": 0.05928460000000001
+}
