@@ -82,3 +82,21 @@ def test_infinity_raises_value_error():
         round_cents(Decimal("Infinity"))
     with pytest.raises(ValueError):
         round_cents(Decimal("-Infinity"))
+
+
+@pytest.mark.l4("C-e03de5d9")
+def test_float_amount_is_rejected_with_type_error():
+    assert round_cents(Decimal("0.125")) == 13
+    with pytest.raises(TypeError):
+        round_cents(0.125)
+
+
+@pytest.mark.l4("C-67550744")
+def test_int_bool_str_amounts_are_rejected_with_type_error():
+    assert round_cents(Decimal("12.34")) == 1234
+    with pytest.raises(TypeError):
+        round_cents(250)
+    with pytest.raises(TypeError):
+        round_cents(True)
+    with pytest.raises(TypeError):
+        round_cents("0.125")
