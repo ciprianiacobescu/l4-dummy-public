@@ -1,0 +1,1036 @@
+{
+  "schema": "l4/verdict@1",
+  "round": 1,
+  "verdict": "PASS",
+  "base_sha": "1408786a0e39206c1ae307d6395db16c8a99dba6",
+  "head_sha": "ca68b9f77ef0588268ef850a578d84d8fb70faf3",
+  "steps": [
+    {
+      "step": "0",
+      "name": "preconditions",
+      "status": "ok",
+      "seconds": 0.4,
+      "note": "base l4/main@1408786a0e contained"
+    },
+    {
+      "step": "1",
+      "name": "integrity",
+      "status": "ok",
+      "seconds": 0.1,
+      "note": "7 sub-checks; scope: 4 changed file(s)"
+    },
+    {
+      "step": "2",
+      "name": "build",
+      "status": "ok",
+      "seconds": 0.1,
+      "note": ""
+    },
+    {
+      "step": "3",
+      "name": "tests",
+      "status": "ok",
+      "seconds": 0.7,
+      "note": ""
+    },
+    {
+      "step": "4",
+      "name": "traceability",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "12/12 criteria covered"
+    },
+    {
+      "step": "4a",
+      "name": "audit sampling",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "roles.verifier_agent is empty"
+    },
+    {
+      "step": "5",
+      "name": "ui test generation",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "verifier.playwright.enabled is off"
+    },
+    {
+      "step": "6",
+      "name": "quality",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "diff coverage not measured: coverage.py is not importable in the project environment"
+    },
+    {
+      "step": "8",
+      "name": "s1 judge",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "roles.s1_judge is empty"
+    },
+    {
+      "step": "9",
+      "name": "judge",
+      "status": "ok",
+      "seconds": 8.5,
+      "note": "1 call(s)"
+    },
+    {
+      "step": "10",
+      "name": "aggregation",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "PASS"
+    }
+  ],
+  "gates": [
+    {
+      "name": "setup",
+      "command": "uv sync --frozen",
+      "status": "pass",
+      "reason": "",
+      "log": ".l4-out/gates/r-20261016T2000Z-a11e/019-setup.log",
+      "digest": null
+    },
+    {
+      "name": "test",
+      "command": ".venv/bin/python -m pytest --junitxml=.l4-out/junit.xml",
+      "status": "pass",
+      "reason": "",
+      "log": ".l4-out/gates/r-20261016T2000Z-a11e/020-test.log",
+      "digest": null
+    }
+  ],
+  "criteria": [
+    {
+      "id": "C-ca83ff85",
+      "alias": "price-rounding › Half-up rounding to cents › A tie rounds up",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_rounding::test_tie_rounds_up",
+        "tests.test_rounding::test_zero"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-d01b956c",
+      "alias": "price-rounding › Half-up rounding to cents › Below a tie rounds down",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_rounding::test_below_a_tie_rounds_down"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-7f99705c",
+      "alias": "price-rounding › Half-up rounding to cents › A sum of fine prices",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_rounding::test_sum_of_fine_prices"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-2c898feb",
+      "alias": "price-rounding › Half-up rounding to cents › Whole cents stay",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_rounding::test_whole_cents_stay"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-f0177631",
+      "alias": "price-rounding › Half-up rounding to cents › A negative tie rounds away from zero",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_rounding::test_negative_tie_rounds_away_from_zero"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-544c4d18",
+      "alias": "price-rounding › Half-up rounding to cents › Zero",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_rounding::test_zero"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-4337d0d3",
+      "alias": "price-rounding › Half-up rounding to cents › A negative amount below a tie",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_rounding::test_negative_amount_below_a_tie"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-acdaa231",
+      "alias": "price-rounding › Half-up rounding to cents › The context's rounding mode does not matter",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_rounding::test_context_rounding_mode_does_not_matter"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-e03de5d9",
+      "alias": "price-rounding › Decimal amounts only › A float",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_rounding::test_float_amount_is_rejected_with_type_error",
+        "tests.test_rounding::test_float_raises_type_error"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-67550744",
+      "alias": "price-rounding › Decimal amounts only › An int, a bool or a str",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_rounding::test_int_bool_str_amounts_are_rejected_with_type_error",
+        "tests.test_rounding::test_int_bool_str_raise_type_error"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-5948ccfa",
+      "alias": "price-rounding › Decimal amounts only › Not a number",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_rounding::test_nan_amounts_are_rejected_with_value_error",
+        "tests.test_rounding::test_nan_raises_value_error"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-89184fc1",
+      "alias": "price-rounding › Decimal amounts only › Infinity",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_rounding::test_infinite_amounts_are_rejected_with_value_error",
+        "tests.test_rounding::test_infinity_raises_value_error"
+      ],
+      "s1_p": null
+    }
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "title": "Huge amounts under low context precision",
+      "detail": "Amounts with more digits than 28 are multiplied with the precision max(prec,28), so rounding may occur silently; unspecified.",
+      "source": "judge",
+      "criterion": "C-ca83ff85",
+      "log": null,
+      "spec_gap": true,
+      "suggested_fix": "WHEN an amount has more than 28 significant digits THEN the code multiplies and quantizes under a context precision of at least 28 and may raise decimal.InvalidOperation or lose digits.",
+      "id": "F-e8968e72",
+      "feedback": null
+    },
+    {
+      "severity": "minor",
+      "title": "Duplicate tests",
+      "detail": "Several tests are duplicates of each other.",
+      "source": "judge",
+      "criterion": null,
+      "log": null,
+      "spec_gap": false,
+      "suggested_fix": "",
+      "id": "F-5d4c16a4",
+      "feedback": null
+    }
+  ],
+  "holds": [],
+  "subject_sha": "ca68b9f77ef0588268ef850a578d84d8fb70faf3",
+  "family_criteria": [
+    "C-ca83ff85",
+    "C-d01b956c",
+    "C-7f99705c",
+    "C-2c898feb",
+    "C-f0177631",
+    "C-544c4d18",
+    "C-4337d0d3",
+    "C-acdaa231",
+    "C-e03de5d9",
+    "C-67550744",
+    "C-5948ccfa",
+    "C-89184fc1"
+  ],
+  "reused_from": null,
+  "integrity": {
+    "checks": [
+      {
+        "name": "protected paths",
+        "status": "ok",
+        "note": "no protected path differs from the base"
+      },
+      {
+        "name": "pre-existing tests",
+        "status": "ok",
+        "note": "1 test file(s) compared with the base"
+      },
+      {
+        "name": "red-green freeze",
+        "status": "ok",
+        "note": "1 task(s): red and green compared"
+      },
+      {
+        "name": "test path freeze",
+        "status": "ok",
+        "note": "1 harness step commit(s) checked"
+      },
+      {
+        "name": "content scan",
+        "status": "ok",
+        "note": "no result-manipulating construct in the changed support and runner files"
+      },
+      {
+        "name": "suppressions",
+        "status": "skipped",
+        "note": "no new suppression comment"
+      },
+      {
+        "name": "tdd history",
+        "status": "ok",
+        "note": "3 task(s); red tests passing at head: step 3"
+      }
+    ],
+    "findings": [],
+    "declared": [],
+    "human_protected": [],
+    "human_tests": [],
+    "unfrozen": [],
+    "human_suppressions": [],
+    "human_scan": []
+  },
+  "trace": [
+    {
+      "criterion": "C-ca83ff85",
+      "alias": "price-rounding › Half-up rounding to cents › A tie rounds up",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_rounding::test_tie_rounds_up",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_rounding::test_zero",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-d01b956c",
+      "alias": "price-rounding › Half-up rounding to cents › Below a tie rounds down",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_rounding::test_below_a_tie_rounds_down",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-7f99705c",
+      "alias": "price-rounding › Half-up rounding to cents › A sum of fine prices",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_rounding::test_sum_of_fine_prices",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-2c898feb",
+      "alias": "price-rounding › Half-up rounding to cents › Whole cents stay",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_rounding::test_whole_cents_stay",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-f0177631",
+      "alias": "price-rounding › Half-up rounding to cents › A negative tie rounds away from zero",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_rounding::test_negative_tie_rounds_away_from_zero",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-544c4d18",
+      "alias": "price-rounding › Half-up rounding to cents › Zero",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_rounding::test_zero",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-4337d0d3",
+      "alias": "price-rounding › Half-up rounding to cents › A negative amount below a tie",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_rounding::test_negative_amount_below_a_tie",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-acdaa231",
+      "alias": "price-rounding › Half-up rounding to cents › The context's rounding mode does not matter",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_rounding::test_context_rounding_mode_does_not_matter",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-e03de5d9",
+      "alias": "price-rounding › Decimal amounts only › A float",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_rounding::test_float_amount_is_rejected_with_type_error",
+          "status": "passed",
+          "proof": "pre_satisfied",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_rounding::test_float_raises_type_error",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-67550744",
+      "alias": "price-rounding › Decimal amounts only › An int, a bool or a str",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_rounding::test_int_bool_str_amounts_are_rejected_with_type_error",
+          "status": "passed",
+          "proof": "pre_satisfied",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_rounding::test_int_bool_str_raise_type_error",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-5948ccfa",
+      "alias": "price-rounding › Decimal amounts only › Not a number",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_rounding::test_nan_amounts_are_rejected_with_value_error",
+          "status": "passed",
+          "proof": "pre_satisfied",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_rounding::test_nan_raises_value_error",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-89184fc1",
+      "alias": "price-rounding › Decimal amounts only › Infinity",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_rounding::test_infinite_amounts_are_rejected_with_value_error",
+          "status": "passed",
+          "proof": "pre_satisfied",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_rounding::test_infinity_raises_value_error",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    }
+  ],
+  "audit": [],
+  "generated": [],
+  "s1": [],
+  "evidence": {
+    "schema": "l4/evidence@1",
+    "holds": [],
+    "items": {},
+    "scope": {
+      "declared": [
+        "src/pricing/rounding.py",
+        "pricing/money.py",
+        "tests",
+        "module pricing"
+      ],
+      "skipped": false,
+      "note": "",
+      "holds": [],
+      "files": [
+        {
+          "path": "openspec/changes/add-price-rounding/.l4/ledger/r-20261016T2000Z-a11e.jsonl",
+          "module": null,
+          "kind": "exempt",
+          "label": null,
+          "reason": "exempt: harness, spec or documentation path"
+        },
+        {
+          "path": "openspec/changes/add-price-rounding/tasks.md",
+          "module": null,
+          "kind": "exempt",
+          "label": null,
+          "reason": "exempt: harness, spec or documentation path"
+        },
+        {
+          "path": "src/pricing/rounding.py",
+          "module": "pricing",
+          "kind": "code",
+          "label": "relevant",
+          "reason": "named in the spec"
+        },
+        {
+          "path": "tests/test_rounding.py",
+          "module": null,
+          "kind": "test",
+          "label": "relevant",
+          "reason": "new test file"
+        }
+      ]
+    },
+    "diff_coverage": {
+      "status": "not_run",
+      "reason": "coverage.py is not importable in the project environment",
+      "percent": 0.0,
+      "unmeasured_files": [],
+      "other_files": [],
+      "functions": [
+        {
+          "path": "src/pricing/rounding.py",
+          "qualname": "<module>",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        },
+        {
+          "path": "src/pricing/rounding.py",
+          "qualname": "round_cents",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        }
+      ]
+    },
+    "tests_ran": {
+      "tests_ok": true,
+      "summary": {
+        "total": 104,
+        "passed": 104,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0,
+        "new": 16,
+        "new_passed": 16,
+        "skipped_unchanged": []
+      },
+      "findings": []
+    }
+  },
+  "human": [],
+  "fix": null,
+  "judge_verdict": {
+    "criteria": [
+      {
+        "id": "C-ca83ff85",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "test",
+            "ref": "tests.test_rounding::test_tie_rounds_up",
+            "quote": "assert round_cents(Decimal(\"0.125\")) == 13"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-d01b956c",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "test",
+            "ref": "tests.test_rounding::test_below_a_tie_rounds_down",
+            "quote": null
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-7f99705c",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "test",
+            "ref": "tests.test_rounding::test_sum_of_fine_prices",
+            "quote": null
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-2c898feb",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "test",
+            "ref": "tests.test_rounding::test_whole_cents_stay",
+            "quote": null
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-f0177631",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "test",
+            "ref": "tests.test_rounding::test_negative_tie_rounds_away_from_zero",
+            "quote": null
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-544c4d18",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "test",
+            "ref": "tests.test_rounding::test_zero",
+            "quote": null
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-4337d0d3",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "test",
+            "ref": "tests.test_rounding::test_negative_amount_below_a_tie",
+            "quote": null
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-acdaa231",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/pricing/rounding.py",
+            "quote": "quantize(Decimal(\"1\"), rounding=ROUND_HALF_UP)"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-e03de5d9",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/pricing/rounding.py",
+            "quote": "if not isinstance(amount, Decimal):"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-67550744",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/pricing/rounding.py",
+            "quote": "raise TypeError"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-5948ccfa",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/pricing/rounding.py",
+            "quote": "if not amount.is_finite():"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-89184fc1",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/pricing/rounding.py",
+            "quote": "raise ValueError"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      }
+    ],
+    "test_adequacy": [
+      {
+        "test": "tests.test_rounding::test_context_rounding_mode_does_not_matter",
+        "criterion": "C-acdaa231",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_rounding::test_tie_rounds_up",
+        "criterion": "C-ca83ff85",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_rounding::test_nan_raises_value_error",
+        "criterion": "C-5948ccfa",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      }
+    ],
+    "findings": [
+      {
+        "severity": "minor",
+        "criterion": "C-ca83ff85",
+        "title": "Huge amounts under low context precision",
+        "detail": "Amounts with more digits than 28 are multiplied with the precision max(prec,28), so rounding may occur silently; unspecified.",
+        "evidence": [],
+        "suggested_fix": "WHEN an amount has more than 28 significant digits THEN the code multiplies and quantizes under a context precision of at least 28 and may raise decimal.InvalidOperation or lose digits.",
+        "spec_gap": true
+      },
+      {
+        "severity": "minor",
+        "criterion": null,
+        "title": "Duplicate tests",
+        "detail": "Several tests are duplicates of each other.",
+        "evidence": [],
+        "suggested_fix": "",
+        "spec_gap": false
+      }
+    ],
+    "riskiest_assumptions": [
+      "Decimal subclass or bool handling matches expectations (bool is not Decimal, so TypeError)",
+      "sNaN is_finite returns False without raising a signal",
+      "localcontext default traps do not interfere with the quantize for normal values"
+    ],
+    "feedback": null,
+    "accepted": null
+  },
+  "cx_runs": {},
+  "tests": {
+    "tests.test_alerts::test_low_stock_message_returns_restock_message_below_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_none_at_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_none_above_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_restock_message_at_zero": "passed",
+    "tests.test_alerts::test_low_stock_message_raises_value_error_for_negative_on_hand": "passed",
+    "tests.test_alerts::test_low_stock_message_raises_value_error_for_various_negative_values": "passed",
+    "tests.test_alerts::test_low_stock_message_uses_env_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_defaults_to_5_when_env_not_set": "passed",
+    "tests.test_catalog::test_register_and_look_up_a_price": "passed",
+    "tests.test_catalog::test_register_keeps_sub_cent_price_exact": "passed",
+    "tests.test_catalog::test_register_accepts_zero_price": "passed",
+    "tests.test_catalog::test_skus_are_sorted_and_new_catalog_is_empty": "passed",
+    "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price0]": "passed",
+    "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price1]": "passed",
+    "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price2]": "passed",
+    "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price3]": "passed",
+    "tests.test_catalog::test_register_rejects_duplicate_sku_and_keeps_first_price": "passed",
+    "tests.test_catalog::test_register_rejects_blank_sku[]": "passed",
+    "tests.test_catalog::test_register_rejects_blank_sku[   ]": "passed",
+    "tests.test_catalog::test_register_rejects_blank_sku[\\t]": "passed",
+    "tests.test_catalog::test_register_rejects_non_decimal_price[2.5]": "passed",
+    "tests.test_catalog::test_register_rejects_non_decimal_price[250]": "passed",
+    "tests.test_catalog::test_register_rejects_non_decimal_price[2.50]": "passed",
+    "tests.test_catalog::test_unit_price_of_unknown_sku_raises_key_error_naming_it": "passed",
+    "tests.test_catalog::test_sku_catalog_fixture_provides_shared_prices": "passed",
+    "tests.test_discount::test_percent_off_rounds_half_up": "passed",
+    "tests.test_discount::test_percent_off_nothing_off": "passed",
+    "tests.test_discount::test_percent_off_rejects_percent_above_100": "passed",
+    "tests.test_discount::test_percent_off_everything_off": "passed",
+    "tests.test_discount::test_discounted_total_two_lines_at_15_percent": "passed",
+    "tests.test_discount::test_discounted_total_empty_basket": "passed",
+    "tests.test_discount::test_discounted_total_empty_basket_rejects_percent_above_100": "passed",
+    "tests.test_discount::test_taxed_total_two_lines_at_15_percent_with_19_percent_vat": "passed",
+    "tests.test_discount::test_taxed_total_empty_basket_and_single_line": "passed",
+    "tests.test_discount::test_taxed_total_text_two_lines_at_15_percent_with_19_percent_vat": "passed",
+    "tests.test_discount::test_taxed_total_text_empty_basket": "passed",
+    "tests.test_invoice::test_invoice_line_three_units_amounts": "passed",
+    "tests.test_invoice::test_invoice_line_vat_rounds_half_up": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_qty_above_on_hand": "passed",
+    "tests.test_invoice::test_invoice_line_accepts_qty_equal_to_on_hand": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_sku_never_received": "passed",
+    "tests.test_invoice::test_invoice_line_leaves_ledger_unchanged": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_qty_below_one_before_stock_check": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_negative_price_before_stock_check": "passed",
+    "tests.test_invoice::test_invoice_line_passes_negative_rate_vat_error_through_unchanged": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_rejects_empty_items_before_reading_ledger": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_all_lines_in_item_order": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_rejects_total_of_one_sku_above_stock": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_accepts_split_sku_quantities_within_stock": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_passes_a_bad_line_value_error_through_unchanged": "passed",
+    "tests.test_ledger::test_receive_reports_units_on_hand": "passed",
+    "tests.test_ledger::test_receive_then_ship_reports_remaining_on_hand": "passed",
+    "tests.test_ledger::test_never_received_sku_reports_zero_on_hand": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[0]": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-1]": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-5]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[0]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-1]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-5]": "passed",
+    "tests.test_ledger::test_skus_lists_received_skus_sorted": "passed",
+    "tests.test_ledger::test_ship_above_on_hand_raises_and_keeps_count": "passed",
+    "tests.test_money::test_to_cents": "passed",
+    "tests.test_money::test_to_cents_rejects_a_missing_fraction": "passed",
+    "tests.test_money::test_from_cents_whole_and_fractional_parts": "passed",
+    "tests.test_money::test_from_cents_small_negative_amount": "passed",
+    "tests.test_money::test_from_cents_zero": "passed",
+    "tests.test_reorder::test_stock_below_target_is_topped_up": "passed",
+    "tests.test_reorder::test_stock_at_or_above_target_is_not_ordered": "passed",
+    "tests.test_rounding::test_tie_rounds_up": "passed",
+    "tests.test_rounding::test_below_a_tie_rounds_down": "passed",
+    "tests.test_rounding::test_sum_of_fine_prices": "passed",
+    "tests.test_rounding::test_whole_cents_stay": "passed",
+    "tests.test_rounding::test_negative_tie_rounds_away_from_zero": "passed",
+    "tests.test_rounding::test_zero": "passed",
+    "tests.test_rounding::test_negative_amount_below_a_tie": "passed",
+    "tests.test_rounding::test_context_rounding_mode_does_not_matter": "passed",
+    "tests.test_rounding::test_float_raises_type_error": "passed",
+    "tests.test_rounding::test_int_bool_str_raise_type_error": "passed",
+    "tests.test_rounding::test_nan_raises_value_error": "passed",
+    "tests.test_rounding::test_infinity_raises_value_error": "passed",
+    "tests.test_rounding::test_float_amount_is_rejected_with_type_error": "passed",
+    "tests.test_rounding::test_int_bool_str_amounts_are_rejected_with_type_error": "passed",
+    "tests.test_rounding::test_nan_amounts_are_rejected_with_value_error": "passed",
+    "tests.test_rounding::test_infinite_amounts_are_rejected_with_value_error": "passed",
+    "tests.test_shelf::test_shelf_code_is_zero_padded": "passed",
+    "tests.test_shelf::test_shelf_code_rejects_aisle_below_one": "passed",
+    "tests.test_shelf::test_shelf_label_combines_code_and_stripped_name": "passed",
+    "tests.test_shelf::test_shelf_label_rejects_whitespace_only_name": "passed",
+    "tests.test_stock::test_units_short": "passed",
+    "tests.test_summary::test_valuation_summary_two_skus_at_ten_percent": "passed",
+    "tests.test_summary::test_valuation_summary_nothing_on_hand": "passed",
+    "tests.test_summary::test_valuation_summary_sku_on_hand_without_price_raises": "passed",
+    "tests.test_summary::test_valuation_summary_currency_after_each_amount": "passed",
+    "tests.test_summary::test_valuation_summary_without_currency_unchanged": "passed",
+    "tests.test_surplus::test_units_surplus_returns_remainder": "passed",
+    "tests.test_surplus::test_units_surplus_is_zero_when_wanted_at_least_on_hand": "passed",
+    "tests.test_surplus::test_units_surplus_rejects_negative_counts": "passed",
+    "tests.test_valuation::test_stock_value_two_skus_at_ten_percent": "passed",
+    "tests.test_valuation::test_stock_value_nothing_on_hand": "passed",
+    "tests.test_valuation::test_stock_value_sku_on_hand_without_price_raises": "passed",
+    "tests.test_valuation::test_stock_value_skipped_sku_without_price": "passed",
+    "tests.test_vat::test_vat_cents_rounds_half_up": "passed",
+    "tests.test_vat::test_vat_cents_exact_amount": "passed",
+    "tests.test_vat::test_vat_cents_rejects_negative_inputs": "passed"
+  },
+  "red_green": {
+    "tests.test_rounding::test_below_a_tie_rounds_down": "1.1",
+    "tests.test_rounding::test_context_rounding_mode_does_not_matter": "1.1",
+    "tests.test_rounding::test_float_raises_type_error": "1.1",
+    "tests.test_rounding::test_infinity_raises_value_error": "1.1",
+    "tests.test_rounding::test_int_bool_str_raise_type_error": "1.1",
+    "tests.test_rounding::test_nan_raises_value_error": "1.1",
+    "tests.test_rounding::test_negative_amount_below_a_tie": "1.1",
+    "tests.test_rounding::test_negative_tie_rounds_away_from_zero": "1.1",
+    "tests.test_rounding::test_sum_of_fine_prices": "1.1",
+    "tests.test_rounding::test_tie_rounds_up": "1.1",
+    "tests.test_rounding::test_whole_cents_stay": "1.1",
+    "tests.test_rounding::test_zero": "1.1",
+    "tests.test_rounding::test_float_amount_is_rejected_with_type_error": "2.1",
+    "tests.test_rounding::test_int_bool_str_amounts_are_rejected_with_type_error": "2.1",
+    "tests.test_rounding::test_infinite_amounts_are_rejected_with_value_error": "2.2",
+    "tests.test_rounding::test_nan_amounts_are_rejected_with_value_error": "2.2"
+  },
+  "guards": [],
+  "prompt_sha256": "cd27a97b5cf9e0d46e13eee85053bd9d277a47e76e6df56625638dbad49dcee2",
+  "template": "judge@8",
+  "harness_commit": "f6a0132a3a1e22903561c0d41424f35bae1375ba",
+  "judge_calls": 1,
+  "judge_reply": "valid",
+  "judge_replies": {
+    "valid": 1,
+    "repaired": 0,
+    "retried": 0,
+    "discarded": 0
+  },
+  "profiles": {
+    "judge": "claude-judge",
+    "implementer": [
+      "deepseek"
+    ]
+  },
+  "judge_model": "claude-sonnet-5-5",
+  "independence": {
+    "mode": "different_vendor",
+    "status": "declared (unverified)",
+    "verified": false,
+    "judge": {
+      "profile": "claude-judge",
+      "vendor": "anthropic",
+      "model": null,
+      "provenance": "served",
+      "served": "claude-sonnet-5-5"
+    },
+    "implementers": [
+      {
+        "profile": "deepseek",
+        "vendor": "deepseek",
+        "model": "opencode-go/deepseek-v4.1-flash",
+        "provenance": "declared",
+        "served": null
+      }
+    ]
+  },
+  "cost_usd": 0.0638806
+}
