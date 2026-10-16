@@ -5,3 +5,4 @@
 {"at":"2026-10-16T19:53:51Z","attempt":1,"cost_usd":0.0,"runs":1,"type":"plan.charged","unit":"kiro:sku-catalog"}
 {"at":"2026-10-16T19:53:51Z","run":"r-20261016T1953Z-a376","type":"unit.dispatched","unit":"kiro:sku-catalog"}
 {"at":"2026-10-16T19:59:41Z","head":"1408786a0e39206c1ae307d6395db16c8a99dba6","pr":26,"target_before":"75877761c6324c0bb041bebd8a528b1f4ccfed1a","type":"unit.merge_requested","unit":"kiro:sku-catalog"}
+{"at":"2026-10-16T19:59:45Z","head":"1408786a0e39206c1ae307d6395db16c8a99dba6","merge_commit":"1408786a0e39206c1ae307d6395db16c8a99dba6","pr":26,"type":"unit.merged","unit":"kiro:sku-catalog"}
