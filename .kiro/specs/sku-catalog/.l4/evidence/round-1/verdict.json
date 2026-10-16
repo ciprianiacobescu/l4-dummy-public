@@ -1,0 +1,977 @@
+{
+  "schema": "l4/verdict@1",
+  "round": 1,
+  "verdict": "PASS",
+  "base_sha": "75877761c6324c0bb041bebd8a528b1f4ccfed1a",
+  "head_sha": "137c7e1ade9a8fb45127df13554ca7c40e7fcbc5",
+  "steps": [
+    {
+      "step": "0",
+      "name": "preconditions",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "base l4/main@75877761c6 contained"
+    },
+    {
+      "step": "1",
+      "name": "integrity",
+      "status": "ok",
+      "seconds": 0.1,
+      "note": "7 sub-checks (+1 unfrozen by human answers); scope: 5 changed file(s)"
+    },
+    {
+      "step": "2",
+      "name": "build",
+      "status": "ok",
+      "seconds": 0.1,
+      "note": ""
+    },
+    {
+      "step": "3",
+      "name": "tests",
+      "status": "ok",
+      "seconds": 0.6,
+      "note": ""
+    },
+    {
+      "step": "4",
+      "name": "traceability",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "10/10 criteria covered"
+    },
+    {
+      "step": "4a",
+      "name": "audit sampling",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "roles.verifier_agent is empty"
+    },
+    {
+      "step": "5",
+      "name": "ui test generation",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "verifier.playwright.enabled is off"
+    },
+    {
+      "step": "6",
+      "name": "quality",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "diff coverage not measured: coverage.py is not importable in the project environment"
+    },
+    {
+      "step": "8",
+      "name": "s1 judge",
+      "status": "not_run",
+      "seconds": 0.0,
+      "note": "roles.s1_judge is empty"
+    },
+    {
+      "step": "9",
+      "name": "judge",
+      "status": "ok",
+      "seconds": 8.1,
+      "note": "1 call(s)"
+    },
+    {
+      "step": "10",
+      "name": "aggregation",
+      "status": "ok",
+      "seconds": 0.0,
+      "note": "PASS"
+    }
+  ],
+  "gates": [
+    {
+      "name": "setup",
+      "command": "uv sync --frozen",
+      "status": "pass",
+      "reason": "",
+      "log": ".l4-out/gates/r-20261016T1953Z-a376/030-setup.log",
+      "digest": null
+    },
+    {
+      "name": "test",
+      "command": ".venv/bin/python -m pytest --junitxml=.l4-out/junit.xml",
+      "status": "pass",
+      "reason": "",
+      "log": ".l4-out/gates/r-20261016T1953Z-a376/031-test.log",
+      "digest": null
+    }
+  ],
+  "criteria": [
+    {
+      "id": "C-7185884e",
+      "alias": "Req 1.1",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_catalog::test_register_and_look_up_a_price"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-e94711be",
+      "alias": "Req 1.2",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_catalog::test_register_keeps_sub_cent_price_exact"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-d2545444",
+      "alias": "Req 1.3",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_catalog::test_register_accepts_zero_price"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-3b21b3b3",
+      "alias": "Req 1.4",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_catalog::test_skus_are_sorted_and_new_catalog_is_empty"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-a7f447fb",
+      "alias": "Req 2.1",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price0]",
+        "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price1]",
+        "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price2]",
+        "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price3]"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-3006b46a",
+      "alias": "Req 2.2",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_catalog::test_register_rejects_duplicate_sku_and_keeps_first_price"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-5541dd3b",
+      "alias": "Req 2.3",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_catalog::test_register_rejects_blank_sku[   ]",
+        "tests.test_catalog::test_register_rejects_blank_sku[\\t]",
+        "tests.test_catalog::test_register_rejects_blank_sku[]"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-59fd7246",
+      "alias": "Req 2.4",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_catalog::test_register_rejects_non_decimal_price[2.50]",
+        "tests.test_catalog::test_register_rejects_non_decimal_price[2.5]",
+        "tests.test_catalog::test_register_rejects_non_decimal_price[250]"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-3a97dc52",
+      "alias": "Req 3.1",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_catalog::test_unit_price_of_unknown_sku_raises_key_error_naming_it"
+      ],
+      "s1_p": null
+    },
+    {
+      "id": "C-325229ff",
+      "alias": "Req 4.1",
+      "result": "pass",
+      "judge": "pass",
+      "reason": "the judge passed it and a discriminating test passes",
+      "counterexample": null,
+      "tests": [
+        "tests.test_catalog::test_sku_catalog_fixture_provides_shared_prices"
+      ],
+      "s1_p": null
+    }
+  ],
+  "findings": [
+    {
+      "severity": "minor",
+      "title": "Non-str sku unspecified",
+      "detail": "A non-str sku (e.g. None) raises AttributeError from strip(); no criterion pins this.",
+      "source": "judge",
+      "criterion": "C-5541dd3b",
+      "log": null,
+      "spec_gap": true,
+      "suggested_fix": "WHEN sku is not a str THEN register raises AttributeError from sku.strip().",
+      "id": "F-2c01b3a8",
+      "feedback": null
+    }
+  ],
+  "holds": [],
+  "subject_sha": "137c7e1ade9a8fb45127df13554ca7c40e7fcbc5",
+  "family_criteria": [
+    "C-7185884e",
+    "C-e94711be",
+    "C-d2545444",
+    "C-3b21b3b3",
+    "C-a7f447fb",
+    "C-3006b46a",
+    "C-5541dd3b",
+    "C-59fd7246",
+    "C-3a97dc52",
+    "C-325229ff"
+  ],
+  "reused_from": null,
+  "integrity": {
+    "checks": [
+      {
+        "name": "protected paths",
+        "status": "ok",
+        "note": "no protected path differs from the base"
+      },
+      {
+        "name": "pre-existing tests",
+        "status": "ok",
+        "note": "2 test file(s) compared with the base"
+      },
+      {
+        "name": "red-green freeze",
+        "status": "ok",
+        "note": "3 task(s): red and green compared (+1 opened by task text)"
+      },
+      {
+        "name": "test path freeze",
+        "status": "ok",
+        "note": "3 harness step commit(s) checked"
+      },
+      {
+        "name": "content scan",
+        "status": "ok",
+        "note": "no result-manipulating construct in the changed support and runner files"
+      },
+      {
+        "name": "suppressions",
+        "status": "skipped",
+        "note": "no new suppression comment"
+      },
+      {
+        "name": "tdd history",
+        "status": "ok",
+        "note": "4 task(s); red tests passing at head: step 3"
+      }
+    ],
+    "findings": [],
+    "declared": [],
+    "human_protected": [],
+    "human_tests": [],
+    "unfrozen": [
+      "conftest.py (task 2.1, opened by its text, plan:kiro-mix@bfc5bbe64b79527f)"
+    ],
+    "human_suppressions": [],
+    "human_scan": []
+  },
+  "trace": [
+    {
+      "criterion": "C-7185884e",
+      "alias": "Req 1.1",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_catalog::test_register_and_look_up_a_price",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-e94711be",
+      "alias": "Req 1.2",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_catalog::test_register_keeps_sub_cent_price_exact",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-d2545444",
+      "alias": "Req 1.3",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_catalog::test_register_accepts_zero_price",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-3b21b3b3",
+      "alias": "Req 1.4",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_catalog::test_skus_are_sorted_and_new_catalog_is_empty",
+          "status": "passed",
+          "proof": "zero_value",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-a7f447fb",
+      "alias": "Req 2.1",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price0]",
+          "status": "passed",
+          "proof": "red_assertion",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price1]",
+          "status": "passed",
+          "proof": "red_assertion",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price2]",
+          "status": "passed",
+          "proof": "red_assertion",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price3]",
+          "status": "passed",
+          "proof": "red_assertion",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-3006b46a",
+      "alias": "Req 2.2",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_catalog::test_register_rejects_duplicate_sku_and_keeps_first_price",
+          "status": "passed",
+          "proof": "red_assertion",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-5541dd3b",
+      "alias": "Req 2.3",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_catalog::test_register_rejects_blank_sku[   ]",
+          "status": "passed",
+          "proof": "red_assertion",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_catalog::test_register_rejects_blank_sku[\\t]",
+          "status": "passed",
+          "proof": "red_assertion",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_catalog::test_register_rejects_blank_sku[]",
+          "status": "passed",
+          "proof": "red_assertion",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-59fd7246",
+      "alias": "Req 2.4",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_catalog::test_register_rejects_non_decimal_price[2.50]",
+          "status": "passed",
+          "proof": "red_assertion",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_catalog::test_register_rejects_non_decimal_price[2.5]",
+          "status": "passed",
+          "proof": "red_assertion",
+          "adequate": true
+        },
+        {
+          "id": "tests.test_catalog::test_register_rejects_non_decimal_price[250]",
+          "status": "passed",
+          "proof": "red_assertion",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-3a97dc52",
+      "alias": "Req 3.1",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_catalog::test_unit_price_of_unknown_sku_raises_key_error_naming_it",
+          "status": "passed",
+          "proof": "pre_satisfied",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    },
+    {
+      "criterion": "C-325229ff",
+      "alias": "Req 4.1",
+      "state": "covered",
+      "tests": [
+        {
+          "id": "tests.test_catalog::test_sku_catalog_fixture_provides_shared_prices",
+          "status": "passed",
+          "proof": "red_assertion",
+          "adequate": true
+        }
+      ],
+      "ignored": [],
+      "held": ""
+    }
+  ],
+  "audit": [],
+  "generated": [],
+  "s1": [],
+  "evidence": {
+    "schema": "l4/evidence@1",
+    "holds": [],
+    "items": {},
+    "scope": {
+      "declared": [
+        "src/inventory/catalog.py",
+        "tests/test_catalog.py",
+        "**/conftest.py",
+        "**/[]",
+        "module inventory",
+        "module tests"
+      ],
+      "skipped": false,
+      "note": "",
+      "holds": [],
+      "files": [
+        {
+          "path": ".kiro/specs/sku-catalog/.l4/ledger/r-20261016T1953Z-a376.jsonl",
+          "module": null,
+          "kind": "exempt",
+          "label": null,
+          "reason": "exempt: harness, spec or documentation path"
+        },
+        {
+          "path": ".kiro/specs/sku-catalog/tasks.md",
+          "module": null,
+          "kind": "exempt",
+          "label": null,
+          "reason": "exempt: harness, spec or documentation path"
+        },
+        {
+          "path": "conftest.py",
+          "module": null,
+          "kind": "test",
+          "label": "relevant",
+          "reason": "named in the spec"
+        },
+        {
+          "path": "src/inventory/catalog.py",
+          "module": "inventory",
+          "kind": "code",
+          "label": "relevant",
+          "reason": "named in the spec"
+        },
+        {
+          "path": "tests/test_catalog.py",
+          "module": null,
+          "kind": "test",
+          "label": "relevant",
+          "reason": "new test file"
+        }
+      ]
+    },
+    "diff_coverage": {
+      "status": "not_run",
+      "reason": "coverage.py is not importable in the project environment",
+      "percent": 0.0,
+      "unmeasured_files": [],
+      "other_files": [],
+      "functions": [
+        {
+          "path": "src/inventory/catalog.py",
+          "qualname": "<module>",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        },
+        {
+          "path": "src/inventory/catalog.py",
+          "qualname": "SkuCatalog",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        },
+        {
+          "path": "src/inventory/catalog.py",
+          "qualname": "SkuCatalog.__init__",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        },
+        {
+          "path": "src/inventory/catalog.py",
+          "qualname": "SkuCatalog.register",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        },
+        {
+          "path": "src/inventory/catalog.py",
+          "qualname": "SkuCatalog.unit_price",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        },
+        {
+          "path": "src/inventory/catalog.py",
+          "qualname": "SkuCatalog.skus",
+          "status": "not_run",
+          "executable": 0,
+          "executed": 0,
+          "tests": [],
+          "label": null
+        }
+      ]
+    },
+    "tests_ran": {
+      "tests_ok": true,
+      "summary": {
+        "total": 88,
+        "passed": 88,
+        "failed": 0,
+        "errored": 0,
+        "skipped": 0,
+        "new": 17,
+        "new_passed": 17,
+        "skipped_unchanged": []
+      },
+      "findings": []
+    }
+  },
+  "human": [],
+  "fix": null,
+  "judge_verdict": {
+    "criteria": [
+      {
+        "id": "C-7185884e",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "test",
+            "ref": "tests.test_catalog::test_register_and_look_up_a_price",
+            "quote": "unit_price(\"A-1\") == Decimal(\"2.50\")"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-e94711be",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/catalog.py",
+            "quote": "self._prices[sku] = unit_price"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-d2545444",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/catalog.py",
+            "quote": "unit_price < 0"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-3b21b3b3",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/catalog.py",
+            "quote": "return sorted(self._prices)"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-a7f447fb",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/catalog.py",
+            "quote": "if not unit_price.is_finite() or unit_price < 0:"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-3006b46a",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/catalog.py",
+            "quote": "raise ValueError(f\"sku {sku!r} is already registered\")"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-5541dd3b",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/catalog.py",
+            "quote": "if not sku.strip():"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-59fd7246",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/catalog.py",
+            "quote": "if not isinstance(unit_price, Decimal):"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-3a97dc52",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "src/inventory/catalog.py",
+            "quote": "return self._prices[sku]"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      },
+      {
+        "id": "C-325229ff",
+        "verdict": "pass",
+        "confidence": null,
+        "evidence": [
+          {
+            "kind": "file",
+            "ref": "conftest.py",
+            "quote": "catalog.register(\"B-2\", Decimal(\"0.125\"))"
+          }
+        ],
+        "reasoning": "",
+        "counterexample": null
+      }
+    ],
+    "test_adequacy": [
+      {
+        "test": "tests.test_catalog::test_register_rejects_negative_or_non_finite_price",
+        "criterion": "C-a7f447fb",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_catalog::test_sku_catalog_fixture_provides_shared_prices",
+        "criterion": "C-325229ff",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      },
+      {
+        "test": "tests.test_catalog::test_unit_price_of_unknown_sku_raises_key_error_naming_it",
+        "criterion": "C-3a97dc52",
+        "adequate": true,
+        "reason": "",
+        "generated_test_misreads_criterion": false
+      }
+    ],
+    "findings": [
+      {
+        "severity": "minor",
+        "criterion": "C-5541dd3b",
+        "title": "Non-str sku unspecified",
+        "detail": "A non-str sku (e.g. None) raises AttributeError from strip(); no criterion pins this.",
+        "evidence": [],
+        "suggested_fix": "WHEN sku is not a str THEN register raises AttributeError from sku.strip().",
+        "spec_gap": true
+      }
+    ],
+    "riskiest_assumptions": [
+      "KeyError from dict access includes the SKU in str(), which holds for a str key",
+      "The fixture is discovered from root conftest as the gate passed",
+      "Validation order matches design for combined-invalid inputs"
+    ],
+    "feedback": null,
+    "accepted": null
+  },
+  "cx_runs": {},
+  "tests": {
+    "tests.test_alerts::test_low_stock_message_returns_restock_message_below_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_none_at_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_none_above_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_returns_restock_message_at_zero": "passed",
+    "tests.test_alerts::test_low_stock_message_raises_value_error_for_negative_on_hand": "passed",
+    "tests.test_alerts::test_low_stock_message_raises_value_error_for_various_negative_values": "passed",
+    "tests.test_alerts::test_low_stock_message_uses_env_threshold": "passed",
+    "tests.test_alerts::test_low_stock_message_defaults_to_5_when_env_not_set": "passed",
+    "tests.test_catalog::test_register_and_look_up_a_price": "passed",
+    "tests.test_catalog::test_register_keeps_sub_cent_price_exact": "passed",
+    "tests.test_catalog::test_register_accepts_zero_price": "passed",
+    "tests.test_catalog::test_skus_are_sorted_and_new_catalog_is_empty": "passed",
+    "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price0]": "passed",
+    "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price1]": "passed",
+    "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price2]": "passed",
+    "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price3]": "passed",
+    "tests.test_catalog::test_register_rejects_duplicate_sku_and_keeps_first_price": "passed",
+    "tests.test_catalog::test_register_rejects_blank_sku[]": "passed",
+    "tests.test_catalog::test_register_rejects_blank_sku[   ]": "passed",
+    "tests.test_catalog::test_register_rejects_blank_sku[\\t]": "passed",
+    "tests.test_catalog::test_register_rejects_non_decimal_price[2.5]": "passed",
+    "tests.test_catalog::test_register_rejects_non_decimal_price[250]": "passed",
+    "tests.test_catalog::test_register_rejects_non_decimal_price[2.50]": "passed",
+    "tests.test_catalog::test_unit_price_of_unknown_sku_raises_key_error_naming_it": "passed",
+    "tests.test_catalog::test_sku_catalog_fixture_provides_shared_prices": "passed",
+    "tests.test_discount::test_percent_off_rounds_half_up": "passed",
+    "tests.test_discount::test_percent_off_nothing_off": "passed",
+    "tests.test_discount::test_percent_off_rejects_percent_above_100": "passed",
+    "tests.test_discount::test_percent_off_everything_off": "passed",
+    "tests.test_discount::test_discounted_total_two_lines_at_15_percent": "passed",
+    "tests.test_discount::test_discounted_total_empty_basket": "passed",
+    "tests.test_discount::test_discounted_total_empty_basket_rejects_percent_above_100": "passed",
+    "tests.test_discount::test_taxed_total_two_lines_at_15_percent_with_19_percent_vat": "passed",
+    "tests.test_discount::test_taxed_total_empty_basket_and_single_line": "passed",
+    "tests.test_discount::test_taxed_total_text_two_lines_at_15_percent_with_19_percent_vat": "passed",
+    "tests.test_discount::test_taxed_total_text_empty_basket": "passed",
+    "tests.test_invoice::test_invoice_line_three_units_amounts": "passed",
+    "tests.test_invoice::test_invoice_line_vat_rounds_half_up": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_qty_above_on_hand": "passed",
+    "tests.test_invoice::test_invoice_line_accepts_qty_equal_to_on_hand": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_sku_never_received": "passed",
+    "tests.test_invoice::test_invoice_line_leaves_ledger_unchanged": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_qty_below_one_before_stock_check": "passed",
+    "tests.test_invoice::test_invoice_line_rejects_negative_price_before_stock_check": "passed",
+    "tests.test_invoice::test_invoice_line_passes_negative_rate_vat_error_through_unchanged": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_rejects_empty_items_before_reading_ledger": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_all_lines_in_item_order": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_rejects_total_of_one_sku_above_stock": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_accepts_split_sku_quantities_within_stock": "passed",
+    "tests.test_invoice_lines::test_invoice_lines_passes_a_bad_line_value_error_through_unchanged": "passed",
+    "tests.test_ledger::test_receive_reports_units_on_hand": "passed",
+    "tests.test_ledger::test_receive_then_ship_reports_remaining_on_hand": "passed",
+    "tests.test_ledger::test_never_received_sku_reports_zero_on_hand": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[0]": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-1]": "passed",
+    "tests.test_ledger::test_receive_below_one_raises_value_error[-5]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[0]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-1]": "passed",
+    "tests.test_ledger::test_ship_below_one_raises_value_error[-5]": "passed",
+    "tests.test_ledger::test_skus_lists_received_skus_sorted": "passed",
+    "tests.test_ledger::test_ship_above_on_hand_raises_and_keeps_count": "passed",
+    "tests.test_money::test_to_cents": "passed",
+    "tests.test_money::test_to_cents_rejects_a_missing_fraction": "passed",
+    "tests.test_money::test_from_cents_whole_and_fractional_parts": "passed",
+    "tests.test_money::test_from_cents_small_negative_amount": "passed",
+    "tests.test_money::test_from_cents_zero": "passed",
+    "tests.test_reorder::test_stock_below_target_is_topped_up": "passed",
+    "tests.test_reorder::test_stock_at_or_above_target_is_not_ordered": "passed",
+    "tests.test_shelf::test_shelf_code_is_zero_padded": "passed",
+    "tests.test_shelf::test_shelf_code_rejects_aisle_below_one": "passed",
+    "tests.test_shelf::test_shelf_label_combines_code_and_stripped_name": "passed",
+    "tests.test_shelf::test_shelf_label_rejects_whitespace_only_name": "passed",
+    "tests.test_stock::test_units_short": "passed",
+    "tests.test_summary::test_valuation_summary_two_skus_at_ten_percent": "passed",
+    "tests.test_summary::test_valuation_summary_nothing_on_hand": "passed",
+    "tests.test_summary::test_valuation_summary_sku_on_hand_without_price_raises": "passed",
+    "tests.test_summary::test_valuation_summary_currency_after_each_amount": "passed",
+    "tests.test_summary::test_valuation_summary_without_currency_unchanged": "passed",
+    "tests.test_surplus::test_units_surplus_returns_remainder": "passed",
+    "tests.test_surplus::test_units_surplus_is_zero_when_wanted_at_least_on_hand": "passed",
+    "tests.test_surplus::test_units_surplus_rejects_negative_counts": "passed",
+    "tests.test_valuation::test_stock_value_two_skus_at_ten_percent": "passed",
+    "tests.test_valuation::test_stock_value_nothing_on_hand": "passed",
+    "tests.test_valuation::test_stock_value_sku_on_hand_without_price_raises": "passed",
+    "tests.test_valuation::test_stock_value_skipped_sku_without_price": "passed",
+    "tests.test_vat::test_vat_cents_rounds_half_up": "passed",
+    "tests.test_vat::test_vat_cents_exact_amount": "passed",
+    "tests.test_vat::test_vat_cents_rejects_negative_inputs": "passed"
+  },
+  "red_green": {
+    "tests.test_catalog::test_register_accepts_zero_price": "1.1",
+    "tests.test_catalog::test_register_and_look_up_a_price": "1.1",
+    "tests.test_catalog::test_register_keeps_sub_cent_price_exact": "1.1",
+    "tests.test_catalog::test_skus_are_sorted_and_new_catalog_is_empty": "1.1",
+    "tests.test_catalog::test_register_rejects_blank_sku[   ]": "1.2",
+    "tests.test_catalog::test_register_rejects_blank_sku[\\t]": "1.2",
+    "tests.test_catalog::test_register_rejects_blank_sku[]": "1.2",
+    "tests.test_catalog::test_register_rejects_duplicate_sku_and_keeps_first_price": "1.2",
+    "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price0]": "1.2",
+    "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price1]": "1.2",
+    "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price2]": "1.2",
+    "tests.test_catalog::test_register_rejects_negative_or_non_finite_price[bad_price3]": "1.2",
+    "tests.test_catalog::test_register_rejects_non_decimal_price[2.50]": "1.2",
+    "tests.test_catalog::test_register_rejects_non_decimal_price[2.5]": "1.2",
+    "tests.test_catalog::test_register_rejects_non_decimal_price[250]": "1.2",
+    "tests.test_catalog::test_unit_price_of_unknown_sku_raises_key_error_naming_it": "1.3",
+    "tests.test_catalog::test_sku_catalog_fixture_provides_shared_prices": "2.1"
+  },
+  "guards": [],
+  "prompt_sha256": "e8c76451a8e1350e82c070a288956c5f94626ca9d02e2688de97f5ddfb78b91e",
+  "template": "judge@8",
+  "harness_commit": "f6a0132a3a1e22903561c0d41424f35bae1375ba",
+  "judge_calls": 1,
+  "judge_reply": "valid",
+  "judge_replies": {
+    "valid": 1,
+    "repaired": 0,
+    "retried": 0,
+    "discarded": 0
+  },
+  "profiles": {
+    "judge": "claude-judge",
+    "implementer": [
+      "deepseek"
+    ]
+  },
+  "judge_model": "claude-sonnet-5-5",
+  "independence": {
+    "mode": "different_vendor",
+    "status": "declared (unverified)",
+    "verified": false,
+    "judge": {
+      "profile": "claude-judge",
+      "vendor": "anthropic",
+      "model": null,
+      "provenance": "served",
+      "served": "claude-sonnet-5-5"
+    },
+    "implementers": [
+      {
+        "profile": "deepseek",
+        "vendor": "deepseek",
+        "model": "opencode-go/deepseek-v4.1-flash",
+        "provenance": "declared",
+        "served": null
+      }
+    ]
+  },
+  "cost_usd": 0.06372660000000001
+}
