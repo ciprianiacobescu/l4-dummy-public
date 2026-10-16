@@ -24,3 +24,4 @@
 {"at":"2026-10-16T20:10:03Z","revision":"84e495e977eb7c6a5109a78777499ee5dc57683b","type":"unit.integrated","unit":"kiro:catalog-total"}
 {"at":"2026-10-16T20:10:03Z","attempt":1,"cost_usd":0.081358,"runs":1,"type":"plan.charged","unit":"kiro:catalog-total"}
 {"at":"2026-10-16T20:10:37Z","batch":"catalog","profile":"none","revision":"84e495e977eb7c6a5109a78777499ee5dc57683b","type":"batch.accepted"}
+{"at":"2026-10-16T20:11:11Z","revision":"84e495e977eb7c6a5109a78777499ee5dc57683b","type":"plan.completed"}
