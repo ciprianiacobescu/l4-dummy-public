@@ -12,6 +12,6 @@
 
 ## 2. Root `conftest.py`
 
-- [ ] 2. Share a sample catalog with every test
-  - [ ] 2.1 Add the function-scoped fixture sku_catalog returning a new SkuCatalog with A-1 at Decimal("2.50") and B-2 at Decimal("0.125"), with a unit test that obtains it by name
+- [x] 2. Share a sample catalog with every test
+  - [x] 2.1 Add the function-scoped fixture sku_catalog returning a new SkuCatalog with A-1 at Decimal("2.50") and B-2 at Decimal("0.125"), with a unit test that obtains it by name
     - _Requirements: 4.1_
