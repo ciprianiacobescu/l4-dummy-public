@@ -90,3 +90,16 @@ def test_unit_price_of_unknown_sku_raises_key_error_naming_it():
         catalog.unit_price("Z-9")
     assert "Z-9" in str(excinfo.value)
     assert catalog.unit_price("A-1") == Decimal("2.50")
+
+
+@pytest.mark.l4("C-325229ff")
+def test_sku_catalog_fixture_provides_shared_prices(request):
+    try:
+        catalog = request.getfixturevalue("sku_catalog")
+    except pytest.FixtureLookupError:
+        catalog = None
+    assert catalog is not None
+    assert isinstance(catalog, SkuCatalog)
+    assert catalog.skus() == ["A-1", "B-2"]
+    assert catalog.unit_price("A-1") == Decimal("2.50")
+    assert catalog.unit_price("B-2") == Decimal("0.125")
