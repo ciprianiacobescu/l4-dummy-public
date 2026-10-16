@@ -3,7 +3,7 @@
 ## 1. Catalog module `src/inventory/catalog.py`
 
 - [ ] 1. Implement the SKU catalog
-  - [ ] 1.1 Add SkuCatalog with register, unit_price and skus, with unit tests
+  - [x] 1.1 Add SkuCatalog with register, unit_price and skus, with unit tests
     - _Requirements: 1.1, 1.2, 1.3, 1.4_
   - [ ] 1.2 Reject negative or non-finite prices, a SKU registered twice, a blank SKU and a price that is not a Decimal, leaving the catalog unchanged, with unit tests
     - _Requirements: 2.1, 2.2, 2.3, 2.4_
